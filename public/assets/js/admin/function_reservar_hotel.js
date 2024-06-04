@@ -11,10 +11,20 @@ document.addEventListener("DOMContentLoaded", function () {
       type: "POST",
       data: { id: id, estado: estado },
       success: function (response) {
-        alert(response.message);
+        swal({
+          title: "Success",
+          text: response.message,
+          icon: "success",
+          button: "OK",
+      });  
       },
       error: function () {
-        alert("Error al actualizar el estado.");
+        swal({
+          title: "Error",
+          text: "Error al actualizar el estado.",
+          icon: "error",
+          button: "OK",
+      });
       },
     });
   });
@@ -29,10 +39,20 @@ document.addEventListener("DOMContentLoaded", function () {
       data: $(this).serialize(),
       success: function (response) {
         if (response.success) {
-          alert("Reserva creada correctamente.");
+          swal({
+            title: "Success",
+            text: "Reserva creada correctamente.",
+            icon: "success",
+            button: "OK",
+        });
           window.location.href = base_url + "reservas/hotel";
         } else {
-          alert("Error al crear la reserva.");
+          swal({
+            title: "Error",
+            text: "Error al crear la reserva.",
+            icon: "error",
+            button: "OK",
+        });
         }
       },
     });

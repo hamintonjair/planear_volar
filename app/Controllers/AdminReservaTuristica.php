@@ -56,7 +56,11 @@ class AdminReservaTuristica extends BaseController
         foreach ($reservas as &$reserva) {
             $reserva['cliente_nombre'] = $this->clienteModel->find($reserva['cliente_id'])['nombre'];
             $reserva['paquete_nombre'] = $this->paqueteModel->find($reserva['paquete_id'])['nombre_paquete'];
-            $reserva['guia_nombre'] = $this->guiaModel->find($reserva['guia_id'])['nombre'];
+            if (!empty($reserva['guia_id'])) {
+                $reserva['guia_nombre'] = $this->guiaModel->find($reserva['guia_id'])['nombre'];
+            } else {
+                $reserva['guia_nombre'] = 'Sin Guía';
+            }
         }
 
         // return view('reservas/index', ['reservas' => $reservas]);
@@ -127,7 +131,11 @@ class AdminReservaTuristica extends BaseController
         $reserva = $this->reservarModel->find($reservaId);
         $reserva['cliente'] = $this->clienteModel->find($reserva['cliente_id']);
         $reserva['paquete'] = $this->paqueteModel->find($reserva['paquete_id']);
-        $reserva['guia'] = $this->guiaModel->find($reserva['guia_id']);
+        if (!empty($reserva['guia_id'])) {
+            $reserva['guia'] = $this->guiaModel->find($reserva['guia_id']);
+        } else {
+            $reserva['guia_nombre'] = 'Sin Guía';
+        }
 
         $html = view('layout/reservas/reservar/factura', ['reserva' => $reserva]);
 

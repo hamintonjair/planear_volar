@@ -62,6 +62,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tag"></i></div>
                                 Oferta
                             </a>
+                            <a class="nav-link" href="<?php echo base_url(); ?>vuelos/listar_solicitudes_vuelos">
+                                <div class="sb-nav-link-icon"><i class="fas fa-list"></i></div>
+                                Solicitudes de vuelos
+                            </a>
                         </nav>
                     </div>
                     <a class="nav-link" href="<?php echo base_url(); ?>paquetes_turisticos">
@@ -87,7 +91,7 @@
                     </a>
                     <a class="nav-link" href="<?= base_url() ?>reservas/hotel">
                         <div class="sb-nav-link-icon"><i class="fas fa-briefcase"></i></div>
-                        Crear Reserva
+                        Facturar Reservas
                     </a>
                     <a class="nav-link" href="<?php echo base_url(); ?>testimonios">
                         <div class="sb-nav-link-icon"><i class="fas fa-comments"></i></div>

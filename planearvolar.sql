@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-06-2024 a las 23:09:23
+-- Tiempo de generación: 05-06-2024 a las 01:07:17
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.1.25
 
@@ -396,7 +396,37 @@ CREATE TABLE `reservas_turistica` (
 
 INSERT INTO `reservas_turistica` (`id`, `cliente_id`, `paquete_id`, `guia_id`, `fecha_reserva`, `costo`, `estado`) VALUES
 (1, 2, 1, 1, '2024-05-31', 150000.00, 'Reservado'),
-(2, 2, 1, 2, '2024-06-01', 350000.00, 'Reservado');
+(2, 2, 1, 2, '2024-06-01', 350000.00, 'Reservado'),
+(3, 2, 9, 0, '2024-06-12', 350000.00, 'Reservado');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `reservas_vuelos`
+--
+
+CREATE TABLE `reservas_vuelos` (
+  `id` int(11) NOT NULL,
+  `desde` varchar(255) DEFAULT NULL,
+  `fecha_ida` date DEFAULT NULL,
+  `fecha_regreso` date DEFAULT NULL,
+  `cantidad_pasajeros` varchar(30) NOT NULL,
+  `hacia` varchar(255) DEFAULT NULL,
+  `nombre` varchar(255) DEFAULT NULL,
+  `apellido` varchar(255) DEFAULT NULL,
+  `cedula` varchar(20) DEFAULT NULL,
+  `correo` varchar(255) DEFAULT NULL,
+  `telefono` varchar(20) DEFAULT NULL,
+  `estado` varchar(20) NOT NULL DEFAULT 'Contactar'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `reservas_vuelos`
+--
+
+INSERT INTO `reservas_vuelos` (`id`, `desde`, `fecha_ida`, `fecha_regreso`, `cantidad_pasajeros`, `hacia`, `nombre`, `apellido`, `cedula`, `correo`, `telefono`, `estado`) VALUES
+(1, 'quibdo', '2024-06-05', '2024-06-07', '1', 'bogota', 'Haminton', 'Mena ', '64747458', 'prueba@gmail.com', '3124943527', 'Contactar'),
+(2, 'pasto', '2024-06-13', '2024-06-14', '1', 'cali', 'Horacio', 'Palacios', '7957896', 'hpalacios@hotmail.com', '3124943527', 'Contactado');
 
 -- --------------------------------------------------------
 
@@ -593,6 +623,12 @@ ALTER TABLE `reservas_turistica`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `reservas_vuelos`
+--
+ALTER TABLE `reservas_vuelos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `testimonios`
 --
 ALTER TABLE `testimonios`
@@ -702,6 +738,12 @@ ALTER TABLE `reservas`
 -- AUTO_INCREMENT de la tabla `reservas_turistica`
 --
 ALTER TABLE `reservas_turistica`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `reservas_vuelos`
+--
+ALTER TABLE `reservas_vuelos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --

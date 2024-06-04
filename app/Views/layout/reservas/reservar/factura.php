@@ -118,7 +118,11 @@
 
             <tr class="item">
                 <td>Guía</td>
-                <td><?= $reserva['guia']['nombre']; ?></td>
+                <?php if(!empty($reserva['guia'])){; ?>
+                    <td><?= $reserva['guia']['nombre']; ?></td>
+                       <?php }else{ ?>
+                <td><?= $reserva['guia_nombre']; ?></td>
+                <?php }; ?>
             </tr>
 
             <tr class="item last">

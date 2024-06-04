@@ -127,8 +127,6 @@ $routes->post('vacantes/actualizar', 'AdminTrabajos::actualizar');
 $routes->post('vacantes/eliminar/(:num)', 'AdminTrabajos::eliminar/$1');
 $routes->post('vacantes/delete/(:num)', 'AdminTrabajos::delete/$1');
 $routes->post('aplicaciones/cambiarEstado', 'AdminTrabajos::cambiarEstado');
-
-
 $routes->get('vacantes/aplicados', 'AdminTrabajos::aplicado');
 $routes->get('vacantes/ver_mas/(:num)', 'AdminTrabajos::ver_mas/$1');
 
@@ -140,7 +138,9 @@ $routes->get('vuelos/edit/(:num)', 'AdminVuelos::edit/$1');
 $routes->post('vuelos/update/(:num)', 'AdminVuelos::update/$1');
 $routes->get('vuelos/delete/(:num)', 'AdminVuelos::delete/$1');
 $routes->get('vuelos/show/(:num)', 'AdminVuelos::show/$1');
-
+$routes->post('vuelos/reservar', 'AdminVuelos::guardarReserva');
+$routes->post('vuelos/solicitud_update', 'AdminVuelos::updateEstado');
+$routes->get('vuelos/listar_solicitudes_vuelos', 'AdminVuelos::listar_solicitudes');
 
 // RESERVAS
 $routes->get('reservas', 'AdminReservas::reservasView');

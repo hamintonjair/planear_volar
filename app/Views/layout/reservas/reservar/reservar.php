@@ -14,12 +14,13 @@
         </div>
         <br><br>
         <div class="container-fluid px-4 dataTable-container">
-        <label for="">Todos los campos con (<font color="red">*</font>) son obligatorios.</label>
+            <label for="">Todos los campos con (<font color="red">*</font>) son obligatorios.</label>
 
             <form id="crearReservaForm">
                 <div class="form-group">
                     <label for="cliente_id">Cliente(<font color="red">*</font>)</label>
                     <select class="form-control" id="cliente_id" name="cliente_id" required>
+                        <option value="0">Seleccionar..</option>
                         <?php foreach ($clientes as $cliente) : ?>
                             <option value="<?= $cliente['id']; ?>"><?= $cliente['nombre']; ?></option>
                         <?php endforeach; ?>
@@ -28,6 +29,7 @@
                 <div class="form-group">
                     <label for="paquete_id">Nombre de paquete(<font color="red">*</font>)</label>
                     <select class="form-control" id="paquete_id" name="paquete_id" required>
+                        <option value="0">Seleccionar..</option>
                         <?php foreach ($paquetes as $paquete) : ?>
                             <option value="<?= $paquete['id']; ?>"><?= $paquete['nombre_paquete']; ?></option>
                         <?php endforeach; ?>
@@ -41,9 +43,12 @@
                 <div class="form-group">
                     <label for="guia_id">Guía(<font color="red">*</font>)</label>
                     <select class="form-control" id="guia_id" name="guia_id" required>
+                    <option value="0">Seleccionar..</option>
                         <?php foreach ($guias as $guia) : ?>
                             <option value="<?= $guia['id']; ?>"><?= $guia['nombre']; ?></option>
                         <?php endforeach; ?>
+                        <option value="Sin Guia">Sin Guía</option>
+
                     </select>
                 </div>
                 <div class="form-group">
