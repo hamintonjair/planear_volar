@@ -51,7 +51,7 @@ class AdminVuelos extends BaseController
         $permissions = $this->permisos->where('id_usuarios', $userId)->findAll();
         $data['permissions'] = array_column($permissions, 'id_permisos');
 
-        if (in_array(15, $data['permissions'])) {
+        if (in_array(12, $data['permissions'])) {
             $data['solicitudes'] = $this->v_reservas->findAll();
             echo view('layout/admin/head');
             echo view('layout/admin/nabvar');
@@ -142,16 +142,28 @@ class AdminVuelos extends BaseController
     // ver vuelos
     public function show($id)
     {
-        $data['vuelo'] = $this->vueloModel->find($id);
+        $session = session();
+        $userId = $session->get('idUsuario'); // Obtener el ID del usuario desde la sesión
 
-        echo view('layout/admin/head');
-        echo view('layout/admin/nabvar');
-        echo view('layout/admin/aside');
-        echo view('layout/vuelo/show', $data);
-        echo view('layout/admin/footer');
+        $permissions = $this->permisos->where('id_usuarios', $userId)->findAll();
+
+        $data['permissions'] = array_column($permissions, 'id_permisos');
+        if (in_array(12, $data['permissions'])) {
+            $data['vuelo'] = $this->vueloModel->find($id);
+
+            echo view('layout/admin/head');
+            echo view('layout/admin/nabvar');
+            echo view('layout/admin/aside');
+            echo view('layout/vuelo/show', $data);
+            echo view('layout/admin/footer');
+        } else {
+            echo view('layout/usuario/no_permisos');
+        }
+
+       
     }
 
-    // creaer solicitud d evuelo
+    // creaer solicitud de vuelo
     public function guardarReserva()
     {
         // Verificar si la petición es AJAX

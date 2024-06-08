@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-06-2024 a las 01:07:17
+-- Tiempo de generación: 08-06-2024 a las 18:59:45
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.1.25
 
@@ -323,7 +323,7 @@ INSERT INTO `paquetes` (`id`, `nombre_paquete`, `ciudad`, `tiempo_estadia`, `can
 
 CREATE TABLE `permisos` (
   `id` int(11) NOT NULL,
-  `permiso` varchar(50) NOT NULL
+  `permiso` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -342,10 +342,10 @@ INSERT INTO `permisos` (`id`, `permiso`) VALUES
 (9, 'Ofertas'),
 (10, 'Paquetes turísticos'),
 (11, 'Reservas'),
-(12, 'Testimonios'),
-(13, 'Usuarios'),
-(14, 'Vacantes'),
-(15, 'Vuelos');
+(12, 'Solicitudes de vuelos'),
+(13, 'Testimonios'),
+(14, 'Usuarios'),
+(15, 'Vacantes');
 
 -- --------------------------------------------------------
 

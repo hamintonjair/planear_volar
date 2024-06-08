@@ -27,7 +27,7 @@ class AdminTrabajos extends BaseController
         $permissions = $this->permisos->where('id_usuarios', $userId)->findAll();
 
         $data['permissions'] = array_column($permissions, 'id_permisos');
-        if (in_array(14, $data['permissions'])) {
+        if (in_array(15, $data['permissions'])) {
             echo view('layout/admin/head');
             echo view('layout/admin/nabvar');
             echo view('layout/admin/aside');

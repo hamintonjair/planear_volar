@@ -24,7 +24,7 @@ class AdminTestimonios extends BaseController
         $permissions = $this->permisos->where('id_usuarios', $userId)->findAll();
 
         $data['permissions'] = array_column($permissions, 'id_permisos');
-        if (in_array(12, $data['permissions'])) {
+        if (in_array(13, $data['permissions'])) {
             echo view('layout/admin/head');
             echo view('layout/admin/nabvar');
             echo view('layout/admin/aside');
