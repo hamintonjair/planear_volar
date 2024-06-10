@@ -4,8 +4,10 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
+        <meta name="description" content="Jojama" />
+        <meta name="author" content="Jojama" />
+        <link href="<?php echo base_url(); ?>assets/img/favicon.ico" rel="icon">
+
         <title>Planear - Volar</title>
         <link href="<?php echo base_url(); ?>assets/admin/css/dist_style.css" rel="stylesheet" />
         <link href="<?php echo base_url(); ?>assets/admin/css/styles.css" rel="stylesheet" />

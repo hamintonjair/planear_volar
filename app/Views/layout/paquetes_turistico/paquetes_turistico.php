@@ -46,7 +46,7 @@
                         <form method='post' id='frmPaquetes' autocomplete="off" enctype="multipart/form-data">
                             <input type='hidden' id='idPaquetes' name='idPaquetes' value=''>
                             <div class='row'>
-                            <div class='col-md-4'>
+                                <div class='col-md-4'>
                                     <div class='form-group'>
                                         <label for='nombre'>Nombre paquete(<font color="red">*</font>)</label>
                                         <input type='text' name='nombre_paquete' id='nombre_paquete' class='form-control' placeholder='Nombre del paquete' aria-describedby='helpId'>
@@ -55,7 +55,13 @@
                                 <div class='col-md-4'>
                                     <div class='form-group'>
                                         <label for='ciudad'>Ciudad(<font color="red">*</font>)</label>
-                                        <input type='text' name='ciudad' id='ciudad' class='form-control valid validText' placeholder='Ciudad' aria-describedby='helpId'>
+                                        <!-- <input type='text' name='ciudad' id='ciudad' class='form-control valid validText' placeholder='Ciudad' aria-describedby='helpId'> -->
+                                        <select class="form-control" id="ciudad_id" name="ciudad_id" required>
+                                            <option value="0">Seleccionar..</option>
+                                            <?php foreach ($destinos as $destino) : ?>
+                                                <option value="<?= $destino['id']; ?>"><?= $destino['nombre']; ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class='col-md-4'>

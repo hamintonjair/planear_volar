@@ -4,16 +4,19 @@ namespace App\Controllers;
 
 use App\Models\PaqueteModel;
 use App\Models\DetallespermisosModel;
+use App\Models\DestinoModel;
 
 
 class AdminPaquetes extends BaseController
 {
-    protected $paqueteModel, $permisos;
+    protected $paqueteModel, $permisos, $destinoModel;
 
     public function __construct()
     {
         $this->paqueteModel = new PaqueteModel();
         $this->permisos = new DetallespermisosModel();
+        $this->destinoModel = new DestinoModel();
+
     }
     public function packages()
     {
@@ -22,13 +25,14 @@ class AdminPaquetes extends BaseController
         $userId = $session->get('idUsuario'); // Obtener el ID del usuario desde la sesión
 
         $permissions = $this->permisos->where('id_usuarios', $userId)->findAll();
+        $data['destinos'] = $this->destinoModel->findAll();
 
         $data['permissions'] = array_column($permissions, 'id_permisos');
         if (in_array(10, $data['permissions'])) {
             echo view('layout/admin/head');
             echo view('layout/admin/nabvar');
             echo view('layout/admin/aside');
-            echo view('layout/paquetes_turistico/paquetes_turistico');
+            echo view('layout/paquetes_turistico/paquetes_turistico',$data);
             echo view('layout/admin/footer');
         } else {
             echo view('layout/usuario/no_permisos');
@@ -40,8 +44,10 @@ class AdminPaquetes extends BaseController
         $paquetes = $this->paqueteModel->where('estado', 1)->findAll();
 
         foreach ($paquetes as &$item) {
+
             // mostramos en  la descripción a las primeras 30 palabras
             $item['descripcion'] = implode(' ', array_slice(explode(' ', $item['descripcion']), 0, 20)) . '...';
+            $item['nombre_ciudad'] = $this->destinoModel->find($item['ciudad_id'])['nombre'];
 
             // Formatear el estado
             if ($item['estado'] == 1) {

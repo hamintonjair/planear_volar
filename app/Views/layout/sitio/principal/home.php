@@ -19,6 +19,10 @@
                     </div>
                 </div>
             <?php endforeach; ?>
+            <div class="col-lg-5">
+                <a style="border-radius: 5px;" class="btn btn-primary" href="<?php echo base_url() ?>destino" role="button">Ir</a>
+            </div>
+
         </div>
     </div>
 </div>
@@ -71,11 +75,15 @@
 </script>
 <!-- Destination End -->
 
+<?php
 
+use App\Models\DestinoModel;
+
+$destinoModel = new DestinoModel();; ?>
 
 <!-- Packages Start -->
-<div class="container-fluid py-5">
-    <div class="container pt-5 pb-3">
+<div class="container-fluid">
+    <div class="container pb-3">
         <div class="text-center mb-3 pb-3">
             <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Paquetes</h6>
             <h1>Paquetes Turísticos Perfectos</h1>
@@ -85,6 +93,8 @@
             <?php $paquetes_mostrados = array_slice($paquetes, 0, 6); ?>
             <?php foreach ($paquetes_mostrados as $paquete) : ?>
                 <?php
+                $nombre_ciudad = $destinoModel->find($paquete['ciudad_id'])['nombre'];
+
                 // Obtener las primeras 10 palabras de la descripción
                 $descripcion_completa = $paquete['descripcion'];
                 $nombre_completa = $paquete['nombre_paquete'];
@@ -103,7 +113,7 @@
                         </div>
                         <div class="p-4">
                             <div class="d-flex justify-content-between mb-3">
-                                <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i><?php echo $paquete['ciudad']; ?></small>
+                                <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i><?php echo $nombre_ciudad; ?></small>
                                 <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i><?php echo $paquete['tiempo_estadia']; ?></small>
                                 <small class="m-0"><i class="fa fa-user text-primary mr-2"></i><?php echo $paquete['cant_personas']; ?></small>
                             </div>
@@ -118,6 +128,9 @@
                 </div>
 
             <?php endforeach; ?>
+            <div class="col-lg-5">
+                <a style="border-radius: 5px;" class="btn btn-primary" href="<?php echo base_url() ?>paquetes" role="button">Ir</a>
+            </div>
         </div>
     </div>
 </div>
@@ -203,10 +216,9 @@
     }
 </style>
 
-
 <!-- Reservation Start -->
-<div class="container-fluid bg-registration py-5" style="margin: 90px 0;">
-    <div class="container py-5">
+<div class="container-fluid bg-registration " style="margin: 90px 0;">
+    <div class="container ">
         <div class="row align-items-center">
             <div class="col-lg-7 mb-5 mb-lg-0">
                 <?php if (!empty($ofertas)) { ?>
@@ -305,15 +317,15 @@
 
 
 <!-- Team Start -->
-<div class="container-fluid py-5">
-    <div class="container pt-5 pb-3">
+<div class="container-fluid ">
+    <div class="container  pb-3">
         <div class="text-center mb-3 pb-3">
             <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Guías</h6>
             <h1>Nuestros Guías de Viaje</h1>
         </div>
         <div class="row">
             <!-- Limitar a los primeros 6 guias -->
-            <?php $paquetes_mostrados = array_slice($guias, 0, 6); ?>
+            <?php $paquetes_mostrados = array_slice($guias, 0, 4); ?>
             <?php foreach ($paquetes_mostrados as $guia) : ?>
                 <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
                     <div class="team-item bg-white mb-4">
@@ -338,14 +350,17 @@
                     </div>
                 </div>
             <?php endforeach; ?>
+            <div class="col-lg-5">
+                <a style="border-radius: 5px;" class="btn btn-primary" href="<?php echo base_url() ?>guias" role="button">Ir</a>
+            </div>
         </div>
     </div>
 </div>
 <!-- Team End -->
 
 <!-- Testimonial Start -->
-<div class="container-fluid py-5">
-    <div class="container pt-5 pb-3">
+<div class="container-fluid ">
+    <div class="container  pb-3">
         <div class="text-center mb-3 pb-3">
             <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Testimonios</h6>
             <h1>Qué Dicen Nuestros Clientes</h1>
@@ -361,7 +376,11 @@
                     </div>
                 </div>
             <?php endforeach; ?>
+           
         </div>
+        <div class="col-lg-5">
+                <a style="border-radius: 5px;" class="btn btn-primary" href="<?php echo base_url() ?>testimonio" role="button">Ir</a>
+            </div>
     </div>
 </div>
 <!-- Testimonial End -->

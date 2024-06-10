@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "columns": [
             { "data": "id" },
             { "data": "nombre_paquete" },
-            { "data": "ciudad" },
+            { "data": "nombre_ciudad" },
             { "data": "tiempo_estadia" },
             { "data": "cant_personas" },
             { "data": "descripcion" },

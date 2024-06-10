@@ -53,7 +53,7 @@
     </div>
 </div>
 <!-- Footer End -->
-<a href="https://wa.me/573106047726" class="whatsapp-float" target="_blank">
+<a href="https://wa.me/57<?php echo $con['telefono'] ?>" class="whatsapp-float" target="_blank">
     <i class="fab fa-whatsapp"></i>
 </a>
 <!-- Fin seccion whatsapp -->

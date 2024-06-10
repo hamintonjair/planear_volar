@@ -12,10 +12,115 @@
         </div>
     </div>
 
+
     
+<!-- Reservation Start -->
+<div class="container-fluid bg-registration " style="margin: 90px 0;">
+    <div class="container ">
+        <div class="row align-items-center">
+            <div class="col-lg-7 mb-5 mb-lg-0">
+                <?php if (!empty($ofertas)) { ?>
+
+                    <?php foreach ($ofertas as $oferta) : ?>
+
+                        <?php if ($oferta['estado'] == 'Aplicado') { ?>
+                            <div class="mb-4">
+                                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;"><?php echo $oferta['nombre']; ?></h6>
+                                <h1 class="text-white"><span class="text-primary"><?php echo $oferta['descuento']; ?></span> <?php echo $oferta['dirigido']; ?></h1>
+                            </div>
+                            <p class="text-white" style="text-align: justify;"><?php echo $oferta['descripcion']; ?></p>
+
+                        <?php } else { ?>
+                            <h3 class="text-white" style="text-align: center;">No hay oferta en estos momentos</h3>
+                    <?php }
+                    endforeach; ?>
+                <?php } else { ?>
+                    <h3 class="text-white" style="text-align: center;">No hay oferta en estos momentos</h3>
+
+                <?php }; ?>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="card border-0">
+                    <div class="card-header bg-primary text-center p-4">
+                        <h1 class="text-white m-0">Reserva Ahora</h1>
+                    </div>
+                    <div class="card-body rounded-bottom bg-white p-5">
+                        <form id="reservaForm" action="<?php echo base_url(); ?>reservar" method="POST">
+                            <div class="form-group">
+                                <input type="text" name="nombre" class="form-control p-4" placeholder="Nombre" required="required" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="apellidos" class="form-control p-4" placeholder="Apellidos" required="required" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="telefono" class="form-control p-4" placeholder="Teléfono" required="required" />
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="correo" class="form-control p-4" placeholder="Correo Electrónico" required="required" />
+                            </div>
+                            <div class="form-group">
+                                <select name="destino" class="custom-select px-4" style="height: 47px;" required>
+                                    <option selected>Selecciona un destino</option>
+                                    <?php foreach ($destinos as $destino) : ?>
+                                        <option value="<?php echo $destino['id']; ?>"><?php echo $destino['nombre']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary btn-block py-3" type="submit">Reservar Ahora</button>
+                            </div>
+                        </form>
+                        <!-- Agrega un contenedor para mostrar el mensaje -->
+                        <div id="mensaje" class="alert" style="display: none;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#reservaForm').submit(function(event) {
+            event.preventDefault(); // Evita el envío del formulario por defecto
+
+            // Realiza la solicitud AJAX para enviar el formulario
+            $.ajax({
+                url: $(this).attr('action'),
+                type: $(this).attr('method'),
+                data: $(this).serialize(),
+                dataType: 'json',
+                success: function(response) {
+                    // Muestra el mensaje de respuesta
+                    $('#mensaje').removeClass('alert-success alert-danger');
+                    if (response.ok) {
+                        document.querySelector('#reservaForm').reset();
+                        $('#mensaje').addClass('alert-success').text(response.message).show();
+
+
+                    } else {
+                        $('#mensaje').addClass('alert-danger').text(response.message).show();
+                    }
+                },
+                error: function() {
+                    // Maneja errores de la solicitud AJAX
+                    $('#mensaje').addClass('alert-danger').text('Error al enviar el formulario.').show();
+                }
+            });
+        });
+    });
+</script>
+<!-- Reservation End -->
+
+    <?php 
+use App\Models\DestinoModel;
+$destinoModel = new DestinoModel();
+
+; ?>
 <!-- Packages Start -->
-<div class="container-fluid py-5">
-    <div class="container pt-5 pb-3">
+<div class="container-fluid">
+    <div class="container pb-3">
         <div class="text-center mb-3 pb-3">
             <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Paquetes</h6>
             <h1>Paquetes Turísticos Perfectos</h1>
@@ -24,6 +129,8 @@
         <?php $paquetes_mostrados = array_slice($paquetes, 0, 6); ?>
             <?php foreach ($paquetes_mostrados as $paquete) : ?>
                 <?php
+                 $nombre_ciudad = $destinoModel->find($paquete['ciudad_id'])['nombre'];
+
                 // Obtener las primeras 10 palabras de la descripción
                 $descripcion_completa = $paquete['descripcion'];
                 $nombre_completa = $paquete['nombre_paquete'];
@@ -42,7 +149,7 @@
                         </div>
                         <div class="p-4">
                             <div class="d-flex justify-content-between mb-3">
-                                <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i><?php echo $paquete['ciudad']; ?></small>
+                                <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i><?php echo $nombre_ciudad; ?></small>
                                 <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i><?php echo $paquete['tiempo_estadia']; ?></small>
                                 <small class="m-0"><i class="fa fa-user text-primary mr-2"></i><?php echo $paquete['cant_personas']; ?></small>
                             </div>

@@ -28,11 +28,11 @@ class Home extends BaseController
         $configuracionModel = new ConfiguracionModel();
         $oferta_model = new OfertaModel();
 
-
         // Obtener datos de la base de datos
         $data['destinos'] = $destinoModel->findAll();
         $data['paquetes'] = $paqueteModel->findAll();
         $data['ofertas'] = $oferta_model->where('estado', 'Aplicado')->findAll();
+
         $data['guias'] = $guiaModel->findAll();
         $data['testimonios'] = $testimonioModel->findAll();
         $configuracion = $configuracionModel->findAll();

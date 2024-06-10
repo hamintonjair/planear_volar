@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\PaqueteModel;
 use App\Models\DestinoModel;
 use App\Models\ConfiguracionModel;
+use App\Models\OfertaModel;
 
 class Paquete extends BaseController
 {
@@ -19,10 +20,13 @@ class Paquete extends BaseController
         // Crear instancias de los modelos
         $destinoModel = new DestinoModel();
         $configuracionModel = new ConfiguracionModel();
+        $oferta_model = new OfertaModel();
 
         // Obtener datos de la base de datos
         $data['destinos'] = $destinoModel->findAll();
         $data['paquetes'] = $this->paqueteModel->findAll();
+        $data['ofertas'] = $oferta_model->where('estado', 'Aplicado')->findAll();
+
         $configuracion = $configuracionModel->findAll();
 
         echo view('layout/sitio/principal/header', compact('configuracion'));
