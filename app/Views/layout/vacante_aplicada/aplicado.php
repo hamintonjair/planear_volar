@@ -33,7 +33,7 @@
                                         <option value="No continua" <?= $aplicacion['estado'] == 'No continua' ? 'selected' : '' ?>>No continua</option>
                                         <option value="En proceso" <?= $aplicacion['estado'] == 'En proceso' ? 'selected' : '' ?>>En proceso</option>
                                         <option value="Finalista" <?= $aplicacion['estado'] == 'Finalista' ? 'selected' : '' ?>>Finalista</option>
-                                        <option value="Contactado" <?= $aplicacion['estado'] == 'Contactado' ? 'selected' : '' ?>>Contactado</option>
+                                        <option value="Contratado" <?= $aplicacion['estado'] == 'Contratado' ? 'selected' : '' ?>>Contratado</option>
                                     </select>
                                     <a href="<?php echo base_url('vacantes/ver_mas/') ?><?= $aplicacion['id']; ?>" class="btn btn-info ml-2"><i class="fas fa-eye"></i></a>
                                     <a onclick="eliminarVacanteAplicado(<?= $aplicacion['id'] ?>)" class="btn btn-danger ml-2"><i class="fas fa-trash"></i></a>

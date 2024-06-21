@@ -62,8 +62,8 @@
                             <div class="form-group">
                                 <select name="destino" class="custom-select px-4" style="height: 47px;" required>
                                     <option selected>Selecciona un destino</option>
-                                    <?php foreach ($destinos as $destino) : ?>
-                                        <option value="<?php echo $destino['id']; ?>"><?php echo $destino['nombre']; ?></option>
+                                    <?php foreach ($paquetes as $paquete) : ?>
+                                        <option value="<?php echo $paquete['id']; ?>"><?php echo $paquete['nombre_paquete']; ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>

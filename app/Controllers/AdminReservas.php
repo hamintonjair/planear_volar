@@ -4,28 +4,34 @@ namespace App\Controllers;
 
 use App\Models\ReservaModel;
 use App\Models\DetallespermisosModel;
+use App\Models\DestinoModel;
 
 class AdminReservas extends BaseController
 {
-    protected $reservaModel, $permisos;
+    protected $reservaModel, $permisos, $destinoModel;
 
     public function __construct()
     {
         $this->reservaModel = new ReservaModel();
         $this->permisos = new DetallespermisosModel();
+        $this->destinoModel = new DestinoModel();
+
     }
     //   reservas
+   
     public function reservasView()
     {
-
         $session = session();
         $userId = $session->get('idUsuario'); // Obtener el ID del usuario desde la sesión
 
+        // Obtener permisos del usuario
         $permissions = $this->permisos->where('id_usuarios', $userId)->findAll();
-
         $data['permissions'] = array_column($permissions, 'id_permisos');
+
         if (in_array(11, $data['permissions'])) {
-            $data['reservas'] = $this->reservaModel->findAll();
+            // Obtener las reservas con los nombres de destino
+            $reservas = $this->reservaModel->getReservasWithDestino();
+            $data['reservas'] = $reservas;
 
             echo view('layout/admin/head');
             echo view('layout/admin/nabvar');
@@ -36,6 +42,7 @@ class AdminReservas extends BaseController
             echo view('layout/usuario/no_permisos');
         }
     }
+    
     // actualizar estado de reserva
     public function update()
     {

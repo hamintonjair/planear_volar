@@ -15,6 +15,12 @@ class ReservaModel extends Model
 
     protected $allowedFields = ['nombre', 'apellidos', 'telefono', 'correo', 'destino', 'estado'];
 
+    public function getReservasWithDestino()
+    {
+        return $this->select('reservas.*, destino.nombre as destino_nombre')
+                    ->join('destino', 'reservas.destino = destino.id')
+                    ->findAll();
+    }
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
 
