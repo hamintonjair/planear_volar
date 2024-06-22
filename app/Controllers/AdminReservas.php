@@ -5,13 +5,15 @@ namespace App\Controllers;
 use App\Models\ReservaModel;
 use App\Models\DetallespermisosModel;
 use App\Models\DestinoModel;
+use App\Models\PaqueteModel;
 
 class AdminReservas extends BaseController
 {
-    protected $reservaModel, $permisos, $destinoModel;
+    protected $reservaModel, $permisos, $destinoModel, $paqueteModel;
 
     public function __construct()
     {
+        $this->paqueteModel = new PaqueteModel();
         $this->reservaModel = new ReservaModel();
         $this->permisos = new DetallespermisosModel();
         $this->destinoModel = new DestinoModel();

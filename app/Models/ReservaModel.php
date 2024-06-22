@@ -17,8 +17,8 @@ class ReservaModel extends Model
 
     public function getReservasWithDestino()
     {
-        return $this->select('reservas.*, destino.nombre as destino_nombre')
-                    ->join('destino', 'reservas.destino = destino.id')
+        return $this->select('reservas.*, paquetes.nombre_paquete as nombre_paquete')
+                    ->join('paquetes', 'reservas.destino = paquetes.id')
                     ->findAll();
     }
     protected bool $allowEmptyInserts = false;

@@ -27,7 +27,7 @@
                             <td><?= esc($reserva['nombre']) ?></td>
                             <td><?= esc($reserva['apellidos']) ?></td>
                             <td class="text-center"><?= esc($reserva['telefono']) ?></td>
-                            <td class="text-center"><?= esc($reserva['destino_nombre']) ?></td>
+                            <td class="text-center"><?= esc($reserva['nombre_paquete']) ?></td>
                             <td class="text-center <?= $reserva['estado'] == 'Contactar' ? 'estado-contactar' : ($reserva['estado'] == 'Contactado' ? 'estado-contactado' : '') ?>" style="cursor: pointer;">
                                 <?= esc($reserva['estado']) ?>
                             </td>
