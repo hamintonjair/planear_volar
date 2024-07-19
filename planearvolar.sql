@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-06-2024 a las 18:59:45
+-- Tiempo de generación: 19-07-2024 a las 01:37:21
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.1.25
 
@@ -75,7 +75,10 @@ CREATE TABLE `aplicaciones` (
 INSERT INTO `aplicaciones` (`id`, `vacante_id`, `nombre`, `apellidos`, `telefono`, `direccion`, `correo`, `curriculum`, `created_at`, `estudio`, `profesion`, `anio_inicio`, `anio_final`, `fecha_nacimiento`, `ciudad`, `otros_estudios`, `idiomas`, `estado`) VALUES
 (4, 2, 'Horacio', 'Palacios Palacios', '+573124943527', 'Carrera 12 #46-136 barrio Buenos Aires', 'hpalacios@hotmail.com', '1717127320_7bd9c315262343eb589e.pdf', '2024-05-30 22:48:40', 'Bachiller academico', 'Ingeniero de sistemas', '2021-02-02', '2024-12-02', '2013-02-13', 'Chocó-Quibdo', 'Diplomado en Desarrollo web', 'Español, Ingles', 'En proceso'),
 (5, 1, 'Yuber', 'Palacios ', '+573124943527', 'Carrera 12 #46-136 barrio Buenos Aires', 'mafia00796@hotmail.com', '1717188089_12f0c66f54f5066f9731.pdf', '2024-05-31 15:41:29', 'Bachiller academico', 'Ingeniero de sistemas', '2024-02-13', '2024-02-27', '2024-05-07', 'Chocó-Quibdo', 'Diplomado en Desarrollo web', 'Español', 'No continua'),
-(12, 1, 'Haminton', 'Mena Mena', '+573124943527', 'Carrera 12 #46-136 barrio Buenos Aires', 'hamintonjair@gmail.com', '1717359736_a3c9e9b8a218c0c4c618.pdf', '2024-06-02 15:22:16', 'Bachiller academico', 'Ingeniero de sistemas', '2021-02-02', '2024-11-19', '2024-05-28', 'San Francisco de Quibdo', 'Diplomado en Desarrollo web', 'Español', 'Aplicado');
+(12, 1, 'Haminton', 'Mena Mena', '+573124943527', 'Carrera 12 #46-136 barrio Buenos Aires', 'hamintonjair@gmail.com', '1717359736_a3c9e9b8a218c0c4c618.pdf', '2024-06-02 15:22:16', 'Bachiller academico', 'Ingeniero de sistemas', '2021-02-02', '2024-11-19', '2024-05-28', 'San Francisco de Quibdo', 'Diplomado en Desarrollo web', 'Español', 'Aplicado'),
+(13, 1, 'Yuber', 'Palacios Palacios', '+573106047726', 'Carrera 12 #46-136 barrio Buenos Aires', 'mafia00796@hotmail.com', '1718899906_89641414bcd0786ddf61.pdf', '2024-06-20 11:11:46', 'Bachiller academico', 'Ingeniero de sistemas', '2021-02-20', '2024-12-03', '2020-03-19', 'Quibdo', 'Diplomado en Desarrollo web', 'Español, Ingles', 'No continua'),
+(14, 1, 'Yuber', 'Palacios Palacios', '+573117229684', 'Carrera 12 #46-136 barrio Buenos Aires', 'mafia00796@hotmail.com', '1718900214_34239620b0387ae6e808.pdf', '2024-06-20 11:16:54', 'Bachiller academico', 'Ingeniero de sistemas', '2024-05-26', '2024-05-26', '2024-06-04', 'Quibdo', 'Diplomado en Desarrollo web', 'Español, Ingles', 'Aplicado'),
+(15, 1, 'Yuber', 'Palacios Palacios', '+573124943527', 'Carrera 12 #46-136 barrio Buenos Aires', 'mafia00796@hotmail.com', '1718900262_e2535dc96f8bf43262d5.pdf', '2024-06-20 11:17:42', 'Bachiller academico', 'Ingeniero de sistemas', '2024-06-11', '2024-06-04', '2024-05-28', 'Quibdo', 'Diplomado en Desarrollo web', 'Español, Ingles', 'Aplicado');
 
 -- --------------------------------------------------------
 
@@ -127,7 +130,7 @@ CREATE TABLE `configuracion` (
 --
 
 INSERT INTO `configuracion` (`id`, `nombre_empresa`, `correo`, `telefono`, `ciudad`, `direccion`, `facebook`, `instagram`, `twitter`, `linkedin`, `youtube`) VALUES
-(1, 'Planear Volar', 'planearvolar@gmail.com', '3124943527', 'San Francisco de Quibdo', 'Calle 46 Barrio Buenos Aires', 'https://www.facebook.com/DeveloperJojama?mibextid=ZbWKwL', 'Instagram', '', 'linkedln', '');
+(1, 'Planear Volar', 'admin@gmail.com', '3106047726', 'San Francisco de Quibdo', 'Calle 46 Barrio Buenos Aires', 'https://www.facebook.com/DeveloperJojama?mibextid=ZbWKwL', 'Instagram', '', 'linkedln', '');
 
 -- --------------------------------------------------------
 
@@ -185,14 +188,13 @@ INSERT INTO `detalle_permisos` (`id`, `id_usuarios`, `id_permisos`) VALUES
 (13, 1, 13),
 (14, 1, 14),
 (15, 1, 15),
-(16, 3, 2),
-(17, 3, 4),
-(18, 3, 6),
-(19, 3, 7),
-(20, 3, 8),
-(21, 3, 10),
-(22, 3, 11),
-(23, 3, 12);
+(24, 3, 2),
+(25, 3, 6),
+(26, 3, 7),
+(27, 3, 8),
+(28, 3, 10),
+(29, 3, 11),
+(30, 3, 12);
 
 -- --------------------------------------------------------
 
@@ -281,8 +283,8 @@ CREATE TABLE `ofertas` (
 --
 
 INSERT INTO `ofertas` (`id`, `nombre`, `descuento`, `dirigido`, `descripcion`, `estado`) VALUES
-(1, 'Mega Oferta', '20% OFF', 'Para luna de Miel', 'Esta oferta incluye derecho a 3 días y 3 noches en el Hotel 5 estrella, ubicado en el Departamento del Chocó.', 'No Aplicado'),
-(2, 'Ultrra Oferta', '20% OFF', 'Para las Quinceañeras', 'Podrán disfrutar de un espectacular lugar, tiene piscina, un lugar para recrear y mucho más.', 'Aplicado'),
+(1, 'Mega Oferta', '20% OFF', 'Para luna de Miel', 'Esta oferta incluye derecho a 3 días y 3 noches en el Hotel 5 estrella, ubicado en el Departamento del Chocó.', 'Aplicado'),
+(2, 'Ultrra Oferta', '20% OFF', 'Para las Quinceañeras', 'Podrán disfrutar de un espectacular lugar, tiene piscina, un lugar para recrear y mucho más.', 'No Aplicado'),
 (4, 'Oferta', '40% OFF', 'Para familias', 'Disfrutaras de los momentos más hermosos y bonitos al pasarlo con tu familia.', 'No Aplicado');
 
 -- --------------------------------------------------------
@@ -294,7 +296,7 @@ INSERT INTO `ofertas` (`id`, `nombre`, `descuento`, `dirigido`, `descripcion`, `
 CREATE TABLE `paquetes` (
   `id` int(11) NOT NULL,
   `nombre_paquete` varchar(50) NOT NULL,
-  `ciudad` varchar(50) NOT NULL,
+  `ciudad_id` int(11) NOT NULL,
   `tiempo_estadia` varchar(50) NOT NULL,
   `cant_personas` varchar(50) NOT NULL,
   `descripcion` text NOT NULL,
@@ -307,13 +309,13 @@ CREATE TABLE `paquetes` (
 -- Volcado de datos para la tabla `paquetes`
 --
 
-INSERT INTO `paquetes` (`id`, `nombre_paquete`, `ciudad`, `tiempo_estadia`, `cant_personas`, `descripcion`, `costo`, `foto`, `estado`) VALUES
-(1, 'Paquete Familiar', 'Cali', '5 días', '8 personas', '\r\nExplora la belleza de [Nombre del Destino] con nuestro paquete turístico especialmente diseñado para ofrecerte una experiencia inolvidable. Este paquete incluye una estancia de [Número de días] días y [Número de noches] noches en los mejores alojamientos de la zona, asegurando comodidad y lujo durante tu visita.\r\n\r\nLo que incluye el paquete:\r\n\r\nAlojamiento: Hospédate en un hotel de [Número de estrellas] estrellas, con todas las comodidades y servicios que necesitas para una estancia placentera.\r\nTransporte: Traslados ida y vuelta desde el aeropuerto, y transporte interno a los principales puntos turísticos.\r\nDesayuno diario: Disfruta de un desayuno buffet cada mañana, con una amplia variedad de opciones locales e internacionales.\r\nExcursiones guiadas: Participa en excursiones guiadas a los principales atractivos turísticos de [Nombre del Destino], incluyendo [Lista de lugares turísticos destacados].\r\nActividades recreativas: Acceso a actividades recreativas como [Lista de actividades, por ejemplo, senderismo, deportes acuáticos, visitas a museos, etc.].\r\nAsistencia 24/7: Nuestro equipo estará disponible las 24 horas del día para asistirte con cualquier necesidad o consulta durante tu viaje.\r\nDESTINOS\r\nExplora los Mejores Destinos\r\n\r\n', 350000.00, '1717290719_edbdc46e71b41074dd32.jpg', 1),
-(3, 'Paquete Reconciliación', 'Istmina', '5 días', '3 personas', 'hola Bienvenidos al Paquete Turístico Reconciliación\r\n\r\nExplora la belleza de [Nombre del Destino] con nuestro paquete turístico especialmente diseñado para ofrecerte una experiencia inolvidable. Este paquete incluye una estancia de [Número de días] días y [Número de noches] noches en los mejores alojamientos de la zona, asegurando comodidad y lujo durante tu visita.\r\n\r\nLo que incluye el paquete:\r\n\r\nAlojamiento: Hospédate en un hotel de [Número de estrellas] estrellas, con todas las comodidades y servicios que necesitas para una estancia placentera.\r\nTransporte: Traslados ida y vuelta desde el aeropuerto, y transporte interno a los principales puntos turísticos.\r\nDesayuno diario: Disfruta de un desayuno buffet cada mañana, con una amplia variedad de opciones locales e internacionales.\r\nExcursiones guiadas: Participa en excursiones guiadas a los principales atractivos turísticos de [Nombre del Destino], incluyendo [Lista de lugares turísticos destacados].\r\nActividades recreativas: Acceso a actividades recreativas como [Lista de actividades, por ejemplo, senderismo, deportes acuáticos, visitas a museos, etc.].\r\nAsistencia 24/7: Nuestro equipo estará disponible las 24 horas del día para asistirte con cualquier necesidad o consulta durante tu viaje.', 650000.00, '1717292465_c24b68c0b839527cfe7b.jpg', 1),
-(7, 'Paquete luna de miel', 'Quibdo', '3 dias', '2 personas', 'hola Bienvenidos al Paquete Turístico de [Nombre del Paquete]\r\n\r\nExplora la belleza de [Nombre del Destino] con nuestro paquete turístico especialmente diseñado para ofrecerte una experiencia inolvidable. Este paquete incluye una estancia de [Número de días] días y [Número de noches] noches en los mejores alojamientos de la zona, asegurando comodidad y lujo durante tu visita.\r\n\r\nLo que incluye el paquete:\r\n\r\nAlojamiento: Hospédate en un hotel de [Número de estrellas] estrellas, con todas las comodidades y servicios que necesitas para una estancia placentera.\r\nTransporte: Traslados ida y vuelta desde el aeropuerto, y transporte interno a los principales puntos turísticos.\r\nDesayuno diario: Disfruta de un desayuno buffet cada mañana, con una amplia variedad de opciones locales e internacionales.\r\nExcursiones guiadas: Participa en excursiones guiadas a los principales atractivos turísticos de [Nombre del Destino], incluyendo [Lista de lugares turísticos destacados].\r\nActividades recreativas: Acceso a actividades recreativas como [Lista de actividades, por ejemplo, senderismo, deportes acuáticos, visitas a museos, etc.].\r\nAsistencia 24/7: Nuestro equipo estará disponible las 24 horas del día para asistirte con cualquier necesidad o consulta durante tu viaje.', 450000.00, '1717290965_e2bf16ab52b145f0d6aa.jpg', 1),
-(8, 'Paquete Quinceañeras', 'Cali', '7 dias', '15 personas', 'hola Bienvenidos al Paquete Turístico de Quinceañera\r\n\r\nExplora la belleza de [Nombre del Destino] con nuestro paquete turístico especialmente diseñado para ofrecerte una experiencia inolvidable. Este paquete incluye una estancia de [Número de días] días y [Número de noches] noches en los mejores alojamientos de la zona, asegurando comodidad y lujo durante tu visita.\r\n\r\nLo que incluye el paquete:\r\n\r\nAlojamiento: Hospédate en un hotel de [Número de estrellas] estrellas, con todas las comodidades y servicios que necesitas para una estancia placentera.\r\nTransporte: Traslados ida y vuelta desde el aeropuerto, y transporte interno a los principales puntos turísticos.\r\nDesayuno diario: Disfruta de un desayuno buffet cada mañana, con una amplia variedad de opciones locales e internacionales.\r\nExcursiones guiadas: Participa en excursiones guiadas a los principales atractivos turísticos de [Nombre del Destino], incluyendo [Lista de lugares turísticos destacados].\r\nActividades recreativas: Acceso a actividades recreativas como [Lista de actividades, por ejemplo, senderismo, deportes acuáticos, visitas a museos, etc.].\r\nAsistencia 24/7: Nuestro equipo estará disponible las 24 horas del día para asistirte con cualquier necesidad o consulta durante tu viaje.', 750000.00, '1717292145_2a3675e893e47323c0f2.jpg', 1),
-(9, 'Paquete Plus', 'Quibdo y Bogota', '4 dias', '3 personas', 'hola Bienvenidos al Paquete Turístico de Plus\r\n\r\nExplora la belleza de [Nombre del Destino] con nuestro paquete turístico especialmente diseñado para ofrecerte una experiencia inolvidable. Este paquete incluye una estancia de [Número de días] días y [Número de noches] noches en los mejores alojamientos de la zona, asegurando comodidad y lujo durante tu visita.\r\n\r\nLo que incluye el paquete:\r\n\r\nAlojamiento: Hospédate en un hotel de [Número de estrellas] estrellas, con todas las comodidades y servicios que necesitas para una estancia placentera.\r\nTransporte: Traslados ida y vuelta desde el aeropuerto, y transporte interno a los principales puntos turísticos.\r\nDesayuno diario: Disfruta de un desayuno buffet cada mañana, con una amplia variedad de opciones locales e internacionales.\r\nExcursiones guiadas: Participa en excursiones guiadas a los principales atractivos turísticos de [Nombre del Destino], incluyendo [Lista de lugares turísticos destacados].\r\nActividades recreativas: Acceso a actividades recreativas como [Lista de actividades, por ejemplo, senderismo, deportes acuáticos, visitas a museos, etc.].\r\nAsistencia 24/7: Nuestro equipo estará disponible las 24 horas del día para asistirte con cualquier necesidad o consulta durante tu viaje.', 950000.00, '1717292224_bfa990097cf22390c006.jpg', 1),
-(10, 'Paquete Max Steel', 'Cartagena', '3', '3', 'hola Bienvenidos al Paquete Turístico Max Steel\r\n\r\nExplora la belleza de [Nombre del Destino] con nuestro paquete turístico especialmente diseñado para ofrecerte una experiencia inolvidable. Este paquete incluye una estancia de [Número de días] días y [Número de noches] noches en los mejores alojamientos de la zona, asegurando comodidad y lujo durante tu visita.\r\n\r\nLo que incluye el paquete:\r\n\r\nAlojamiento: Hospédate en un hotel de [Número de estrellas] estrellas, con todas las comodidades y servicios que necesitas para una estancia placentera.\r\nTransporte: Traslados ida y vuelta desde el aeropuerto, y transporte interno a los principales puntos turísticos.\r\nDesayuno diario: Disfruta de un desayuno buffet cada mañana, con una amplia variedad de opciones locales e internacionales.\r\nExcursiones guiadas: Participa en excursiones guiadas a los principales atractivos turísticos de [Nombre del Destino], incluyendo [Lista de lugares turísticos destacados].\r\nActividades recreativas: Acceso a actividades recreativas como [Lista de actividades, por ejemplo, senderismo, deportes acuáticos, visitas a museos, etc.].\r\nAsistencia 24/7: Nuestro equipo estará disponible las 24 horas del día para asistirte con cualquier necesidad o consulta durante tu viaje.', 250000.00, '1717292315_876fb4ec2cdb6e5fe4cf.jpg', 1);
+INSERT INTO `paquetes` (`id`, `nombre_paquete`, `ciudad_id`, `tiempo_estadia`, `cant_personas`, `descripcion`, `costo`, `foto`, `estado`) VALUES
+(1, 'Paquete Familiar', 5, '5 días', '8 personas', '\r\nExplora la belleza de [Nombre del Destino] con nuestro paquete turístico especialmente diseñado para ofrecerte una experiencia inolvidable. Este paquete incluye una estancia de [Número de días] días y [Número de noches] noches en los mejores alojamientos de la zona, asegurando comodidad y lujo durante tu visita.\r\n\r\nLo que incluye el paquete:\r\n\r\nAlojamiento: Hospédate en un hotel de [Número de estrellas] estrellas, con todas las comodidades y servicios que necesitas para una estancia placentera.\r\nTransporte: Traslados ida y vuelta desde el aeropuerto, y transporte interno a los principales puntos turísticos.\r\nDesayuno diario: Disfruta de un desayuno buffet cada mañana, con una amplia variedad de opciones locales e internacionales.\r\nExcursiones guiadas: Participa en excursiones guiadas a los principales atractivos turísticos de [Nombre del Destino], incluyendo [Lista de lugares turísticos destacados].\r\nActividades recreativas: Acceso a actividades recreativas como [Lista de actividades, por ejemplo, senderismo, deportes acuáticos, visitas a museos, etc.].\r\nAsistencia 24/7: Nuestro equipo estará disponible las 24 horas del día para asistirte con cualquier necesidad o consulta durante tu viaje.\r\nDESTINOS\r\nExplora los Mejores Destinos\r\n\r\n', 350000.00, '1717290719_edbdc46e71b41074dd32.jpg', 1),
+(3, 'Paquete Reconciliación', 7, '5 días', '3 personas', 'hola Bienvenidos al Paquete Turístico Reconciliación\r\n\r\nExplora la belleza de [Nombre del Destino] con nuestro paquete turístico especialmente diseñado para ofrecerte una experiencia inolvidable. Este paquete incluye una estancia de [Número de días] días y [Número de noches] noches en los mejores alojamientos de la zona, asegurando comodidad y lujo durante tu visita.\r\n\r\nLo que incluye el paquete:\r\n\r\nAlojamiento: Hospédate en un hotel de [Número de estrellas] estrellas, con todas las comodidades y servicios que necesitas para una estancia placentera.\r\nTransporte: Traslados ida y vuelta desde el aeropuerto, y transporte interno a los principales puntos turísticos.\r\nDesayuno diario: Disfruta de un desayuno buffet cada mañana, con una amplia variedad de opciones locales e internacionales.\r\nExcursiones guiadas: Participa en excursiones guiadas a los principales atractivos turísticos de [Nombre del Destino], incluyendo [Lista de lugares turísticos destacados].\r\nActividades recreativas: Acceso a actividades recreativas como [Lista de actividades, por ejemplo, senderismo, deportes acuáticos, visitas a museos, etc.].\r\nAsistencia 24/7: Nuestro equipo estará disponible las 24 horas del día para asistirte con cualquier necesidad o consulta durante tu viaje.', 650000.00, '1717292465_c24b68c0b839527cfe7b.jpg', 1),
+(7, 'Paquete luna de miel', 5, '3 dias', '2 personas', 'hola Bienvenidos al Paquete Turístico de [Nombre del Paquete]\r\n\r\nExplora la belleza de [Nombre del Destino] con nuestro paquete turístico especialmente diseñado para ofrecerte una experiencia inolvidable. Este paquete incluye una estancia de [Número de días] días y [Número de noches] noches en los mejores alojamientos de la zona, asegurando comodidad y lujo durante tu visita.\r\n\r\nLo que incluye el paquete:\r\n\r\nAlojamiento: Hospédate en un hotel de [Número de estrellas] estrellas, con todas las comodidades y servicios que necesitas para una estancia placentera.\r\nTransporte: Traslados ida y vuelta desde el aeropuerto, y transporte interno a los principales puntos turísticos.\r\nDesayuno diario: Disfruta de un desayuno buffet cada mañana, con una amplia variedad de opciones locales e internacionales.\r\nExcursiones guiadas: Participa en excursiones guiadas a los principales atractivos turísticos de [Nombre del Destino], incluyendo [Lista de lugares turísticos destacados].\r\nActividades recreativas: Acceso a actividades recreativas como [Lista de actividades, por ejemplo, senderismo, deportes acuáticos, visitas a museos, etc.].\r\nAsistencia 24/7: Nuestro equipo estará disponible las 24 horas del día para asistirte con cualquier necesidad o consulta durante tu viaje.', 450000.00, '1717290965_e2bf16ab52b145f0d6aa.jpg', 1),
+(8, 'Paquete Quinceañeras', 7, '7 dias', '15 personas', 'hola Bienvenidos al Paquete Turístico de Quinceañera\r\n\r\nExplora la belleza de [Nombre del Destino] con nuestro paquete turístico especialmente diseñado para ofrecerte una experiencia inolvidable. Este paquete incluye una estancia de [Número de días] días y [Número de noches] noches en los mejores alojamientos de la zona, asegurando comodidad y lujo durante tu visita.\r\n\r\nLo que incluye el paquete:\r\n\r\nAlojamiento: Hospédate en un hotel de [Número de estrellas] estrellas, con todas las comodidades y servicios que necesitas para una estancia placentera.\r\nTransporte: Traslados ida y vuelta desde el aeropuerto, y transporte interno a los principales puntos turísticos.\r\nDesayuno diario: Disfruta de un desayuno buffet cada mañana, con una amplia variedad de opciones locales e internacionales.\r\nExcursiones guiadas: Participa en excursiones guiadas a los principales atractivos turísticos de [Nombre del Destino], incluyendo [Lista de lugares turísticos destacados].\r\nActividades recreativas: Acceso a actividades recreativas como [Lista de actividades, por ejemplo, senderismo, deportes acuáticos, visitas a museos, etc.].\r\nAsistencia 24/7: Nuestro equipo estará disponible las 24 horas del día para asistirte con cualquier necesidad o consulta durante tu viaje.', 750000.00, '1717292145_2a3675e893e47323c0f2.jpg', 1),
+(9, 'Paquete Plus', 5, '4 dias', '3 personas', 'hola Bienvenidos al Paquete Turístico de Plus\r\n\r\nExplora la belleza de [Nombre del Destino] con nuestro paquete turístico especialmente diseñado para ofrecerte una experiencia inolvidable. Este paquete incluye una estancia de [Número de días] días y [Número de noches] noches en los mejores alojamientos de la zona, asegurando comodidad y lujo durante tu visita.\r\n\r\nLo que incluye el paquete:\r\n\r\nAlojamiento: Hospédate en un hotel de [Número de estrellas] estrellas, con todas las comodidades y servicios que necesitas para una estancia placentera.\r\nTransporte: Traslados ida y vuelta desde el aeropuerto, y transporte interno a los principales puntos turísticos.\r\nDesayuno diario: Disfruta de un desayuno buffet cada mañana, con una amplia variedad de opciones locales e internacionales.\r\nExcursiones guiadas: Participa en excursiones guiadas a los principales atractivos turísticos de [Nombre del Destino], incluyendo [Lista de lugares turísticos destacados].\r\nActividades recreativas: Acceso a actividades recreativas como [Lista de actividades, por ejemplo, senderismo, deportes acuáticos, visitas a museos, etc.].\r\nAsistencia 24/7: Nuestro equipo estará disponible las 24 horas del día para asistirte con cualquier necesidad o consulta durante tu viaje.', 950000.00, '1717292224_bfa990097cf22390c006.jpg', 1),
+(10, 'Paquete Max Steel', 6, '3', '3', 'hola Bienvenidos al Paquete Turístico Max Steel\r\n\r\nExplora la belleza de [Nombre del Destino] con nuestro paquete turístico especialmente diseñado para ofrecerte una experiencia inolvidable. Este paquete incluye una estancia de [Número de días] días y [Número de noches] noches en los mejores alojamientos de la zona, asegurando comodidad y lujo durante tu visita.\r\n\r\nLo que incluye el paquete:\r\n\r\nAlojamiento: Hospédate en un hotel de [Número de estrellas] estrellas, con todas las comodidades y servicios que necesitas para una estancia placentera.\r\nTransporte: Traslados ida y vuelta desde el aeropuerto, y transporte interno a los principales puntos turísticos.\r\nDesayuno diario: Disfruta de un desayuno buffet cada mañana, con una amplia variedad de opciones locales e internacionales.\r\nExcursiones guiadas: Participa en excursiones guiadas a los principales atractivos turísticos de [Nombre del Destino], incluyendo [Lista de lugares turísticos destacados].\r\nActividades recreativas: Acceso a actividades recreativas como [Lista de actividades, por ejemplo, senderismo, deportes acuáticos, visitas a museos, etc.].\r\nAsistencia 24/7: Nuestro equipo estará disponible las 24 horas del día para asistirte con cualquier necesidad o consulta durante tu viaje.', 250000.00, '1717292315_876fb4ec2cdb6e5fe4cf.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -368,11 +370,16 @@ CREATE TABLE `reservas` (
 --
 
 INSERT INTO `reservas` (`id`, `nombre`, `apellidos`, `telefono`, `correo`, `destino`, `estado`) VALUES
-(1, 'Maria', 'Mena', 2147483647, 'mafia00796@hotmail.com', 5, 'Contactado'),
-(2, 'Juan Carlos', 'Palacios', 2147483647, 'mafia00796@hotmail.com', 5, 'Contactado'),
-(3, 'Tatiana', 'Gamboa', 2147483647, 'mafia00796@hotmail.com', 5, 'Contactado'),
-(4, 'Luz Leiby', 'Perea', 2147483647, 'mafia00796@hotmail.com', 5, 'Contactar'),
-(5, 'Yoyler', 'Ruiz', 2147483647, 'mafia00796@hotmail.com', 6, 'Contactar');
+(1, 'Maria', 'Mena', 2147483647, 'mafia00796@hotmail.com', 3, 'Contactado'),
+(2, 'Juan Carlos', 'Palacios', 2147483647, 'mafia00796@hotmail.com', 8, 'Contactado'),
+(3, 'Tatiana', 'Gamboa', 2147483647, 'mafia00796@hotmail.com', 8, 'Contactado'),
+(4, 'Luz Leiby', 'Perea', 2147483647, 'mafia00796@hotmail.com', 9, 'Contactar'),
+(5, 'Yoyler', 'Ruiz', 2147483647, 'mafia00796@hotmail.com', 1, 'Contactar'),
+(15, 'Admin', 'Admin', 2147483647, 'prueba@gmail.com', 3, 'Contactar'),
+(16, 'Admin', 'Admin', 2147483647, 'prueba@gmail.com', 3, 'Contactar'),
+(17, 'Haminton', 'Mena Mena', 2147483647, 'hamintonjair@gmail.com', 1, 'Contactar'),
+(18, 'Haminton', 'Mena Mena', 2147483647, 'hamintonjair@gmail.com', 1, 'Contactar'),
+(19, 'Haminton', 'Mena Mena', 2147483647, 'hamintonjair@gmail.com', 8, 'Contactar');
 
 -- --------------------------------------------------------
 
@@ -397,7 +404,8 @@ CREATE TABLE `reservas_turistica` (
 INSERT INTO `reservas_turistica` (`id`, `cliente_id`, `paquete_id`, `guia_id`, `fecha_reserva`, `costo`, `estado`) VALUES
 (1, 2, 1, 1, '2024-05-31', 150000.00, 'Reservado'),
 (2, 2, 1, 2, '2024-06-01', 350000.00, 'Reservado'),
-(3, 2, 9, 0, '2024-06-12', 350000.00, 'Reservado');
+(3, 2, 9, 0, '2024-06-12', 350000.00, 'Reservado'),
+(4, 1, 7, 2, '2024-06-27', 350000.00, 'Reservado');
 
 -- --------------------------------------------------------
 
@@ -426,7 +434,8 @@ CREATE TABLE `reservas_vuelos` (
 
 INSERT INTO `reservas_vuelos` (`id`, `desde`, `fecha_ida`, `fecha_regreso`, `cantidad_pasajeros`, `hacia`, `nombre`, `apellido`, `cedula`, `correo`, `telefono`, `estado`) VALUES
 (1, 'quibdo', '2024-06-05', '2024-06-07', '1', 'bogota', 'Haminton', 'Mena ', '64747458', 'prueba@gmail.com', '3124943527', 'Contactar'),
-(2, 'pasto', '2024-06-13', '2024-06-14', '1', 'cali', 'Horacio', 'Palacios', '7957896', 'hpalacios@hotmail.com', '3124943527', 'Contactado');
+(2, 'pasto', '2024-06-13', '2024-06-14', '1', 'cali', 'Horacio', 'Palacios', '7957896', 'hpalacios@hotmail.com', '3124943527', 'Contactado'),
+(3, 'quibdo', '2024-06-20', '2024-06-24', '1', 'bogota', 'Yuber', 'Palacios', '356746778', 'hpalacios@hotmail.com', '3106047726', 'Contactado');
 
 -- --------------------------------------------------------
 
@@ -666,7 +675,7 @@ ALTER TABLE `acercade`
 -- AUTO_INCREMENT de la tabla `aplicaciones`
 --
 ALTER TABLE `aplicaciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
@@ -690,7 +699,7 @@ ALTER TABLE `destino`
 -- AUTO_INCREMENT de la tabla `detalle_permisos`
 --
 ALTER TABLE `detalle_permisos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `facturas`
@@ -732,19 +741,19 @@ ALTER TABLE `permisos`
 -- AUTO_INCREMENT de la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `reservas_turistica`
 --
 ALTER TABLE `reservas_turistica`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `reservas_vuelos`
 --
 ALTER TABLE `reservas_vuelos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `testimonios`
