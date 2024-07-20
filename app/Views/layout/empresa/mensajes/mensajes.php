@@ -1,11 +1,12 @@
 <div id="layoutSidenav_content">
     <main>
-        <div class="container-fluid px-4" style="background-color: #25142d; height: 100px;">
-            <div class="content-container">
+        <div class="container-fluid px-4" style="background-color: #25142d; height: auto;">
+            <div class="content-container py-3">
                 <h1 style="color: white;">Mensajes</h1>
                 <h6 style="color: white;">Administración de los Mensajes</h6>
             </div>
         </div>
+        
         <br><br>
         <div class="container-fluid px-4 dataTable-container">
             <table id="tableMensajes" class="table table-striped table-bordered" style="width:100%">
@@ -66,6 +67,15 @@
     .estado-contactado {
         background-color: red;
         color: black;
+    }
+    .dataTable-container {
+        margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+        .dataTable-container {
+            overflow-x: auto;
+        }
     }
 </style>
 

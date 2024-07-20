@@ -1,7 +1,7 @@
 <div id="layoutSidenav_content">
     <main>
-        <div class="container-fluid px-4" style="background-color: #25142d; height: 100px;">
-            <div class="content-container">
+        <div class="container-fluid px-4" style="background-color: #25142d; height: auto;">
+            <div class="content-container py-3">
                 <h1 style="color: white;">Solicitudes de vuelos</h1>
                 <h6 style="color: white;">Administración de las solicitudes</h6>
             </div>
@@ -123,4 +123,16 @@ function updateEstadoSolicitud(id, estado) {
 
 </script>
 
+<style>
+    
+    .dataTable-container {
+        margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+        .dataTable-container {
+            overflow-x: auto;
+        }
+    }
+</style>
 

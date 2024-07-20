@@ -1,7 +1,7 @@
 <div id="layoutSidenav_content">
     <main>
-        <div class="container-fluid px-4" style="background-color: #25142d; height: 100px;">
-            <div class="content-container">
+        <div class="container-fluid px-4" style="background-color: #25142d; height: auto;">
+            <div class="content-container py-3">
                 <h1 style="color: white;">Oferta</h1>
                 <h6 style="color: white;">Administración de la oferta</h6>
             </div>
@@ -114,5 +114,15 @@
     .estado-aplicado {
         background-color: green;
         color: black;
+    }
+    
+    .dataTable-container {
+        margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+        .dataTable-container {
+            overflow-x: auto;
+        }
     }
 </style>
