@@ -11,7 +11,7 @@
             <?php foreach ($paquetes_mostrados as $destino) : ?>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid destino-img" src="<?php echo base_url(); ?>public/uploads/<?php echo $destino['foto']; ?>" alt="">
+                        <img class="img-fluid destino-img" src="<?php echo base_url(); ?>uploads/<?php echo $destino['foto']; ?>" alt="">
                         <a class="destination-overlay text-white text-decoration-none" href="" data-toggle="modal" data-target="#detallesModal" data-id="<?php echo $destino['id']; ?>">
                             <h5 class="text-white"><?php echo $destino['nombre']; ?></h5>
                             <span><?php echo $destino['municipio']; ?> Ciudades</span>
@@ -109,7 +109,7 @@ $destinoModel = new DestinoModel();; ?>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="package-item bg-white mb-2" style="width: 350px; height: 500px; overflow: hidden;">
                         <div class="img-container">
-                            <img class="img-fluid" src="<?php echo base_url(); ?>public/uploads/<?php echo $paquete['foto']; ?>" style="cursor: pointer; width: 100%; height: auto;" alt="">
+                            <img class="img-fluid" src="<?php echo base_url(); ?>uploads/<?php echo $paquete['foto']; ?>" style="cursor: pointer; width: 100%; height: auto;" alt="">
                         </div>
                         <div class="p-4">
                             <div class="d-flex justify-content-between mb-3">
@@ -330,7 +330,7 @@ $destinoModel = new DestinoModel();; ?>
                 <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
                     <div class="team-item bg-white mb-4">
                         <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="<?php echo base_url(); ?>public/uploads/<?php echo $guia['foto']; ?>" alt="">
+                            <img class="img-fluid w-100" src="<?php echo base_url(); ?>uploads/<?php echo $guia['foto']; ?>" alt="">
                             <div class="team-social">
                                 <?php if (!empty($guia['facebook'])); { ?>
                                     <a class="btn btn-outline-primary btn-square" href="<?php echo $guia['facebook'] ?>" target="_blank"><i class="fab fa-facebook-f"></i></a>
@@ -368,7 +368,7 @@ $destinoModel = new DestinoModel();; ?>
         <div class="owl-carousel testimonial-carousel">
             <?php foreach ($testimonios as $testimonio) : ?>
                 <div class="text-center pb-4">
-                    <img class="img-fluid mx-auto" src="<?php echo base_url(); ?>public/uploads/<?php echo $testimonio['foto']; ?>" style="width: 100px; height: 100px;">
+                    <img class="img-fluid mx-auto" src="<?php echo base_url(); ?>uploads/<?php echo $testimonio['foto']; ?>" style="width: 100px; height: 100px;">
                     <div class="testimonial-text bg-white p-4 mt-n5">
                         <p class="mt-5"><?php echo $testimonio['descripcion']; ?></p>
                         <h5 class="text-truncate"><?php echo $testimonio['nombre_cliente']; ?></h5>

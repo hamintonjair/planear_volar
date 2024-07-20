@@ -23,7 +23,7 @@
         <div class="owl-carousel testimonial-carousel">
             <?php foreach ($testimonios as $testimonio) : ?>
                 <div class="text-center pb-4">
-                    <img class="img-fluid mx-auto" src="<?php echo base_url(); ?>public/uploads/<?php echo $testimonio['foto']; ?>" style="width: 100px; height: 100px;">
+                    <img class="img-fluid mx-auto" src="<?php echo base_url(); ?>uploads/<?php echo $testimonio['foto']; ?>" style="width: 100px; height: 100px;">
                     <div class="testimonial-text bg-white p-4 mt-n5">
                         <p class="mt-5"><?php echo $testimonio['descripcion']; ?></p>
                         <h5 class="text-truncate"><?php echo $testimonio['nombre_cliente']; ?></h5>

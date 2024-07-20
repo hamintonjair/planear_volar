@@ -1,6 +1,6 @@
 // listar
 document.addEventListener("DOMContentLoaded", function () {
-  let base_url = "http://localhost/planear_volar/public/";
+  let base_url = "http://localhost/planear_volar/";
 
   $(".estado").on("change", function () {
     let id = $(this).data("id");

@@ -1,7 +1,7 @@
 // listar
 document.addEventListener("DOMContentLoaded", function () {
 
-    let base_url = "http://localhost/planear_volar/public/";
+    let base_url = "http://localhost/planear_volar/";
 
 
     $('#TableUsuarios').DataTable({
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
     $("#frmUsuarios").on("submit", function (event) {
         event.preventDefault(); // Prevenir el envío del formulario por defecto
 
-        let base_url = "http://localhost/planear_volar/public/";
+        let base_url = "http://localhost/planear_volar/";
         let formData = new FormData(this);
         let idUsuario = $('#idUsuario').val();
         let url = base_url + (idUsuario ? "usuarios/actualizarUsuario" : "usuarios/registrarUsuario");
@@ -139,7 +139,7 @@ function editarUsuario(id) {
     document.querySelector('#titleModal').innerHTML = "Actualizar Usuario";
     document.querySelector('#frmUsuarios').reset();
 
-    let base_url = "http://localhost/planear_volar/public/";
+    let base_url = "http://localhost/planear_volar/";
     $.ajax({
         url: base_url + 'usuarios/obtenerUsuario/' + id,
         type: "GET",
@@ -178,7 +178,7 @@ function eliminarUsuario($id) {
         dangerMode: true,
     }).then((willDelete) => {
         if (willDelete) {
-            let base_url = "http://localhost/planear_volar/public/";
+            let base_url = "http://localhost/planear_volar/";
             $.ajax({
                 url: base_url + 'usuarios/deleteUsuario/' + $id,
                 type: 'POST',
@@ -210,17 +210,17 @@ function eliminarUsuario($id) {
     });
 }
 function volverModalUsuarios(){
-    let base_url = "http://localhost/planear_volar/public/";
+    let base_url = "http://localhost/planear_volar/";
     window.location = base_url + "usuarios";
 }
 function irModalUsuariosEliminados(){
-    let base_url = "http://localhost/planear_volar/public/";
+    let base_url = "http://localhost/planear_volar/";
     window.location = base_url + "usuarios/usuarios_eliminados";
 }
 // listar usuarios eliminados
 document.addEventListener("DOMContentLoaded", function () {
 
-    let base_url = "http://localhost/planear_volar/public/";
+    let base_url = "http://localhost/planear_volar/";
 
     $('#TableUsuariosEliminados').DataTable({
         dom: 'lBfrtip',
@@ -304,7 +304,7 @@ function restaurarUsuario($id) {
         dangerMode: true,
     }).then((willDelete) => {
         if (willDelete) {
-            let base_url = "http://localhost/planear_volar/public/";
+            let base_url = "http://localhost/planear_volar/";
             $.ajax({
                 url: base_url + 'usuarios/restaurarUsuario/' + $id,
                 type: 'POST',
@@ -343,7 +343,7 @@ function gestionarPermisos(id) {
     document.querySelector('#titleModal').innerHTML = "Gestionar Permisos";
     document.querySelector('#frmUsuarios').reset();
 
-    let base_url = "http://localhost/planear_volar/public/";
+    let base_url = "http://localhost/planear_volar/";
     $.ajax({
         url: base_url + 'usuarios/obtenerUsuario/' + id,
         type: "GET",
@@ -366,7 +366,7 @@ function openModalPermisos(usuarioId) {
 }
 // mostrar los modulos
 function cargarModulos(usuarioId) {
-    let base_url = "http://localhost/planear_volar/public/";
+    let base_url = "http://localhost/planear_volar/";
 
     $.ajax({
         url: base_url + 'usuarios/obtenerPermisos/' + usuarioId,
@@ -415,7 +415,7 @@ function cargarModulos(usuarioId) {
 function guardarPermisos(event) {
     event.preventDefault();
     var formData = new FormData(document.getElementById("frmPermisos"));
-    let base_url = "http://localhost/planear_volar/public/";
+    let base_url = "http://localhost/planear_volar/";
 
     $.ajax({
         url: base_url + 'usuarios/guardarPermisos',
@@ -457,7 +457,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     $("#frmPerfil").on("submit", function (event) {
         event.preventDefault();
-        let base_url = "http://localhost/planear_volar/public/";
+        let base_url = "http://localhost/planear_volar/";
         var formData = new FormData(this);
         
         $.ajax({
@@ -501,7 +501,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // cargar informacion del perfil
 function cargarPerfil() {
-    let base_url = "http://localhost/planear_volar/public/";
+    let base_url = "http://localhost/planear_volar/";
     $.ajax({
         url: base_url + "usuario/perfil/obtener",
         type: "GET",

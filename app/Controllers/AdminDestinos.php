@@ -44,7 +44,7 @@ class AdminDestinos extends BaseController
             $item['detalles'] = implode(' ', array_slice(explode(' ', $item['detalles']), 0, 20)) . '...';
 
             // Añadir la ruta completa de la imagen
-            $item['foto'] = base_url('public/uploads/' . $item['foto']);
+            $item['foto'] = base_url('uploads/' . $item['foto']);
             
             $session = session();
             if ($session->get('rol') == 'Administrador') {
@@ -79,14 +79,14 @@ class AdminDestinos extends BaseController
         if ($this->request->getFile('foto')->isValid()) {
             $file = $this->request->getFile('foto');
             $newName = $file->getRandomName();
-            $file->move(FCPATH . 'public/uploads', $newName);
+            $file->move(FCPATH . 'uploads', $newName);
             $data['foto'] = $newName;
 
             // Eliminar la imagen anterior si se está actualizando
             if ($id) {
                 $destino = $this->destinoModel->find($id);
-                if ($destino['foto'] && file_exists(FCPATH . 'public/uploads/' . $destino['foto'])) {
-                    unlink(FCPATH . 'public/uploads/' . $destino['foto']);
+                if ($destino['foto'] && file_exists(FCPATH . 'uploads/' . $destino['foto'])) {
+                    unlink(FCPATH . 'uploads/' . $destino['foto']);
                 }
             }
         }
@@ -108,8 +108,8 @@ class AdminDestinos extends BaseController
     public function eliminar($id)
     {
         $destino = $this->destinoModel->find($id);
-        if ($destino['foto'] && file_exists(FCPATH . 'public/uploads/' . $destino['foto'])) {
-            unlink(FCPATH . 'public/uploads/' . $destino['foto']);
+        if ($destino['foto'] && file_exists(FCPATH . 'uploads/' . $destino['foto'])) {
+            unlink(FCPATH . 'uploads/' . $destino['foto']);
         }
         $result = $this->destinoModel->delete($id);
         $message = $result ? 'Destino eliminado correctamente.' : 'Error al eliminar el destino.';

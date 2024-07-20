@@ -140,7 +140,7 @@ class AdminTrabajos extends BaseController
             ]);
         }
         // Eliminar el curriculum asociado
-        $curriculumPath = FCPATH . 'public/uploads/' . $aplicacion['curriculum'];
+        $curriculumPath = FCPATH . 'uploads/' . $aplicacion['curriculum'];
         if (file_exists($curriculumPath)) {
             unlink($curriculumPath);
         }

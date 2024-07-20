@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Manejo del formulario de "Acerca de Nosotros"
     $("#frmAcercaDe").on("submit", function (event) {
         event.preventDefault(); // Prevenir el envío del formulario por defecto
-        let base_url = "http://localhost/planear_volar/public/";
+        let base_url = "http://localhost/planear_volar/";
 
         // Crear un nuevo objeto FormData con los datos del formulario
         var formData = new FormData(this);
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function cargarAcercaDe() {
-    let base_url = "http://localhost/planear_volar/public/";
+    let base_url = "http://localhost/planear_volar/";
     $.ajax({
         url: base_url + "acerca/obtener",
         type: "GET",
@@ -81,7 +81,7 @@ function cargarAcercaDe() {
                 $('#nombre').val(response.data.nombre);
                 $('#descripcion').val(response.data.descripcion);
                 if (response.data.imagen) {
-                    $('#imgPreview').attr('src', base_url +'public/uploads/' + response.data.imagen).show();
+                    $('#imgPreview').attr('src', base_url +'uploads/' + response.data.imagen).show();
 
                 }
             } else {

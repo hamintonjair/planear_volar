@@ -57,7 +57,7 @@ class AdminTestimonios extends BaseController
 
             // Ajustar la imagen
             if ($item['foto']) {
-                $item['foto'] = '<img src="' . base_url('public/uploads/' . $item['foto']) . '" class="img-thumbnail" style="width: 250px; height: 100px;">';
+                $item['foto'] = '<img src="' . base_url('uploads/' . $item['foto']) . '" class="img-thumbnail" style="width: 250px; height: 100px;">';
             }
         }
 
@@ -70,7 +70,7 @@ class AdminTestimonios extends BaseController
         if ($this->request->getFile('foto')->isValid()) {
             $file = $this->request->getFile('foto');
             $newName = $file->getRandomName();
-            $file->move(FCPATH . 'public/uploads', $newName);
+            $file->move(FCPATH . 'uploads', $newName);
             $data['foto'] = $newName;
         }
 
@@ -101,12 +101,12 @@ class AdminTestimonios extends BaseController
         if ($this->request->getFile('foto')->isValid()) {
             $file = $this->request->getFile('foto');
             $newName = $file->getRandomName();
-            $file->move(FCPATH . 'public/uploads', $newName);
+            $file->move(FCPATH . 'uploads', $newName);
             $data['foto'] = $newName;
 
             $testimonio = $this->testimonioModel->find($id);
-            if ($testimonio['foto'] && file_exists(FCPATH . 'public/uploads/' . $testimonio['foto'])) {
-                unlink(FCPATH . 'public/uploads/' . $testimonio['foto']);
+            if ($testimonio['foto'] && file_exists(FCPATH . 'uploads/' . $testimonio['foto'])) {
+                unlink(FCPATH . 'uploads/' . $testimonio['foto']);
             }
         }
 
@@ -122,8 +122,8 @@ class AdminTestimonios extends BaseController
     public function eliminar($id)
     {
         $testimonio = $this->testimonioModel->find($id);
-        if ($testimonio['foto'] && file_exists(FCPATH . 'public/uploads/' . $testimonio['foto'])) {
-            unlink(FCPATH . 'public/uploads/' . $testimonio['foto']);
+        if ($testimonio['foto'] && file_exists(FCPATH . 'uploads/' . $testimonio['foto'])) {
+            unlink(FCPATH . 'uploads/' . $testimonio['foto']);
         }
         $result = $this->testimonioModel->delete($id);
         $message = $result ? 'Testimonio eliminado correctamente.' : 'Error al eliminar el testimonio.';

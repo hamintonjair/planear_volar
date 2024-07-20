@@ -1,7 +1,7 @@
 // listar
 document.addEventListener("DOMContentLoaded", function () {
 
-    let base_url = "http://localhost/planear_volar/public/";
+    let base_url = "http://localhost/planear_volar/";
 
 
     $('#TableClientes').DataTable({
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
     $("#frmClientes").on("submit", function (event) {
         event.preventDefault(); // Prevenir el envío del formulario por defecto
 
-        let base_url = "http://localhost/planear_volar/public/";
+        let base_url = "http://localhost/planear_volar/";
         let formData = new FormData(this);
         let idCliente = $('#idCliente').val();
         let url = base_url + (idCliente ? "clientes/actualizarCliente" : "clientes/registrarCliente");
@@ -122,7 +122,7 @@ function editarCliente(id) {
     document.querySelector('#titleModal').innerHTML = "Actualizar Cliente";
     document.querySelector('#frmClientes').reset();
 
-    let base_url = "http://localhost/planear_volar/public/";
+    let base_url = "http://localhost/planear_volar/";
     $.ajax({
         url: base_url + 'clientes/obtenerCliente/' + id,
         type: "GET",
@@ -157,7 +157,7 @@ function eliminarCliente($id) {
         dangerMode: true,
     }).then((willDelete) => {
         if (willDelete) {
-            let base_url = "http://localhost/planear_volar/public/";
+            let base_url = "http://localhost/planear_volar/";
             $.ajax({
                 url: base_url + 'clientes/deleteCliente/' + $id,
                 type: 'POST',

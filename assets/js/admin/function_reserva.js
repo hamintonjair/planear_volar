@@ -33,7 +33,7 @@ $(document).ready(function() {
 });
 // actualizar estado de la reserva del cliente
     function updateEstado(id, estado) {
-        let base_url = "http://localhost/planear_volar/public/";
+        let base_url = "http://localhost/planear_volar/";
 
         $.ajax({
             url: base_url + 'reservas/update',

@@ -1,6 +1,6 @@
 // listar
 document.addEventListener("DOMContentLoaded", function () {
-  let base_url = "http://localhost/planear_volar/public/";
+  let base_url = "http://localhost/planear_volar/";
 
   $("#TableVacantes").DataTable({
     dom: "lBfrtip",
@@ -38,7 +38,7 @@ function openModalVacantes() {
 }
 // editar
 function editarVacante(id) {
-  let base_url = "http://localhost/planear_volar/public/";
+  let base_url = "http://localhost/planear_volar/";
 
   $.ajax({
     url: base_url + "vacantes/obtener/" + id,
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
     let formData = new FormData(this);
     let id = $("#idVacantes").val();
-    let base_url = "http://localhost/planear_volar/public/";
+    let base_url = "http://localhost/planear_volar/";
 
     let url = base_url + "vacantes/" + (id ? "actualizar" : "registrar");
     if (!validarFormulario()) {
@@ -123,7 +123,7 @@ function eliminarVacante(id) {
     dangerMode: true,
   }).then((willDelete) => {
     if (willDelete) {
-      let base_url = "http://localhost/planear_volar/public/";
+      let base_url = "http://localhost/planear_volar/";
 
       $.ajax({
         url: base_url + "vacantes/eliminar/" + id,
@@ -155,7 +155,7 @@ function eliminarVacanteAplicado(id) {
     dangerMode: true,
   }).then((willDelete) => {
     if (willDelete) {
-      let base_url = "http://localhost/planear_volar/public/";
+      let base_url = "http://localhost/planear_volar/";
 
       $.ajax({
         url: base_url + "vacantes/delete/" + id,
@@ -179,7 +179,7 @@ function eliminarVacanteAplicado(id) {
 // cambiar estado aplicacion a vacante
 
 function cambiarEstado(id, estado) {
-  let base_url = "http://localhost/planear_volar/public/";
+  let base_url = "http://localhost/planear_volar/";
 
   $.ajax({
       url:  base_url+'aplicaciones/cambiarEstado',

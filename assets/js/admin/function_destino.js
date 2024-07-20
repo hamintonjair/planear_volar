@@ -1,6 +1,6 @@
 // registrar
 document.addEventListener("DOMContentLoaded", function () {
-  let base_url = "http://localhost/planear_volar/public/";
+  let base_url = "http://localhost/planear_volar/";
 
   $("#frmDestino").submit(function (event) {
     event.preventDefault();
@@ -80,7 +80,7 @@ function openModalDestino() {
 }
 //    listar /
 document.addEventListener("DOMContentLoaded", function () {
-  let base_url = "http://localhost/planear_volar/public/";
+  let base_url = "http://localhost/planear_volar/";
 
   $("#TableDestinos").DataTable({
     dom: "lBfrtip",
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // editar
 function editarDestino(id) {
-  let base_url = "http://localhost/planear_volar/public/";
+  let base_url = "http://localhost/planear_volar/";
   document.querySelector("#frmDestino").reset();
 
   $.ajax({
@@ -136,7 +136,7 @@ function editarDestino(id) {
 
       if (resp.foto) {
         $("#imgPreview")
-          .attr("src", base_url + "public/uploads/" + resp.foto)
+          .attr("src", base_url + "uploads/" + resp.foto)
           .show();
       } else {
         $("#imgPreview").hide();
@@ -156,7 +156,7 @@ function editarDestino(id) {
 }
 // eliminar
 function eliminarDestino(id) {
-  let base_url = "http://localhost/planear_volar/public/";
+  let base_url = "http://localhost/planear_volar/";
 
   swal({
     title: "¿Estás seguro?",

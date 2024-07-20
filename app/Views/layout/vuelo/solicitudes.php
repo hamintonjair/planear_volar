@@ -91,7 +91,7 @@
 });
 // actualizar el estado de los mensajes
 function updateEstadoSolicitud(id, estado) {
-    let base_url = "http://localhost/planear_volar/public/";
+    let base_url = "http://localhost/planear_volar/";
 
     $.ajax({
         url: base_url + 'vuelos/solicitud_update',

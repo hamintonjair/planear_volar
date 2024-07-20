@@ -9,7 +9,7 @@ $(document).ready(function() {
 });
 // actualizar el estado de los mensajes
 function updateEstadoM(id, estado) {
-    let base_url = "http://localhost/planear_volar/public/";
+    let base_url = "http://localhost/planear_volar/";
 
     $.ajax({
         url: base_url + 'mensajes/update',

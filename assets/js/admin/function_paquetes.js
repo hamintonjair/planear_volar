@@ -1,7 +1,7 @@
 // listar
 document.addEventListener("DOMContentLoaded", function () {
 
-    let base_url = "http://localhost/planear_volar/public/";
+    let base_url = "http://localhost/planear_volar/";
 
     $('#TablePaquetes').DataTable({
         dom: 'lBfrtip',
@@ -43,7 +43,7 @@ function openModalPaquetes() {
     }
 // editar
 function editarPaquete(id){
-        let base_url = "http://localhost/planear_volar/public/";
+        let base_url = "http://localhost/planear_volar/";
 
         $.ajax({
             url: base_url + 'paquetes/obtener/' + id,
@@ -59,7 +59,7 @@ function editarPaquete(id){
                     $('#cant_personas').val(data.cant_personas);
                     $('#descripcion').val(data.descripcion);
                     $('#costo').val(data.costo);
-                    $('#imgPreview').attr('src', base_url + 'public/uploads/' + data.foto).show();
+                    $('#imgPreview').attr('src', base_url + 'uploads/' + data.foto).show();
                     $('#titleModal').text('Editar paquete');
                     $('#btnText').text('Actualizar');
                     $('#ModalPaquetes').modal('show');
@@ -74,7 +74,7 @@ $('#frmPaquetes').submit(function (e) {
         e.preventDefault();
         let formData = new FormData(this);
         let id = $('#idPaquetes').val();
-        let base_url = "http://localhost/planear_volar/public/";
+        let base_url = "http://localhost/planear_volar/";
 
         let url = base_url + 'paquetes/' + (id ? 'actualizar' : 'registrar');
         if (!validarFormulario()) {
@@ -132,7 +132,7 @@ $('#frmPaquetes').submit(function (e) {
             dangerMode: true,
         }).then((willDelete) => {
             if (willDelete) {
-                let base_url = "http://localhost/planear_volar/public/";
+                let base_url = "http://localhost/planear_volar/";
 
                 $.ajax({
                     url: base_url + 'paquetes/eliminar/' + id,

@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // actualizar
     $("#frmConfiguracion").on("submit", function (event) {
         event.preventDefault();
-        let base_url = "http://localhost/planear_volar/public/";
+        let base_url = "http://localhost/planear_volar/";
         
         var formData = new FormData(this);
         
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // cargar los datos de la empresa
 function cargarConfiguracion() {
-    let base_url = "http://localhost/planear_volar/public/";
+    let base_url = "http://localhost/planear_volar/";
     $.ajax({
         url: base_url + "configuracion/obtener",
         type: "GET",

@@ -1,6 +1,6 @@
 // listar
 document.addEventListener("DOMContentLoaded", function () {
-    let base_url = "http://localhost/planear_volar/public/";
+    let base_url = "http://localhost/planear_volar/";
   
     $("#TableTestimonios").DataTable({
       dom: "lBfrtip",
@@ -50,7 +50,7 @@ function editarTestimonio(id) {
                 $('#nombre_cliente').val(data.nombre_cliente);
                 $('#profesion').val(data.profesion);
                 $('#descripcion').val(data.descripcion);
-                $('#imgPreview').attr('src', 'public/uploads/' + data.foto).show();
+                $('#imgPreview').attr('src', 'uploads/' + data.foto).show();
                 $('#titleModal').text('Editar Testimonio');
                 $('#btnActionForm').removeClass('btn-primary').addClass('btn-info');
                 $('#btnText').text('Actualizar');
@@ -116,7 +116,7 @@ function eliminarTestimonio(id) {
         dangerMode: true,
     }).then((willDelete) => {
         if (willDelete) {
-            let base_url = "http://localhost/planear_volar/public/";
+            let base_url = "http://localhost/planear_volar/";
        
             $.ajax({
                 url: base_url + 'testimonios/eliminar/' + id,

@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
 //   crear ofertas
     $('#formOferta').on('submit', function(e) {
         e.preventDefault();
-        let base_url = 'http://localhost/planear_volar/public/';
+        let base_url = 'http://localhost/planear_volar/';
 
         $.ajax({
             url: base_url + 'ofertas/addOferta',
@@ -50,7 +50,7 @@ function eliminarOferta(id){
         dangerMode: true,
     }).then((willDelete) => {
         if (willDelete) {
-            let base_url = "http://localhost/planear_volar/public/";
+            let base_url = "http://localhost/planear_volar/";
 
             $.ajax({
                 url: base_url + 'ofertas/deleteOferta/' + id,
@@ -83,7 +83,7 @@ function eliminarOferta(id){
     });
 };
 function updateEstadoOferta(id, estado) {
-    let base_url = "http://localhost/planear_volar/public/";
+    let base_url = "http://localhost/planear_volar/";
     $.ajax({
         url: base_url + 'oferta/update',
         type: 'POST',

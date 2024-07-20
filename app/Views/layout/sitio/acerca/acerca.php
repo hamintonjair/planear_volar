@@ -21,7 +21,7 @@
 
                 <div class="col-lg-6" style="min-height: 500px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100" src="<?php echo base_url(); ?>public/uploads/<?php echo $a['imagen']; ?>" style="object-fit: cover;">
+                        <img class="position-absolute w-100 h-100" src="<?php echo base_url(); ?>uploads/<?php echo $a['imagen']; ?>" style="object-fit: cover;">
                     </div>
                 </div>
 
@@ -32,7 +32,7 @@
                         <p style="text-align: justify;"><?php  echo $a['descripcion']?></p>
                         <div class="row mb-4">
                             <div class="col-6">
-                                <img class="img-fluid" src="<?php echo base_url(); ?>public/uploads/<?php echo $a['imagen']; ?>" alt="">
+                                <img class="img-fluid" src="<?php echo base_url(); ?>uploads/<?php echo $a['imagen']; ?>" alt="">
                             </div>
                         
                         </div>

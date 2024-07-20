@@ -190,7 +190,7 @@
                 correo: $('#correo').val(),
                 telefono: $('#telefono').val()
             };
-            let base_url = 'http://localhost/planear_volar/public/';
+            let base_url = 'http://localhost/planear_volar/';
 
             $.ajax({
                 url: base_url + 'vuelos/reservar',

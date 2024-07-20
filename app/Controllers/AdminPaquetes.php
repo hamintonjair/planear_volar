@@ -66,7 +66,7 @@ class AdminPaquetes extends BaseController
 
             // Ajustar la imagen
             if ($item['foto']) {
-                $item['foto'] = '<img src="' . base_url('public/uploads/' . $item['foto']) . '" class="img-thumbnail" style="width: 250px; height: 100px;">';
+                $item['foto'] = '<img src="' . base_url('uploads/' . $item['foto']) . '" class="img-thumbnail" style="width: 250px; height: 100px;">';
             }
         }
 
@@ -81,7 +81,7 @@ class AdminPaquetes extends BaseController
         if ($this->request->getFile('foto')->isValid()) {
             $file = $this->request->getFile('foto');
             $newName = $file->getRandomName();
-            $file->move(FCPATH . 'public/uploads', $newName);
+            $file->move(FCPATH . 'uploads', $newName);
             $data['foto'] = $newName;
         }
 
@@ -112,12 +112,12 @@ class AdminPaquetes extends BaseController
         if ($this->request->getFile('foto')->isValid()) {
             $file = $this->request->getFile('foto');
             $newName = $file->getRandomName();
-            $file->move(FCPATH . 'public/uploads', $newName);
+            $file->move(FCPATH . 'uploads', $newName);
             $data['foto'] = $newName;
 
             $paquete = $this->paqueteModel->find($id);
-            if ($paquete['foto'] && file_exists(FCPATH . 'public/uploads/' . $paquete['foto'])) {
-                unlink(FCPATH . 'public/uploads/' . $paquete['foto']);
+            if ($paquete['foto'] && file_exists(FCPATH . 'uploads/' . $paquete['foto'])) {
+                unlink(FCPATH . 'uploads/' . $paquete['foto']);
             }
         }
 
@@ -133,8 +133,8 @@ class AdminPaquetes extends BaseController
     public function eliminar($id)
     {
         $paquete = $this->paqueteModel->find($id);
-        if ($paquete['foto'] && file_exists(FCPATH . 'public/uploads/' . $paquete['foto'])) {
-            unlink(FCPATH . 'public/uploads/' . $paquete['foto']);
+        if ($paquete['foto'] && file_exists(FCPATH . 'uploads/' . $paquete['foto'])) {
+            unlink(FCPATH . 'uploads/' . $paquete['foto']);
         }
         $result = $this->paqueteModel->delete($id);
         $message = $result ? 'Paquete eliminado correctamente.' : 'Error al eliminar el paquete.';

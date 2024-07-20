@@ -18,7 +18,7 @@
                     <p><strong>Estudio:</strong> <?= $aplicacion['estudio']; ?></p>
                     <p><strong>Año de Inicio:</strong> <?= $aplicacion['anio_inicio']; ?></p>
                     <p><strong>Ciudad:</strong> <?= $aplicacion['ciudad']; ?></p>
-                    <p><strong>Curriculum:</strong> <a href="<?php echo base_url() ?>/public/uploads/<?= $aplicacion['curriculum']; ?> " target="_blank">Descargar</a></p>
+                    <p><strong>Curriculum:</strong> <a href="<?php echo base_url() ?>/uploads/<?= $aplicacion['curriculum']; ?> " target="_blank">Descargar</a></p>
                 </div>
                 <div class="col-6">
                     <p><strong>Apellidos:</strong> <?= $aplicacion['apellidos']; ?></p>

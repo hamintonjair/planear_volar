@@ -24,7 +24,7 @@
             <?php foreach ($destinos as $destino) : ?>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid destino-img" src="<?php echo base_url(); ?>public/uploads/<?php echo $destino['foto']; ?>" alt="">
+                        <img class="img-fluid destino-img" src="<?php echo base_url(); ?>uploads/<?php echo $destino['foto']; ?>" alt="">
                         <a class="destination-overlay text-white text-decoration-none" href=""  data-toggle="modal" data-target="#detallesModal" data-id="<?php echo $destino['id']; ?>">
                             <h5 class="text-white"><?php echo $destino['nombre']; ?></h5>
                             <span><?php echo $destino['municipio']; ?> Ciudades</span>

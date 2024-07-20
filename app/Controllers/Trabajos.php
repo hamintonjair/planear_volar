@@ -84,7 +84,7 @@ class Trabajos extends BaseController
         $curriculum = $this->request->getFile('curriculum');
         if ($curriculum->isValid() && !$curriculum->hasMoved()) {
             $newName = $curriculum->getRandomName();
-            if ($curriculum->move(FCPATH . 'public/uploads', $newName)) {
+            if ($curriculum->move(FCPATH . 'uploads', $newName)) {
                 $aplicacionData['curriculum'] = $newName;
             } else {
                 return $this->response->setJSON([

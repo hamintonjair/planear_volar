@@ -1,7 +1,7 @@
 
 //   inicio d esession
 document.addEventListener('DOMContentLoaded', function() {
-    let base_url = 'http://localhost/planear_volar/public/';
+    let base_url = 'http://localhost/planear_volar/';
     $('#loginForm').on('submit', function(event) {
         event.preventDefault(); // Prevenir el envío del formulario por defecto
 

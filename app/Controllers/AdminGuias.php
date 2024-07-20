@@ -49,7 +49,7 @@ class AdminGuias extends BaseController
                 $item['accion'] .= '<button class="btn btn-primary btn-sm editar" onclick="editarGuia(' . $item['id'] . ')"><i class="fas fa-edit"></i></button>';
             }
             if ($item['foto']) {
-                $item['foto'] = '<img src="' . base_url('public/uploads/' . $item['foto']) . '" class="img-thumbnail" style="width: 100px; height: 100px;">';
+                $item['foto'] = '<img src="' . base_url('uploads/' . $item['foto']) . '" class="img-thumbnail" style="width: 100px; height: 100px;">';
             }
         }
     
@@ -62,7 +62,7 @@ class AdminGuias extends BaseController
         if ($this->request->getFile('foto')->isValid()) {
             $file = $this->request->getFile('foto');
             $newName = $file->getRandomName();
-            $file->move(FCPATH . 'public/uploads', $newName);
+            $file->move(FCPATH . 'uploads', $newName);
             $data['foto'] = $newName;
         }
 
@@ -95,12 +95,12 @@ class AdminGuias extends BaseController
         if ($this->request->getFile('foto')->isValid()) {
             $file = $this->request->getFile('foto');
             $newName = $file->getRandomName();
-            $file->move(FCPATH . 'public/uploads', $newName);
+            $file->move(FCPATH . 'uploads', $newName);
             $data['foto'] = $newName;
 
             $guia = $this->guiaModel->find($id);
-            if ($guia['foto'] && file_exists(FCPATH . 'public/uploads/' . $guia['foto'])) {
-                unlink(FCPATH . 'public/uploads/' . $guia['foto']);
+            if ($guia['foto'] && file_exists(FCPATH . 'uploads/' . $guia['foto'])) {
+                unlink(FCPATH . 'uploads/' . $guia['foto']);
             }
         }
 
@@ -116,8 +116,8 @@ class AdminGuias extends BaseController
     public function eliminar($id)
     {
         $guia = $this->guiaModel->find($id);
-        if ($guia['foto'] && file_exists(FCPATH . 'public/uploads/' . $guia['foto'])) {
-            unlink(FCPATH . 'public/uploads/' . $guia['foto']);
+        if ($guia['foto'] && file_exists(FCPATH . 'uploads/' . $guia['foto'])) {
+            unlink(FCPATH . 'uploads/' . $guia['foto']);
         }
         $result = $this->guiaModel->delete($id);
         $message = $result ? 'Guía eliminado correctamente.' : 'Error al eliminar el guía.';

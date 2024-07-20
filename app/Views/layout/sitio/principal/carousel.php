@@ -16,7 +16,7 @@
             ?>
             <?php foreach ($paquetes_mostrados as $index => $paquete) : ?>
                 <div class="carousel-item <?php echo $index === 0 ? 'active' : ''; ?>">
-                    <img class="w-100" src="<?php echo base_url(); ?>public/uploads/<?php echo $paquete['foto']; ?>" alt="Image">
+                    <img class="w-100" src="<?php echo base_url(); ?>uploads/<?php echo $paquete['foto']; ?>" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-md-3">Tours y viajes</h4>

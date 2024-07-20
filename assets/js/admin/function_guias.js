@@ -1,6 +1,6 @@
 // listar guias
 document.addEventListener("DOMContentLoaded", function () {
-  let base_url = "http://localhost/planear_volar/public/";
+  let base_url = "http://localhost/planear_volar/";
 
   $("#TableGuias").DataTable({
     dom: "lBfrtip",
@@ -39,7 +39,7 @@ function openModalGuias() {
 }
 // editar
 function editarGuia(id) {
-  let base_url = "http://localhost/planear_volar/public/";
+  let base_url = "http://localhost/planear_volar/";
 
   $.ajax({
     url: base_url + "guias/obtener/" + id,
@@ -53,7 +53,7 @@ function editarGuia(id) {
         $("#facebook").val(data.facebook);
         $("#instagram").val(data.instagram);
         $("#imgPreview")
-          .attr("src", base_url + "public/uploads/" + data.foto)
+          .attr("src", base_url + "uploads/" + data.foto)
           .show();
         $("#titleModal").text("Editar guía");
         $("#btnText").text("Actualizar");
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
     let formData = new FormData(this);
     let id = $("#idGuias").val();
-    let base_url = "http://localhost/planear_volar/public/";
+    let base_url = "http://localhost/planear_volar/";
 
     let url = base_url + "guias/" + (id ? "actualizar" : "registrar");
     if (!validarFormulario()) {
@@ -120,7 +120,7 @@ function eliminarGuia(id) {
     dangerMode: true,
   }).then((willDelete) => {
     if (willDelete) {
-      let base_url = "http://localhost/planear_volar/public/";
+      let base_url = "http://localhost/planear_volar/";
 
       $.ajax({
         url: base_url + "guias/eliminar/" + id,

@@ -26,7 +26,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
                     <div class="team-item bg-white mb-4">
                         <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="<?php echo base_url(); ?>public/uploads/<?php echo $guia['foto']; ?>" alt="">
+                            <img class="img-fluid w-100" src="<?php echo base_url(); ?>uploads/<?php echo $guia['foto']; ?>" alt="">
                             <div class="team-social">
                                 <?php if (!empty($guia['facebook'])); { ?>
                                     <a class="btn btn-outline-primary btn-square" href="<?php echo $guia['facebook'] ?>"  target="_blank"><i class="fab fa-facebook-f"></i></a>

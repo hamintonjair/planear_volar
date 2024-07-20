@@ -59,14 +59,14 @@ class AdminAcerca extends BaseController
         if ($this->request->getFile('imagen')->isValid()) {
             $file = $this->request->getFile('imagen');
             $newName = $file->getRandomName();
-            $file->move(FCPATH . 'public/uploads', $newName);
+            $file->move(FCPATH . 'uploads', $newName);
             $data['imagen'] = $newName;
 
             // Eliminar la imagen anterior si se está actualizando
             if ($idacerca) {
                 $destino = $this->acercaModel->find($idacerca);
-                if ($destino['imagen'] && file_exists(FCPATH . 'public/uploads/' . $destino['imagen'])) {
-                    unlink(FCPATH . 'public/uploads/' . $destino['imagen']);
+                if ($destino['imagen'] && file_exists(FCPATH . 'uploads/' . $destino['imagen'])) {
+                    unlink(FCPATH . 'uploads/' . $destino['imagen']);
                 }
             }
         }

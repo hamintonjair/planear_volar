@@ -251,7 +251,7 @@
         $('#applyForm').on('submit', function(e) {
             e.preventDefault();
             var formData = new FormData(this);
-            let base_url = "http://localhost/planear_volar/public/";
+            let base_url = "http://localhost/planear_volar/";
 
             $.ajax({
                 url: base_url + 'trabajos/apply',
