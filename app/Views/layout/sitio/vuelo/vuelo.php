@@ -65,11 +65,25 @@
                             </div>
                         </div>
                         <div class="col-md-2">
-                            <div class="mb-3 mb-md-0">
-                                <label for="cantidad_pasajeros" style="font-size: 12px;">Cuantos <font color="red">*</font></label>
-                                <input type="number" class="form-control p-4" id="cantidad_pasajeros" placeholder="Cantidad de pasajeros" />
-                            </div>
-                        </div>
+    <div class="mb-3 mb-md-0">
+        <label for="cantidad_pasajeros" style="font-size: 12px;">Cuantos <font color="red">*</font></label>
+        <input type="number" class="form-control p-4" id="cantidad_pasajeros" placeholder="Cantidad de pasajeros" min="0" oninput="validarNumero(this)"/>
+        <div id="mensaje_error" style="color: red; display: none;">Por favor, ingresa un número positivo.</div>
+    </div>
+</div>
+
+
+<script>
+function validarNumero(input) {
+    const mensajeError = document.getElementById('mensaje_error');
+    if (input.value < 0) {
+        mensajeError.style.display = 'block';
+    } else {
+        mensajeError.style.display = 'none';
+    }
+}
+</script>
+
                         <div class="col-md-3">
                             <div class="mb-3 mb-md-0">
                                 <label for="hacia" style="font-size: 12px;">Hacía <font color="red">*</font></label>
