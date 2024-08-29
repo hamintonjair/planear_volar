@@ -85,9 +85,9 @@
                                         <input type='text' name='correo' id='correo' class='form-control valid validEmail' placeholder='Correo' aria-describedby='helpId'>
                                     </div>
                                 </div>
-                        
+
                             </div>
-                                                      <div class='modal-footer'>
+                            <div class='modal-footer'>
                                 <button id='btnActionForm' type='submit' class='btn btn-primary'><span id='btnText'>
                                         Registrar</span></button>
                                 <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
@@ -128,7 +128,7 @@
             </div>
         </div>
 
-        
+
 
 
     </main>
@@ -145,7 +145,6 @@
     </footer>
 </div>
 <style>
-    
     .dataTable-container {
         margin-top: 20px;
     }

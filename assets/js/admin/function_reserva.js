@@ -21,15 +21,26 @@ $(document).ready(function() {
       });
 });
 $(document).ready(function() {
+    $("#tableSolicitudes").DataTable({
+        // responsive: true,  // Hace la tabla responsiva
+        order: [[0, "asc"]],  // Ordena la primera columna en orden ascendente
+        iDisplayLength: 10,  // Cantidad de filas por página
+        dom: "lBfrtip",  // Configura los elementos del DOM para mostrar la tabla
+        bDestroy: true
+    });
+});
+
+
+$(document).ready(function() {
   
-    $("#TableReservaTuristica").DataTable({
+    $("#tableSolicitudes").DataTable({
       dom: "lBfrtip",
     
       responsive: true,
       bDestroy: true,
       iDisplayLength: 10,
       order: [[0, "desc"]],
-    });TableReservaTuristica
+    });
 });
 // actualizar estado de la reserva del cliente
     function updateEstado(id, estado) {

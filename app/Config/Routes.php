@@ -141,6 +141,7 @@ $routes->get('vuelos/show/(:num)', 'AdminVuelos::show/$1');
 $routes->post('vuelos/reservar', 'AdminVuelos::guardarReserva');
 $routes->post('vuelos/solicitud_update', 'AdminVuelos::updateEstado');
 $routes->get('vuelos/listar_solicitudes_vuelos', 'AdminVuelos::listar_solicitudes');
+$routes->get('vuelos/getSolicitudDetails/(:num)', 'AdminVuelos::getSolicitudDetails/$1');
 
 // RESERVAS
 $routes->get('reservas', 'AdminReservas::reservasView');

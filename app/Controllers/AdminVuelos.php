@@ -7,17 +7,19 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 use App\Models\VuelosModel;
 use App\Models\DetallespermisosModel;
 use App\Models\VuelosReservadosModel;
+
 use Twilio\Rest\Client;
 
 class AdminVuelos extends BaseController
 {
-    protected $vueloModel, $permisos, $v_reservas;
+    protected $vueloModel, $permisos, $v_reservas, $ReservaModel;
 
     public function __construct()
     {
         $this->vueloModel = new VuelosModel();
         $this->permisos = new DetallespermisosModel();
         $this->v_reservas = new VuelosReservadosModel();
+
     }
 
     // Mostrar todos los vuelo
@@ -42,7 +44,7 @@ class AdminVuelos extends BaseController
             echo view('layout/usuario/no_permisos');
         }
     }
-    //  listar peticiones d evuelos
+    //  listar peticiones de vuelos
     public function listar_solicitudes()
     {
         $session = session();
@@ -62,7 +64,28 @@ class AdminVuelos extends BaseController
             echo view('layout/usuario/no_permisos');
         }
     }
+    // obtener mas detalles de la solicitud de velos
+    public function getSolicitudDetails($id)
+    {
+        $solicitud = $this->v_reservas->find($id);
+    
+        if ($solicitud) {
+            // Devuelve un array con los datos de la solicitud
+            return $this->response->setJSON([
+                'desde' => $solicitud['desde'],
+                'fecha_ida' => $solicitud['fecha_ida'],
+                'hacia' => $solicitud['hacia'],
+                'fecha_regreso' => $solicitud['fecha_regreso'],
+                'cantidad_pasajeros' => $solicitud['cantidad_pasajeros'],
+                'estado' => $solicitud['estado']
+            ]);
+        } else {
+            return $this->response->setJSON(['error' => 'Solicitud no encontrada']);
+        }
+    }
+    
 
+    // actualizar estado
     public function updateEstado()
     {
         $request = $this->request->getPost();
@@ -95,16 +118,31 @@ class AdminVuelos extends BaseController
     // Guardar un nuevo vuelo
     public function store()
     {
-        $data = [
-            'origen' => $this->request->getPost('origen'),
-            'destino' => $this->request->getPost('destino'),
-            'fecha_salida' => $this->request->getPost('fecha_salida'),
-            'hora_salida' => $this->request->getPost('hora_salida'),
-            'duracion' => $this->request->getPost('duracion'),
-            'precio' => $this->request->getPost('precio'),
-        ];
-        $this->vueloModel->insert($data);
-        return redirect()->to('/vuelo')->with('success', 'Vuelo agregado correctamente');
+        $file = $this->request->getFile('imagen');
+        if ($file->isValid() && !$file->hasMoved()) {
+            $nombre = $file->getRandomName();
+            $file->move(FCPATH . 'uploads', $nombre);
+
+            $data = ['nombre' => $nombre];
+            $this->vueloModel->insert($data);
+
+            return redirect()->to(base_url('/vuelo'))->with('success', 'Imagen subida correctamente');
+        }
+        return redirect()->back()->with('error', 'Error al subir la imagen');
+    }
+
+    public function delete($id)
+    {
+        $vuelo = $this->vueloModel->find($id);
+        if ($vuelo) {
+            $filePath = FCPATH . 'uploads/' . $vuelo['nombre'];
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
+            $this->vueloModel->delete($id);
+            return redirect()->to(base_url('/vuelo'))->with('success', 'Imagen eliminada correctamente');
+        }
+        return redirect()->back()->with('error', 'Error al eliminar la imagen');
     }
 
     // Mostrar el formulario para editar un vuelo
@@ -133,12 +171,6 @@ class AdminVuelos extends BaseController
         return redirect()->to('/vuelo')->with('success', 'Vuelo actualizado correctamente');
     }
 
-    // Eliminar un vuelo
-    public function delete($id)
-    {
-        $this->vueloModel->delete($id);
-        return redirect()->to('/vuelo')->with('success', 'Vuelo eliminado correctamente');
-    }
     // ver vuelos
     public function show($id)
     {
@@ -159,8 +191,6 @@ class AdminVuelos extends BaseController
         } else {
             echo view('layout/usuario/no_permisos');
         }
-
-       
     }
 
     // creaer solicitud de vuelo

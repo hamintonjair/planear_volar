@@ -53,6 +53,8 @@ class AdminUsuarios extends BaseController
             } else {
                 $nuevaContraseña = hash('sha256', $clave);
             }
+        }else{
+            $nuevaContraseña = hash('sha256', $clave);
         }
 
         $data = [

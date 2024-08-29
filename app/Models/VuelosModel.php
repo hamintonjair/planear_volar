@@ -12,7 +12,7 @@ class VuelosModel extends Model
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;
     protected $allowedFields = [
-        'origen', 'destino', 'fecha_salida', 'hora_salida', 'duracion', 'precio'
+        'nombre'
     ];
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

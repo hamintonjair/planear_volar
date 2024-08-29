@@ -12,16 +12,12 @@
             </div>
         </div>
         <div class="container-fluid px-4 dataTable-container">
+
             <table id="tableReservas" class="table table-striped table-bordered" style="width:100%">
                 <thead class="thead-dark">
                     <tr>
                         <th>ID</th>
-                        <th>Origen</th>
-                        <th>Destino</th>
-                        <th>Fecha de Salida</th>
-                        <th>Hora de Salida</th>
-                        <th>Duración</th>
-                        <th>Precio</th>
+                        <th>Imagen</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -29,21 +25,10 @@
                     <?php foreach ($vuelos as $vuelo) : ?>
                         <tr>
                             <td><?= $vuelo['id']; ?></td>
-                            <td><?= $vuelo['origen']; ?></td>
-                            <td><?= $vuelo['destino']; ?></td>
-                            <td><?= $vuelo['fecha_salida']; ?></td>
-                            <td><?= $vuelo['hora_salida']; ?></td>
-                            <td><?= $vuelo['duracion']; ?></td>
-                            <td><?= $vuelo['precio']; ?></td>
+                            <td><img src="<?= base_url('uploads/' . $vuelo['nombre']); ?>" alt="Imagen" width="60"></td>
                             <td>
-                                <a href="<?= base_url('vuelos/edit/' . $vuelo['id']); ?>" class="btn btn-warning btn-sm">
-                                    <i class="fas fa-edit"></i>
-                                </a>
                                 <a href="<?= base_url('vuelos/delete/' . $vuelo['id']); ?>" class="btn btn-danger btn-sm">
                                     <i class="fas fa-trash-alt"></i>
-                                </a>
-                                <a href="<?= base_url('vuelos/show/' . $vuelo['id']); ?>" class="btn btn-info btn-sm">
-                                    <i class="fas fa-eye"></i>
                                 </a>
                             </td>
                         </tr>
@@ -66,7 +51,6 @@
 </div>
 
 <style>
-    
     .dataTable-container {
         margin-top: 20px;
     }

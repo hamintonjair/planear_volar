@@ -14,36 +14,17 @@
         </div>
         <div class="container-fluid py-2">
             <div class="container pt-0 pb-3">
-            <label for="">Todos los campos con (<font color="red">*</font>) son obligatorios.</label>
-                <form action="<?= base_url('vuelos/store') ?>" method="post">
+                <label for="">Todos los campos con (<font color="red">*</font>) son obligatorios.</label>
+                <form action="<?= base_url('vuelos/store') ?>" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="origen">Origen(<font color="red">*</font>)</label>
-                            <input type="text" class="form-control" id="origen" name="origen" placeholder="Origen" required>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="destino">Destino(<font color="red">*</font>)</label>
-                            <input type="text" class="form-control valid validText" id="destino" name="destino" placeholder="Destino" required>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="fecha_salida">Fecha de Salida(<font color="red">*</font>)</label>
-                            <input type="date" class="form-control" id="fecha_salida" name="fecha_salida" required>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="hora_salida">Hora de Salida(<font color="red">*</font>)</label>
-                            <input type="time" class="form-control" id="hora_salida" name="hora_salida" required>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="duracion">Duración(<font color="red">*</font>)</label>
-                            <input type="number" class="form-control" id="duracion" name="duracion" placeholder="45 minutos" required>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="precio">Precio(<font color="red">*</font>)</label>
-                            <input type="number" class="form-control valid validNumber" id="precio" name="precio" placeholder="costo" required>
+                            <label for="imagen">Subir Imagen(<font color="red">*</font>)</label>
+                            <input type="file" class="form-control" id="imagen" name="imagen" required>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </form>
+
             </div>
         </div>
     </main>
@@ -59,7 +40,6 @@
     </footer>
 </div>
 <style>
-    
     .dataTable-container {
         margin-top: 20px;
     }
