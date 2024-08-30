@@ -146,52 +146,32 @@ class AdminVuelos extends BaseController
     }
 
     // Mostrar el formulario para editar un vuelo
-    public function edit($id)
-    {
-        $data['vuelo'] = $this->vueloModel->find($id);
-        echo view('layout/admin/head');
-        echo view('layout/admin/nabvar');
-        echo view('layout/admin/aside');
-        echo view('layout/vuelo/edit', $data);
-        echo view('layout/admin/footer');
-    }
+    // public function edit($id)
+    // {
+    //     $data['vuelo'] = $this->vueloModel->find($id);
+    //     echo view('layout/admin/head');
+    //     echo view('layout/admin/nabvar');
+    //     echo view('layout/admin/aside');
+    //     echo view('layout/vuelo/edit', $data);
+    //     echo view('layout/admin/footer');
+    // }
 
-    // Actualizar un vuelo
-    public function update($id)
-    {
-        $data = [
-            'origen' => $this->request->getPost('origen'),
-            'destino' => $this->request->getPost('destino'),
-            'fecha_salida' => $this->request->getPost('fecha_salida'),
-            'hora_salida' => $this->request->getPost('hora_salida'),
-            'duracion' => $this->request->getPost('duracion'),
-            'precio' => $this->request->getPost('precio'),
-        ];
-        $this->vueloModel->update($id, $data);
-        return redirect()->to('/vuelo')->with('success', 'Vuelo actualizado correctamente');
-    }
+    // // Actualizar un vuelo
+    // public function update($id)
+    // {
+    //     $data = [
+    //         'origen' => $this->request->getPost('origen'),
+    //         'destino' => $this->request->getPost('destino'),
+    //         'fecha_salida' => $this->request->getPost('fecha_salida'),
+    //         'hora_salida' => $this->request->getPost('hora_salida'),
+    //         'duracion' => $this->request->getPost('duracion'),
+    //         'precio' => $this->request->getPost('precio'),
+    //     ];
+    //     $this->vueloModel->update($id, $data);
+    //     return redirect()->to('/vuelo')->with('success', 'Vuelo actualizado correctamente');
+    // }
 
     // ver vuelos
-    public function show($id)
-    {
-        $session = session();
-        $userId = $session->get('idUsuario'); // Obtener el ID del usuario desde la sesión
-
-        $permissions = $this->permisos->where('id_usuarios', $userId)->findAll();
-
-        $data['permissions'] = array_column($permissions, 'id_permisos');
-        if (in_array(12, $data['permissions'])) {
-            $data['vuelo'] = $this->vueloModel->find($id);
-
-            echo view('layout/admin/head');
-            echo view('layout/admin/nabvar');
-            echo view('layout/admin/aside');
-            echo view('layout/vuelo/show', $data);
-            echo view('layout/admin/footer');
-        } else {
-            echo view('layout/usuario/no_permisos');
-        }
-    }
 
     // creaer solicitud de vuelo
     public function guardarReserva()

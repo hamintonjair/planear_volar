@@ -15,6 +15,7 @@ class PaqueteModel extends Model
 
     protected $allowedFields = ['nombre_paquete','ciudad_id', 'tiempo_estadia', 'cant_personas', 'descripcion', 'costo', 'foto', 'estado'];
 
+    
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
 

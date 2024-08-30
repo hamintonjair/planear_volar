@@ -96,7 +96,13 @@ class AdminPaquetes extends BaseController
     // obtener los paquetes
     public function obtener($id)
     {
-        $paquete = $this->paqueteModel->find($id);
+        // Realizar la consulta con un JOIN entre las tablas `paquetes` y `destino`
+        $builder = $this->paqueteModel->table('paquetes');
+        $builder->select('paquetes.*, destino.nombre as ciudad_nombre');
+        $builder->join('destino', 'paquetes.ciudad_id = destino.id');
+        $builder->where('paquetes.id', $id);
+        $paquete = $builder->get()->getRowArray();
+
         if ($paquete) {
             return $this->response->setJSON(['ok' => true, 'data' => $paquete]);
         } else {

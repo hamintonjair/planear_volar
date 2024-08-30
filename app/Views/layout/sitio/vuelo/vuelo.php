@@ -174,7 +174,27 @@
         </div>
     </div>
 </div>
-
+<!-- Vuelos Disponibles Start -->
+<div class="container-fluid py-5">
+    <div class="container pt-5 pb-3">
+        <div class="row">
+            <?php if (empty($vuelo)) { ?>
+                <div class="col-12 d-flex justify-content-center">
+                    <h3 style="text-align: center;">No hay vuelos disponibles en estos momentos.</h3>
+                </div>
+            <?php } else { ?>
+                <?php foreach ($vuelo as $vuel) : ?>
+                    <div class="col-lg-12 col-md-6 mb-4">
+                        <div class="service-item text-center mb-2 py-5 px-4">
+                            <!-- Aquí asumimos que tienes una imagen asociada con cada vuelo -->
+                            <img src="<?php echo base_url(); ?>uploads/<?php echo $vuel['nombre']; ?>" class="img-fluid">
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php } ?>
+        </div>
+    </div>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 <script>
@@ -205,9 +225,9 @@
         const submitBtn = document.getElementById("submit-btn");
 
         const todosCamposLlenos = desdeSelect.value !== "Selecciona ciudad" &&
-                                  fechaIdaInput.value !== "" &&
-                                  cantidadPasajerosInput.value !== "" &&
-                                  haciaSelect.value !== "Selecciona ciudad";
+            fechaIdaInput.value !== "" &&
+            cantidadPasajerosInput.value !== "" &&
+            haciaSelect.value !== "Selecciona ciudad";
 
         const esIdaYRegreso = tipoViaje === "ida_regreso" && fechaRegresoInput.value !== "";
 
@@ -216,7 +236,7 @@
 
     document.addEventListener("DOMContentLoaded", function() {
         toggleFields(); // Para inicializar el estado según la selección predeterminada
-        
+
         flatpickr("#fecha_ida", {
             minDate: "today",
             dateFormat: "Y-m-d",
@@ -258,6 +278,7 @@
             };
 
             let base_url = 'http://localhost/planear_volar/';
+            // let base_url = 'https://maroon-echidna-102598.hostingersite.com/';
 
             $.ajax({
                 url: base_url + 'vuelos/reservar',
@@ -295,29 +316,6 @@
     });
 </script>
 
-</body>
 
-<!-- Vuelos Disponibles Start -->
-<div class="container-fluid py-5">
-    <div class="container pt-5 pb-3">
-        <div class="row">
-            <?php if (empty($vuelo)) { ?>
-                <div class="col-12 d-flex justify-content-center">
-                    <h3 style="text-align: center;">No hay vuelos disponibles en estos momentos.</h3>
-                </div>
-            <?php } else { ?>
-                <?php foreach ($vuelo as $vuel) : ?>
-                    <div class="col-lg-12 col-md-6 mb-4">
-                        <div class="service-item text-center mb-2 py-5 px-4">
-                            <!-- Aquí asumimos que tienes una imagen asociada con cada vuelo -->
-                            <img src="<?php echo base_url(); ?>uploads/<?php echo $vuel['nombre']; ?>" class="img-fluid">
-                            <!-- <p class="m-0"><strong><?= esc($vuel['nombre']) ?></strong></p> -->
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            <?php } ?>
-        </div>
-    </div>
-</div>
 
 <!-- Vuelos Disponibles End -->

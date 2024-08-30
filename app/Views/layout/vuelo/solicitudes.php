@@ -16,7 +16,6 @@
                         <th class="text-center">Cédula</th>
                         <th class="text-center">Teléfono</th>
                         <th class="text-center">Correo</th>
-
                         <th class="text-center">Estado</th>
                         <th class="text-center">Acción</th>
                     </tr>

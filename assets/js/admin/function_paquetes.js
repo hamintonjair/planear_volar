@@ -54,7 +54,10 @@ function editarPaquete(id){
                     let data = response.data;
                     $('#idPaquetes').val(data.id);
                     $('#nombre_paquete').val(data.nombre_paquete);
-                    $('#ciudad').val(data.ciudad);
+                    $('#ciudad').val(data.ciudad_id);
+                    $('#ciudad_id').val(data.ciudad_id).change();
+                    $('#ciudad_id option:selected').text(data.ciudad_nombre);
+
                     $('#tiempo_estadia').val(data.tiempo_estadia);
                     $('#cant_personas').val(data.cant_personas);
                     $('#descripcion').val(data.descripcion);
