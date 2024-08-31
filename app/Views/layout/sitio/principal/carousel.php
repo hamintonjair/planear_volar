@@ -1,9 +1,11 @@
 <!-- Carousel Start -->
 <style>
 .carousel-item img {
-    max-height: 600px; 
-    object-fit: cover;
-    width: 100%;
+    max-height: 600px;
+    object-fit: contain;
+    width: auto;
+    max-width: 100%;
+    margin: 0 auto;
 }
 </style>
 <div class="container-fluid p-0">

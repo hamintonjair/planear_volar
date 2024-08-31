@@ -20,17 +20,18 @@ $(document).ready(function() {
         order: [[0, "desc"]],
       });
 });
+
 $(document).ready(function() {
-    $("#tableSolicitudes").DataTable({
-        // responsive: true,  // Hace la tabla responsiva
-        order: [[0, "asc"]],  // Ordena la primera columna en orden ascendente
-        iDisplayLength: 10,  // Cantidad de filas por página
-        dom: "lBfrtip",  // Configura los elementos del DOM para mostrar la tabla
-        bDestroy: true
+  
+    $("#TableReservaTuristica").DataTable({
+      dom: "lBfrtip",
+    
+      responsive: true,
+      bDestroy: true,
+      iDisplayLength: 10,
+      order: [[0, "desc"]],
     });
 });
-
-
 $(document).ready(function() {
   
     $("#tableSolicitudes").DataTable({

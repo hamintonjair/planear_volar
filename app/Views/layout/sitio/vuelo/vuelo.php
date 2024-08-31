@@ -156,17 +156,19 @@
                         <label for="apellido">Apellido(<font color="red">*</font>)</label>
                         <input type="text" class="form-control" id="apellido" name="apellido" required>
                     </div>
+                 
                     <div class="form-group">
                         <label for="cedula">Cédula(<font color="red">*</font>)</label>
-                        <input type="text" class="form-control" id="cedula" name="cedula" required>
+                        <input type="text" class="form-control" id="cedula" name="cedula" minlength="8" maxlength="10" required pattern="\d{8,10}">
                     </div>
+
                     <div class="form-group">
                         <label for="correo">Correo(<font color="red">*</font>)</label>
                         <input type="email" class="form-control" id="correo" name="correo" required>
                     </div>
                     <div class="form-group">
                         <label for="telefono">Teléfono(<font color="red">*</font>)</label>
-                        <input type="number" class="form-control valid validNumber" id="telefono" name="telefono" required>
+                        <input type="number" class="form-control valid validNumber" id="telefono" maxlength="10" name="telefono" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Enviar</button>
                 </form>
