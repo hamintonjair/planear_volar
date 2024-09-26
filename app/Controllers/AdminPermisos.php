@@ -18,7 +18,6 @@ class AdminPermisos extends BaseController {
         $modulos = $this->permisosModel->findAll();
         $permisos = $this->detallePermisosModel->where('id_usuarios', $usuarioId)->findAll();
         $asignados = array_column($permisos, 'id_permisos');
-        
         return $this->response->setJSON(['modulos' => $modulos, 'asignados' => $asignados]);
     }
 // Guardar los permisos asignados

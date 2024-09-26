@@ -57,7 +57,8 @@
                 </div>
                 <div class="form-group">
                     <label for="costo">costo(<font color="red">*</font>)</label>
-                    <input type="number" class="form-control valid validNumber" id="costo" name="costo" placeholder="Ingresa el valor del paquete" required>
+                    <input type="text" id="costo", name="costo">
+                    <!-- <input type="number" class="form-control valid validNumber" id="costo" name="costo" placeholder="Ingresa el valor del paquete" required> -->
                 </div>
                 <button type="submit" class="btn btn-success">Registar Reserva</button>
             </form>

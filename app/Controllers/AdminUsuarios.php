@@ -117,11 +117,11 @@ class AdminUsuarios extends BaseController
                     $item['accion'] = '<button class="btn btn-danger btn-sm eliminar" onclick="eliminarUsuario(' . $item['id'] . ')" ><i class="fas fa-trash-alt"></i></button> ';
                 }
                 $item['accion'] .= '<button class="btn btn-primary btn-sm editar" onclick="editarUsuario(' . $item['id'] . ')"><i class="fas fa-edit"></i></button> ';
-                $item['accion'] .= '<button class="btn btn-warning btn-sm permisos" onclick="openModalPermisos(' . $item['id'] . ')"><i class="fas fa-user-cog"></i> </button>';
+                $item['accion'] .= '<button class="btn btn-warning btn-sm permisos" onclick="openModalPermisos(' . $item['id'] . ')"><i class="fas fa-user-cog"></i></button>';
             } else if ($session->get('rol') == 'Operador') {
                 $item['accion'] = '<button class="btn btn-danger btn-sm eliminar" onclick="eliminarUsuario(' . $item['id'] . ')" disabled><i class="fas fa-trash-alt"></i></button> ';
                 $item['accion'] .= '<button class="btn btn-primary btn-sm editar" onclick="editarUsuario(' . $item['id'] . ')"><i class="fas fa-edit"></i></button> ';
-                $item['accion'] .= '<button class="btn btn-warning btn-sm permisos" onclick="openModalPermisos(' . $item['id'] . ') disabled"><i class="fas fa-user-cog"></i> </button>';
+                $item['accion'] .= '<button class="btn btn-warning btn-sm permisos" onclick="openModalPermisos(' . $item['id'] . ') disabled"><i class="fas fa-user-cog"></i></button>';
             }
         }
 

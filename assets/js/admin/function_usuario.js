@@ -359,17 +359,17 @@ function gestionarPermisos(id) {
 }
 
 // PERMISOS
-function openModalPermisos(usuarioId) {
-    cargarModulos(usuarioId);
-    $("#id_usuario").val(usuarioId);
+function openModalPermisos($usuarioId) {
+    cargarModulos($usuarioId);
+    $("#id_usuario").val($usuarioId);
     $("#ModalPermisos").modal("show");
 }
 // mostrar los modulos
-function cargarModulos(usuarioId) {
+function cargarModulos($usuarioId) {
     let base_url = "http://localhost/planear_volar/";
 
     $.ajax({
-        url: base_url + 'usuarios/obtenerPermisos/' + usuarioId,
+        url: base_url + 'usuarios/obtenerPermisos/' + $usuarioId,
         type: 'GET',
         dataType: 'json',
         success: function (response) {

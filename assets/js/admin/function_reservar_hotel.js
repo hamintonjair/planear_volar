@@ -70,16 +70,24 @@ document.addEventListener("DOMContentLoaded", function () {
           success: function (response) {
             if (response.success) {
               $("#descripcion").val(response.descripcion);
+              $("#costo").val(response.costo);
+
             } else {
               $("#descripcion").val("");
+              $("#costo").val("");
+
             }
           },
           error: function () {
             $("#descripcion").val("");
+            $("#costo").val("");
+
           },
         });
       } else {
         $("#descripcion").val("");
+        $("#costo").val("");
+
       }
     });
   });
