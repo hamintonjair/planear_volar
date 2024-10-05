@@ -50,6 +50,7 @@ class AdminConfiguracion extends BaseController
     {
         $idempresa = $this->request->getPost('idempresa');
         $nombre_empresa = $this->request->getPost('nombre_empresa');
+        $nit = $this->request->getPost('nit');
         $correo = $this->request->getPost('correo');
         $telefono = $this->request->getPost('telefono');
         $ciudad = $this->request->getPost('ciudad');
@@ -62,6 +63,7 @@ class AdminConfiguracion extends BaseController
 
         $data = [
             'nombre_empresa' => $nombre_empresa,
+            'nit' => $nit,
             'correo' => $correo,
             'telefono' => $telefono,
             'ciudad' => $ciudad,

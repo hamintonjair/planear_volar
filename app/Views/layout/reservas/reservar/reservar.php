@@ -8,8 +8,7 @@
         </div>
         <div class="container-fluid px-4 mt-4">
             <div class="d-flex justify-content-start mb-3">
-                <a class="btn btn-primary " href="<?php echo base_url() ?>reservas/hotel" role="button">Volver</a>
-
+                <a class="btn btn-primary" href="<?php echo base_url() ?>reservas/hotel" role="button">Volver</a>
             </div>
         </div>
         <br><br>
@@ -17,6 +16,7 @@
             <label for="">Todos los campos con (<font color="red">*</font>) son obligatorios.</label>
 
             <form id="crearReservaForm">
+                <input type="hidden" id="valor" name="valor">
                 <div class="form-group">
                     <label for="cliente_id">Cliente(<font color="red">*</font>)</label>
                     <select class="form-control" id="cliente_id" name="cliente_id" required>
@@ -36,34 +36,50 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="paquete_id">Paquete</label>
-                    <textarea name='descripcion' id='descripcion' class='form-control' rows='10' placeholder='Descripción'></textarea>
-
+                    <label for="descripcion">Descripción del paquete</label>
+                    <textarea name='descripcion' id='descripcion' class='form-control' rows='3' placeholder='Descripción'></textarea>
                 </div>
                 <div class="form-group">
                     <label for="guia_id">Guía(<font color="red">*</font>)</label>
                     <select class="form-control" id="guia_id" name="guia_id" required>
-                    <option value="0">Seleccionar..</option>
+                        <option value="0">Seleccionar..</option>
+                        <option value="Sin Guia">Sin Guía</option>
                         <?php foreach ($guias as $guia) : ?>
                             <option value="<?= $guia['id']; ?>"><?= $guia['nombre']; ?></option>
                         <?php endforeach; ?>
-                        <option value="Sin Guia">Sin Guía</option>
-
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="fecha_reserva">Fecha de Reserva(<font color="red">*</font>)</label>
                     <input type="date" class="form-control" id="fecha_reserva" name="fecha_reserva" required>
                 </div>
+
                 <div class="form-group">
-                    <label for="costo">costo(<font color="red">*</font>)</label>
-                    <input type="text" id="costo", name="costo">
-                    <!-- <input type="number" class="form-control valid validNumber" id="costo" name="costo" placeholder="Ingresa el valor del paquete" required> -->
+                    <label for="costo">Costo(<font color="red">*</font>)</label>
+                    <input type="text" class="form-control" id="costo" name="costo" disabled>
                 </div>
-                <button type="submit" class="btn btn-success">Registar Reserva</button>
+
+                <div class="form-group">
+                    <label for="tipo_pago">Tipo de pago(<font color="red">*</font>)</label>
+                    <select class="form-control" id="tipo_pago" name="tipo_pago" required onchange="handlePaymentType()">
+                        <option value="0">Seleccionar..</option>
+                        <option value="contado">Contado</option>
+                        <option value="abono">Abono</option>
+                    </select>
+                </div>
+
+                <!-- Input para el abono que estará oculto inicialmente -->
+                <div class="form-group" id="abono_container" style="display: none;">
+                    <label for="abono">Abono(<font color="red">*</font>)</label>
+                    <input type="number" class="form-control" id="abono" name="abono" placeholder="Ingrese el valor del abono">
+                </div>
+
+                <button type="submit" class="btn btn-success">Registrar Reserva</button>
             </form>
         </div>
     </main>
+
+
     <!-- Modal para ver factura -->
     <div class="modal fade" id="facturaModal" tabindex="-1" aria-labelledby="facturaModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -79,9 +95,7 @@
         </div>
     </div>
 
-    <script>
 
-    </script>
 
     <footer class="py-4 bg-light mt-auto">
         <div class="container-fluid px-4">
@@ -93,15 +107,68 @@
             </div>
         </div>
     </footer>
-    <style>
-    
-    .dataTable-container {
-        margin-top: 20px;
-    }
 
-    @media (max-width: 768px) {
-        .dataTable-container {
-            overflow-x: auto;
+
+    <script>
+        function handlePaymentType() {
+            const tipoPago = document.getElementById('tipo_pago').value;
+            const abonoContainer = document.getElementById('abono_container');
+
+            if (tipoPago === 'abono') {
+                // Mostrar el campo para el abono
+                abonoContainer.style.display = 'block';
+                realizarConsultaContado('abono');
+            } else if (tipoPago === 'contado') {
+                // Ocultar el campo de abono y realizar la consulta
+                abonoContainer.style.display = 'none';
+                realizarConsultaContado('contado');
+            } else {
+                // Si no se ha seleccionado ninguna opción o "Seleccionar"
+                abonoContainer.style.display = 'none';
+            }
         }
-    }
-</style>
+
+        function realizarConsultaContado(tipo) {
+            const paqueteId = document.getElementById('paquete_id').value;
+
+            // Verificar que se haya seleccionado un paquete antes de hacer la consulta
+            if (paqueteId !== "0") {
+                // Aquí puedes hacer la llamada AJAX o una consulta según lo que necesites
+                // para obtener los datos relacionados con el paquete al pagar de contado.
+                // Por ejemplo:
+                fetch(`<?php echo base_url() ?>reservas/paquete_descripcion/${paqueteId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Asigna el costo al input de costo
+                        document.getElementById('costo').value = data.costo;
+                        document.getElementById('valor').value = data.costo;
+                    })
+                    .catch(error => {
+                        swal({
+                            title: "Error",
+                            text: "Error al obtener los datos del paquete.",
+                            icon: "error",
+                            button: "OK",
+                        });
+                    });
+            } else {
+                swal({
+                    title: "Error",
+                    text: "Por favor selecciona un paquete antes de continuar.",
+                    icon: "error",
+                    button: "OK",
+                });
+            }
+        }
+    </script>
+    <style>
+        .dataTable-container {
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .dataTable-container {
+                overflow-x: auto;
+            }
+        }
+    </style>

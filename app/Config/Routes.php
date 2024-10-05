@@ -152,6 +152,10 @@ $routes->get('reservas/crear', 'AdminReservaTuristica::viewReservar');
 $routes->post('reservas/store', 'AdminReservaTuristica::store');
 $routes->post('reservas/actualizarEstado', 'AdminReservaTuristica::actualizarEstado');
 $routes->get('reservas/anular/(:num)', 'AdminReservaTuristica::anular/$1');
+$routes->get('reservas/restaurar/(:num)', 'AdminReservaTuristica::restaurar/$1');
 $routes->get('reservas/generarFactura/(:num)', 'AdminReservaTuristica::generarFactura/$1');
+// abono reservas
+$routes->post('reservas/abonar', 'AdminReservaTuristica::abonar');
+
 
 

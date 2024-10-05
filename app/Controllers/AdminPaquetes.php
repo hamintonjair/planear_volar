@@ -156,7 +156,8 @@ class AdminPaquetes extends BaseController
 
         return $this->response->setJSON([
             'success' => true,
-            'descripcion' => $paquete['descripcion']
+            'descripcion' => $paquete['descripcion'],
+            'costo' => $paquete['costo'],
         ]);
     }
 }

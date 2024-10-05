@@ -64,6 +64,7 @@ function cargarConfiguracion() {
             if (response.ok) {
                 $('#idempresa').val(response.data.id);
                 $('#nombre_empresa').val(response.data.nombre_empresa);
+                $('#nit').val(response.data.nit);
                 $('#correo').val(response.data.correo);
                 $('#telefono').val(response.data.telefono);
                 $('#ciudad').val(response.data.ciudad);

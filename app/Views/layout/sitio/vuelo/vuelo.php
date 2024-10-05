@@ -132,7 +132,7 @@
 </div>
 <!-- Booking End -->
 
-
+<!-- 
 
 <!-- Modal Formulario Datos Personales -->
 <div class="modal fade" id="personalDataModal" tabindex="-1" role="dialog" aria-labelledby="personalDataModalLabel" aria-hidden="true">
@@ -176,27 +176,7 @@
         </div>
     </div>
 </div>
-<!-- Vuelos Disponibles Start -->
-<div class="container-fluid py-5">
-    <div class="container pt-5 pb-3">
-        <div class="row">
-            <?php if (empty($vuelo)) { ?>
-                <div class="col-12 d-flex justify-content-center">
-                    <h3 style="text-align: center;">No hay vuelos disponibles en estos momentos.</h3>
-                </div>
-            <?php } else { ?>
-                <?php foreach ($vuelo as $vuel) : ?>
-                    <div class="col-lg-12 col-md-6 mb-4">
-                        <div class="service-item text-center mb-2 py-5 px-4">
-                            <!-- Aquí asumimos que tienes una imagen asociada con cada vuelo -->
-                            <img src="<?php echo base_url(); ?>uploads/<?php echo $vuel['nombre']; ?>" class="img-fluid">
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            <?php } ?>
-        </div>
-    </div>
-</div>
+
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 <script>
@@ -316,7 +296,7 @@
         document.getElementById("cantidad_pasajeros").addEventListener("input", checkFields);
         document.getElementById("hacia").addEventListener("change", checkFields);
     });
-</script>
+</script> -->
 
 
 

@@ -14,8 +14,8 @@
     <!-- Header End -->
     
 <!-- Testimonial Start -->
-<div class="container-fluid py-5">
-    <div class="container pt-5 pb-3">
+<div class="container-fluid py-0">
+    <div class="container pt-5 pb-3" >
         <div class="text-center mb-3 pb-3">
             <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Testimonios</h6>
             <h1>Qué Dicen Nuestros Clientes</h1>
@@ -24,7 +24,7 @@
             <?php foreach ($testimonios as $testimonio) : ?>
                 <div class="text-center pb-4">
                     <img class="img-fluid mx-auto" src="<?php echo base_url(); ?>uploads/<?php echo $testimonio['foto']; ?>" style="width: 100px; height: 100px;">
-                    <div class="testimonial-text bg-white p-4 mt-n5">
+                    <div class="testimonial-text bg-white p-4 mt-n5"style="border-radius:30px;">
                         <p class="mt-5"><?php echo $testimonio['descripcion']; ?></p>
                         <h5 class="text-truncate"><?php echo $testimonio['nombre_cliente']; ?></h5>
                         <span><?php echo $testimonio['profesion']; ?></span>

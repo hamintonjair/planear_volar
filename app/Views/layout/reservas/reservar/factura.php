@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+|<head>
     <title>Factura</title>
     <style>
         .invoice-box {
@@ -26,6 +26,7 @@
         .invoice-box table tr td:nth-child(2) {
             text-align: right;
         }
+        
         .invoice-box table tr.top table td {
             padding-bottom: 20px;
         }
@@ -33,6 +34,9 @@
             font-size: 45px;
             line-height: 45px;
             color: #333;
+        }
+        .invoice-box table tr td.tede {
+            text-align: left
         }
         .invoice-box table tr.information table td {
             padding-bottom: 40px;
@@ -57,11 +61,14 @@
             font-weight: bold;
         }
         .logo {
-            width: 100px;
+            width: 200px;
             height: auto;
+            border-radius: 10px;
         }
+
     </style>
 </head>
+
 <body>
     <div class="invoice-box">
         <table cellpadding="0" cellspacing="0">
@@ -69,13 +76,13 @@
                 <td colspan="2">
                     <table>
                         <tr>
-                            <!-- <td class="title">
-                                <img src="<?= base_url(); ?>public/assets/img/logo.png" class="logo">
-                            </td>
-                             -->
+                         
                             <td>
                                 Fecha: <?= date('Y-m-d'); ?><br>
                                 Reserva ID: <?= $reserva['id']; ?><br>
+                            </td>
+                            <td class="title">
+                              <img src="<?php echo base_url() . 'assets/img/logo.png'; ?>" class="logo">
                             </td>
                         </tr>
                     </table>
@@ -86,20 +93,26 @@
                 <td colspan="2">
                     <table>
                         <tr>
-                            <td>
-                                <strong>Empresa:</strong><br>
-                                Planear Volar<br>
-                                Dirección de la Empresa<br>
-                                Teléfono: 123-456-7890<br>
-                                Email: info@planearvolar.com
+                            <td class="tede">
+                            <strong>Datos de la empresa</strong><br>
+                                <strong>Empresa:</strong> <?= $reserva['empresa'][0]['nombre_empresa']; ?><br>
+                                <strong>Ciudad:</strong> <?= $reserva['empresa'][0]['ciudad']?><br>
+                                <strong>Dirección:</strong> <?= $reserva['empresa'][0]['direccion']; ?><br>
+                                <strong>Nit:</strong> <?= $reserva['empresa'][0]['nit']; ?><br>
+                                <strong>Teléfono:</strong> <?= $reserva['empresa'][0]['telefono'];?><br>
+                                <strong>Email:</strong> <?= $reserva['empresa'][0]['correo']; ?><br>
                             </td>
 
-                            <td>
-                                <strong>Cliente:</strong><br>
-                                <?= $reserva['cliente']['nombre'] . ' ' . $reserva['cliente']['apellidos']; ?><br>
-                                <?= $reserva['cliente']['direccion']; ?><br>
-                                Teléfono: <?= $reserva['cliente']['telefono']; ?><br>
-                                Email: <?= $reserva['cliente']['correo']; ?>
+                            <td class="tede">
+                                <strong>Datos del Cliente</strong><br>
+                                <strong>Nombre:</strong> <?= $reserva['cliente']['nombre'] . ' ' . $reserva['cliente']['apellidos']; ?><br>
+                                <strong>Dirección:</strong> <?= $reserva['cliente']['direccion']; ?><br>
+                                <strong>Teléfono:</strong> <?= $reserva['cliente']['telefono']; ?><br>
+                                <strong>Email:</strong> <?= $reserva['cliente']['correo']; ?><br><br>
+                              
+                                <strong>Reserva:</strong> <strong><?= strtoupper($reserva['state']) ?><br></strong>
+
+
                             </td>
                         </tr>
                     </table>
@@ -120,8 +133,8 @@
                 <td>Guía</td>
                 <?php if(!empty($reserva['guia'])){; ?>
                     <td><?= $reserva['guia']['nombre']; ?></td>
-                       <?php }else{ ?>
-                <td><?= $reserva['guia_nombre']; ?></td>
+                <?php }else{ ?>
+                    <td><?= $reserva['guia_nombre']; ?></td>
                 <?php }; ?>
             </tr>
 
@@ -131,8 +144,16 @@
             </tr>
 
             <tr class="total">
+                <td>Costo del Paquete:</td>
+                <td> $<?= number_format($reserva['costo'], 2); ?></td>
+            </tr>
+            <tr class="total">
+                <td>Valor Pago:</td>
+                <td> $<?= number_format($reserva['abono'], 2); ?></td>
+            </tr>
+            <tr class="total">
                 <td></td>
-                <td>Total: $<?= number_format($reserva['costo'], 2); ?></td>
+                <td>Deuda: $<?= number_format($reserva['costo'] - $reserva['abono'], 2); ?></td>
             </tr>
         </table>
     </div>

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use CodeIgniter\Model;
@@ -7,14 +8,26 @@ class ReservaTuristicaModel extends Model
 {
     protected $table = 'reservas_turistica';
     protected $primaryKey = 'id';
-    
+
     protected $useAutoIncrement = true;
 
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;
     protected $allowedFields = [
-        'cliente_id', 'paquete_id', 'guia_id', 'fecha_reserva', 'costo','estado'
+        'cliente_id',
+        'paquete_id',
+        'guia_id',
+        'fecha_reserva',
+        'costo',
+        'estado',
+        'abono'
     ];
+    public function update_abono($reserva_id, $nuevo_abono)
+    {
+        $this->set('abono', $nuevo_abono);
+        $this->where('id', $reserva_id);
+        return $this->update('reservas_turistica');
+    }
 
     // Relación con el cliente
     public function getCliente()

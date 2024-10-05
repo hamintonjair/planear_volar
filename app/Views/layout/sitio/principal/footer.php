@@ -1,6 +1,6 @@
 <!-- Footer Start -->
-<div class="container-fluid " style="background-color:  rgb(112, 58, 128); color: #ffffff; text-shadow: none; margin-top: 90px;">
-    <div class="row pt-5">
+<div class="container-fluid " style="background-color:  rgb(112, 58, 128); color: #ffffff; text-shadow: none; margin-top: 10px; ">
+    <div class="row pt-5" style="margin-left:10px ;">
         <?php foreach ($configuracion as $con) { ?>
             <div class="col-lg-4 col-md-6 mb-5">
                 <a href="<?php echo base_url(); ?>" class="navbar-brand">

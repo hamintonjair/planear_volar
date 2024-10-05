@@ -14,7 +14,7 @@ class ConfiguracionModel extends Model
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['nombre_empresa', 'correo','telefono','ciudad','direccion','facebook','instagram','twitter','linkedin','youtube'];
+    protected $allowedFields = ['nombre_empresa','nit', 'correo','telefono','ciudad','direccion','facebook','instagram','twitter','linkedin','youtube'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

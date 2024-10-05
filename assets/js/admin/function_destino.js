@@ -78,6 +78,7 @@ function openModalDestino() {
 
   $("#ModalDestino").modal("show");
 }
+
 //    listar /
 document.addEventListener("DOMContentLoaded", function () {
   let base_url = "http://localhost/planear_volar/";

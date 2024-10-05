@@ -6,17 +6,28 @@
                 <h6 style="color: white;">Administrar información de la empresa</h6>
             </div>
         </div>
-  
+
         <div class="container-fluid px-4 dataTable-container">
             <div class="card-body">
                 <form id="frmConfiguracion">
-                <input type="hidden" id="idempresa" name="idempresa" >
+                    <input type="hidden" id="idempresa" name="idempresa">
 
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="nombre_empresa">Nombre de la Empresa</label>
-                                <input type="text" id="nombre_empresa" name="nombre_empresa" class="form-control valid validText" disabled>
+                            
+                    <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="nombre_empresa">Nombre de la Empresa</label>
+                                    <input type="text" id="nombre_empresa" name="nombre_empresa" class="form-control valid validText" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="nit">Nit</label>
+                                    <input type="number" id="nit" name="nit" class="form-control valid validNumber" disabled>
+                                </div>
+                            </div>
                             </div>
                             <div class="form-group">
                                 <label for="correo">Correo</label>
@@ -77,7 +88,6 @@
     </footer>
 </div>
 <style>
-    
     .dataTable-container {
         margin-top: 20px;
     }

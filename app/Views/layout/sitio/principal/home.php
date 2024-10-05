@@ -1,16 +1,16 @@
 <!-- Destination Start -->
-<div class="container-fluid py-5">
+<div class="container-fluid py-0">
     <div class="container pt-5 pb-3">
         <div class="text-center mb-3 pb-3">
             <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Destinos</h6>
             <h1>Explora los Mejores Destinos</h1>
         </div>
-        <div class="row">
+        <div class="row" >
             <!-- Limitar a los primeros 3 destinos -->
             <?php $paquetes_mostrados = array_slice($destinos, 0, 3); ?>
             <?php foreach ($paquetes_mostrados as $destino) : ?>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
+                <div class="col-lg-4 col-md-6 mb-4" >
+                    <div class="destination-item position-relative overflow-hidden mb-2"style="height:200px;">
                         <img class="img-fluid destino-img" src="<?php echo base_url(); ?>uploads/<?php echo $destino['foto']; ?>" alt="">
                         <a class="destination-overlay text-white text-decoration-none" href="" data-toggle="modal" data-target="#detallesModal" data-id="<?php echo $destino['id']; ?>">
                             <h5 class="text-white"><?php echo $destino['nombre']; ?></h5>
@@ -107,7 +107,7 @@ $destinoModel = new DestinoModel();; ?>
                 ?>
 
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2" style="width: 350px; height: 500px; overflow: hidden;">
+                    <div class="package-item bg-white mb-2" style="width: 350px; height: 500px; overflow: hidden; border-radius:30px;">
                         <div class="img-container">
                             <img class="img-fluid" src="<?php echo base_url(); ?>uploads/<?php echo $paquete['foto']; ?>" style="cursor: pointer; width: 100%; height: auto;" alt="">
                         </div>
@@ -217,7 +217,7 @@ $destinoModel = new DestinoModel();; ?>
 </style>
 
 <!-- Reservation Start -->
-<div class="container-fluid bg-registration " style="margin: 90px 0;">
+<div class="container-fluid bg-registration " style="margin: 20px 0;">
     <div class="container ">
         <div class="row align-items-center">
             <div class="col-lg-7 mb-5 mb-lg-0">

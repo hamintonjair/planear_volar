@@ -4366,6 +4366,8 @@ input[type="button"].btn-block {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  margin-top: 30px;
+  margin-bottom: 30px;
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
@@ -9264,7 +9266,7 @@ button.bg-dark:focus {
 }
 
 .text-primary {
-  color: rgb(123, 78, 138) !important;
+  color: rgb(0 0 0) !important;
 }
 
 a.text-primary:hover, a.text-primary:focus {
@@ -9508,7 +9510,7 @@ h6,
   height: 50%;
   top: 0;
   left: 0;
-  background: #FFFFFF;
+
 }
 
 .navbar-light .navbar-nav .nav-link {
