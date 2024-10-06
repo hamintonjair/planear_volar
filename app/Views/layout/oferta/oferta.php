@@ -55,9 +55,9 @@
     <footer class="py-4 bg-light mt-auto">
         <div class="container-fluid px-4">
             <div class="d-flex align-items-center justify-content-between small">
-                <div class="text-muted">Copyright &copy; Todos los derechos reservados por Jojama 2024</div>
+                <div class="text-muted">Copyright &copy; Todos los derechos reservados por Planearvolar 2024</div>
                 <div>
-                    <a href="https://hammenamena.mercadoshops.com.co/" target="_blank" class="text-muted">Visita nuestro sitio web</a>
+                    <a href="#" target="_blank" class="text-muted">Yarlinson C. & Yubeimar P.</a>
                 </div>
             </div>
         </div>

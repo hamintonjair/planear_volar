@@ -207,6 +207,10 @@
                <div class="modal-body">
                    <!-- Aquí se cargará la descripción completa -->
                </div>
+               <div class="footer m-3">
+                <a href="<?php echo base_url() ?>paquetes" class="btn btn-primary py-md-3 px-md-5 mt-2">Reservar ahora</a>
+
+            </div>
            </div>
        </div>
    </div>
@@ -312,6 +316,7 @@
                <div class="modal-body">
                    <!-- Aquí se cargará la descripción completa -->
                </div>
+               
            </div>
        </div>
    </div>

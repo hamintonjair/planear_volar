@@ -43,11 +43,11 @@
 <div class="container-fluid text-white border-top py-4 px-sm-3 px-md-5" style="background-color: rgb(112, 58, 128) !important;">
     <div class="row">
         <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
-            <p class="m-0 text-white-50">Copyright &copy; <a href="https://hammenamena.mercadoshops.com.co/">Dominio</a>.Todos los derechos reservados por Jojama 2024.</a>
+            <p class="m-0 text-white-50">Copyright &copy; <a href="#">Dominio</a>.Todos los derechos reservados por Planearvolar 2024.</a>
             </p>
         </div>
         <div class="col-lg-6 text-center text-md-right">
-            <p class="m-0 text-white-50">Desarrollado por <a href="https://hammenamena.mercadoshops.com.co/" target="_blank">Visita nuestro sitio</a>
+            <p class="m-0 text-white-50">Desarrollado por <a href="#" target="_blank">Yarlinson C. & Yubeimar P.</a>
             </p>
         </div>
     </div>

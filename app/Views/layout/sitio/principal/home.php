@@ -5,12 +5,12 @@
             <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Destinos</h6>
             <h1>Explora los Mejores Destinos</h1>
         </div>
-        <div class="row" >
+        <div class="row">
             <!-- Limitar a los primeros 3 destinos -->
             <?php $paquetes_mostrados = array_slice($destinos, 0, 3); ?>
             <?php foreach ($paquetes_mostrados as $destino) : ?>
-                <div class="col-lg-4 col-md-6 mb-4" >
-                    <div class="destination-item position-relative overflow-hidden mb-2"style="height:200px;">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="destination-item position-relative overflow-hidden mb-2" style="height:200px;">
                         <img class="img-fluid destino-img" src="<?php echo base_url(); ?>uploads/<?php echo $destino['foto']; ?>" alt="">
                         <a class="destination-overlay text-white text-decoration-none" href="" data-toggle="modal" data-target="#detallesModal" data-id="<?php echo $destino['id']; ?>">
                             <h5 class="text-white"><?php echo $destino['nombre']; ?></h5>
@@ -147,6 +147,11 @@ $destinoModel = new DestinoModel();; ?>
             <div class="modal-body">
                 <!-- Aquí se cargará la descripción completa -->
             </div>
+            <div class="footer m-3">
+                <a href="<?php echo base_url() ?>paquetes" class="btn btn-primary py-md-3 px-md-5 mt-2">Reservar ahora</a>
+
+            </div>
+
         </div>
     </div>
 </div>
@@ -376,11 +381,11 @@ $destinoModel = new DestinoModel();; ?>
                     </div>
                 </div>
             <?php endforeach; ?>
-           
+
         </div>
         <div class="col-lg-5">
-                <a style="border-radius: 5px;" class="btn btn-primary" href="<?php echo base_url() ?>testimonio" role="button">Ir</a>
-            </div>
+            <a style="border-radius: 5px;" class="btn btn-primary" href="<?php echo base_url() ?>testimonio" role="button">Ir</a>
+        </div>
     </div>
 </div>
 <!-- Testimonial End -->
