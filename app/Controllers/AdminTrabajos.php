@@ -107,14 +107,41 @@ class AdminTrabajos extends BaseController
     // Eliminar vacante
     public function eliminar($id)
     {
+        // Primero, obtén la vacante que deseas eliminar
+        $vacante = $this->vacanteModel->find($id);
+        
+        // Verifica si la vacante existe
+        if (!$vacante) {
+            return $this->response->setJSON([
+                'ok' => false,
+                'message' => 'Vacante no encontrada.'
+            ], JSON_UNESCAPED_UNICODE);
+        }
+    
+        // Elimina el archivo del currículo si existe
+        if (isset($vacante['curriculum']) && $vacante['curriculum']) {
+            $filePath = FCPATH . 'uploads/' . $vacante['curriculum'];
+            if (file_exists($filePath)) {
+                if (!unlink($filePath)) {
+                    return $this->response->setJSON([
+                        'ok' => false,
+                        'message' => 'Error al eliminar el archivo del curriculum.'
+                    ], JSON_UNESCAPED_UNICODE);
+                }
+            }
+        }
+    
+        // Ahora elimina la vacante
         $result = $this->vacanteModel->delete($id);
         $message = $result ? 'Vacante eliminada correctamente.' : 'Error al eliminar la vacante.';
         $response = [
             'ok' => $result,
             'message' => $message
         ];
+        
         return $this->response->setJSON($response, JSON_UNESCAPED_UNICODE);
     }
+    
     // APLICADO A VACANTES
 
     public function aplicado()

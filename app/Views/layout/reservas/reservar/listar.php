@@ -13,12 +13,13 @@
 
             </div>
         </div>
+
         <br><br>
         <div class="container-fluid px-4 dataTable-container">
             <table class="table table-striped table-bordered" style="width:100%" id="TableReservaTuristica">
                 <thead class="thead-dark">
                     <tr>
-                        <th>ID</th>
+                        <th>#</th>
                         <th>Cliente</th>
                         <th>Paquete</th>
                         <th>Guía</th>
@@ -37,8 +38,8 @@
                             <td><?= $reserva['paquete_nombre']; ?></td>
                             <td><?= $reserva['guia_nombre']; ?></td>
                             <td><?= $reserva['fecha_reserva']; ?></td>
-                            <td><?= number_format($reserva['costo'], 0, ',', '.'); ?></td>
-                            <td><?= number_format($reserva['abono'], 0, ',', '.'); ?></td>
+                            <td>$<?= number_format($reserva['costo'], 2, ',', '.'); ?></td>
+                            <td>$<?= number_format($reserva['abono'], 2, ',', '.'); ?></td>
                             <?php if (($reserva['estado'] == 'Reservado')) { ?>
                                 <td><span class="badge badge-success"><?= $reserva['estado']; ?></span></td>
 

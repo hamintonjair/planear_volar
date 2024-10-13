@@ -16,7 +16,7 @@
             <table id="tableReservas" class="table table-striped table-bordered" style="width:100%">
                 <thead class="thead-dark">
                     <tr>
-                        <th>ID</th>
+                        <th>#</th>
                         <th>Imagen</th>
                         <th>Acciones</th>
                     </tr>

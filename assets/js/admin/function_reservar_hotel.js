@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
           text: response.message,
           icon: "success",
           button: "OK",
-      });  
+        });
       },
       error: function () {
         swal({
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
           text: "Error al actualizar el estado.",
           icon: "error",
           button: "OK",
-      });
+        });
       },
     });
   });
@@ -44,20 +44,30 @@ document.addEventListener("DOMContentLoaded", function () {
             text: "Reserva creada correctamente.",
             icon: "success",
             button: "OK",
-        });
+          });
           window.location.href = base_url + "reservas/hotel";
         } else {
+          // Aquí se maneja el mensaje de error
           swal({
             title: "Error",
-            text: "Error al crear la reserva.",
+            text: response.message || "Error al crear la reserva.",
             icon: "error",
             button: "OK",
-        });
+          });
         }
+      },
+      error: function () {
+        swal({
+          title: "Error",
+          text: "Error al procesar la solicitud.",
+          icon: "error",
+          button: "OK",
+        });
       },
     });
   });
-// mostrar la descripcion
+
+  // mostrar la descripcion
   $(document).ready(function () {
     $("#paquete_id").on("change", function () {
       var paqueteId = $(this).val();
@@ -70,25 +80,29 @@ document.addEventListener("DOMContentLoaded", function () {
           success: function (response) {
             if (response.success) {
               $("#descripcion").val(response.descripcion);
-              $("#costo").val(response.costo);
 
+              // Formatear el costo con separador de miles
+              const costoFormateado = parseFloat(response.costo).toLocaleString('es-CO', {
+                style: 'decimal',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 2
+              });
+              $("#costo").val(costoFormateado);
             } else {
               $("#descripcion").val("");
               $("#costo").val("");
-
             }
           },
           error: function () {
             $("#descripcion").val("");
             $("#costo").val("");
-
           },
         });
       } else {
         $("#descripcion").val("");
         $("#costo").val("");
-
       }
     });
   });
+
 });

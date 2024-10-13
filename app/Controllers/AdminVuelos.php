@@ -32,8 +32,9 @@ class AdminVuelos extends BaseController
         $userId = $session->get('idUsuario'); // Obtener el ID del usuario desde la sesión
 
         $permissions = $this->permisos->where('id_usuarios', $userId)->findAll();
-
+        
         $data['permissions'] = array_column($permissions, 'id_permisos');
+
         if (in_array(15, $data['permissions'])) {
             echo view('layout/admin/head');
             echo view('layout/admin/nabvar');

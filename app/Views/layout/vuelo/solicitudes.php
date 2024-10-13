@@ -25,7 +25,7 @@
                         <tr>
                             <td class="text-center"><?= $s['id'] ?></td>
                             <td><?= $s['nombre'] ?> <?= $s['apellido'] ?></td>
-                            <td><?= $s['cedula'] ?></td>
+                            <td><?= $s['cedula'] ?><?= $s['apellido'] ?></td>
                             <td class="text-center"><?= $s['telefono'] ?></td>
                             <td class="text-center"><?= $s['correo'] ?></td>
  

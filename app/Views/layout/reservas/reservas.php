@@ -6,6 +6,7 @@
                 <h6 style="color: white;">Administración de las reservas</h6>
             </div>
         </div>
+
         <br><br>
         <div class="container-fluid px-4 dataTable-container">
             <table id="tableReservas" class="table table-striped table-bordered" style="width:100%">

@@ -131,6 +131,26 @@
     </div>
 </div>
 <!-- Booking End -->
+<div class="container-fluid">
+    <div class="container">
+        <div class="bg-light shadow" style="padding: 100px; padding-top: 5px;">
+            <!-- Booking form with radio buttons and inputs -->
+            <div class="row align-items-center" style="min-height: 60px;">
+                <!-- Rest of your form here -->
+            </div>
+
+            <!-- Loop through $vuelos to display images -->
+            <div class="row mt-4">
+                <?php foreach ($vuelos as $vuelo): ?>
+                    <div class="col-md-12 mb-4"> <!-- Added mb-4 for spacing -->
+                        <img src="<?= base_url('uploads/' . $vuelo['nombre']); ?>" class="img-fluid shadow" alt="Vuelo <?= $vuelo['nombre']; ?>" style="max-height: auto;">
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <!-- 
 

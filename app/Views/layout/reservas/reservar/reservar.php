@@ -135,13 +135,17 @@
             if (paqueteId !== "0") {
                 // Aquí puedes hacer la llamada AJAX o una consulta según lo que necesites
                 // para obtener los datos relacionados con el paquete al pagar de contado.
-                // Por ejemplo:
                 fetch(`<?php echo base_url() ?>reservas/paquete_descripcion/${paqueteId}`)
                     .then(response => response.json())
                     .then(data => {
-                        // Asigna el costo al input de costo
-                        document.getElementById('costo').value = data.costo;
-                        document.getElementById('valor').value = data.costo;
+                        // Asigna el costo al input de costo y aplica el separador de miles
+                        const costoFormateado = parseFloat(data.costo).toLocaleString('es-CO', {
+                            style: 'decimal',
+                            minimumFractionDigits: 0,
+                            maximumFractionDigits: 2
+                        });
+                        document.getElementById('costo').value = costoFormateado;
+                        document.getElementById('valor').value = data.costo; // Esto puedes mantenerlo sin formato si lo necesitas para cálculos
                     })
                     .catch(error => {
                         swal({

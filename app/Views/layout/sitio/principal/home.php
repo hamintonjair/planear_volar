@@ -120,7 +120,7 @@ $destinoModel = new DestinoModel();; ?>
                             <a class="h5 text-decoration-none descripcion-corta" data-toggle="modal" data-target="#descripcionModal" data-id="<?php echo $paquete['id']; ?>" style="cursor: pointer;"> <?php echo $primeras_palabras ?><h6>(<font color="red">más</font>)</h6></a>
                             <div class="border-top mt-4 pt-4">
                                 <div class="d-flex justify-content-between">
-                                    <h5 class="m-0">$<?php echo $paquete['costo']; ?></h5>
+                                    <h5 class="m-0">$<?php echo number_format($paquete['costo'], 2, ',','.'); ?></h5>
                                 </div>
                             </div>
                         </div>

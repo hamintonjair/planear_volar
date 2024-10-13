@@ -98,11 +98,17 @@ class AdminReservaTuristica extends BaseController
     {
         if ($this->request->getPost('tipo_pago') == 'contado') {
             $costo = $this->request->getPost('valor');
-            $abono = $this->request->getPost('valor');
+            $abono = $this->request->getPost('valor'); // Asegúrate de que esta variable representa el abono correcto
         } else {
             $abono = $this->request->getPost('abono');
             $costo = $this->request->getPost('valor');
         }
+    
+        // Validación: Verificar si el abono supera el costo
+        if ($abono > $costo) {
+            return $this->response->setJSON(['success' => false, 'message' => 'El abono no puede ser mayor que el costo.']);
+        }
+    
         $data = [
             'cliente_id' => $this->request->getPost('cliente_id'),
             'paquete_id' => $this->request->getPost('paquete_id'),
@@ -112,11 +118,12 @@ class AdminReservaTuristica extends BaseController
             'estado' => 'Reservado',
             'abono' => $abono,
         ];
-
+    
         $this->reservarModel->insert($data);
-
+    
         return $this->response->setJSON(['success' => true]);
     }
+    
     // actualizar estado concactado
     public function actualizarEstado()
     {

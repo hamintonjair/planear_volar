@@ -11,9 +11,9 @@ class Vuelo extends BaseController
         $configuracionModel = new ConfiguracionModel();
         $configuracion = $configuracionModel->findAll();
         $vueloModel = new VuelosModel();
-        $vuelo = $vueloModel->findAll();
+        $vuelos = $vueloModel->findAll();
         echo view('layout/sitio/principal/header', compact('configuracion'));
-        echo view('layout/sitio/vuelo/vuelo', compact('vuelo'));
+        echo view('layout/sitio/vuelo/vuelo', compact('vuelos'));
         echo view('layout/sitio/principal/footer', compact('configuracion'));
     }
 }

@@ -1,0 +1,9 @@
+Requerimientos para e buen funcionamiento del software
+
+versión PHP 8.1
+composer
+XAMPP
+
+Habilitar intl en XAMPP en la configuración de PHP.ini
+Una vez instalado Composer se debe realizar la actualización de composer en el proyecto
+código para actualizar las dependencias de composer - en el proyecto composer require codeigniter4/framework --prefer-source
