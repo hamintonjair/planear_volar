@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-10-2024 a las 02:52:45
+-- Tiempo de generación: 13-10-2024 a las 17:41:17
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.1.25
 
@@ -68,13 +68,6 @@ CREATE TABLE `aplicaciones` (
   `estado` varchar(15) NOT NULL DEFAULT 'Aplicado'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `aplicaciones`
---
-
-INSERT INTO `aplicaciones` (`id`, `vacante_id`, `nombre`, `apellidos`, `telefono`, `direccion`, `correo`, `curriculum`, `created_at`, `estudio`, `profesion`, `anio_inicio`, `anio_final`, `fecha_nacimiento`, `ciudad`, `otros_estudios`, `idiomas`, `estado`) VALUES
-(1, 1, 'Yarlin', 'cha', '+573117229684', 'Brr Caraño', 'admin@gmail.com', '1727305232_9db965cc919545598256.pdf', '2024-09-25 18:00:32', 'Si', 'Ingeniero', '2024-09-26', '2024-09-27', '2024-09-17', 'Quibdó', 'No', 'Español', 'Aplicado');
-
 -- --------------------------------------------------------
 
 --
@@ -126,8 +119,8 @@ CREATE TABLE `configuracion` (
 -- Volcado de datos para la tabla `configuracion`
 --
 
-INSERT INTO `configuracion` (`id`, `nombre_empresa`, `correo`, `telefono`, `ciudad`, `direccion`, `facebook`, `instagram`, `twitter`, `linkedin`, `youtube`) VALUES
-(1, 'Planear Volar', 'agenciadeviajesplanearvolar@gmail.com', '3135034707', 'San Francisco de Quibdo', 'Cr 2 #24A-35 Frente a la alcaldía de Quibdó', '', '', '', '', '');
+INSERT INTO `configuracion` (`id`, `nombre_empresa`, `nit`, `correo`, `telefono`, `ciudad`, `direccion`, `facebook`, `instagram`, `twitter`, `linkedin`, `youtube`) VALUES
+(1, 'Planear Volar', '', 'agenciadeviajesplanearvolar@gmail.com', '3135034707', 'San Francisco de Quibdo', 'Cr 2 #24A-35 Frente a la alcaldía de Quibdó', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -380,6 +373,7 @@ INSERT INTO `reservas` (`id`, `nombre`, `apellidos`, `telefono`, `correo`, `dest
 (26, 'Evinton', 'Cjhala', 326353673, 'evinton@gmail.com', 7, 'Contactado');
 
 -- --------------------------------------------------------
+
 --
 -- Estructura de tabla para la tabla `reservas_turistica`
 --
@@ -392,8 +386,7 @@ CREATE TABLE `reservas_turistica` (
   `fecha_reserva` date DEFAULT NULL,
   `costo` decimal(10,2) NOT NULL,
   `estado` varchar(20) DEFAULT NULL,
-   `abono` decimal(10,2) NOT NULL
-
+  `abono` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -401,15 +394,19 @@ CREATE TABLE `reservas_turistica` (
 --
 
 INSERT INTO `reservas_turistica` (`id`, `cliente_id`, `paquete_id`, `guia_id`, `fecha_reserva`, `costo`, `estado`, `abono`) VALUES
-(1, 2, 1, 1, '2024-05-31', 150000.00, 'Reservado', 150000.00),
-(2, 2, 1, 2, '2024-06-01', 350000.00, 'Reservado', 350000.00),
+(1, 2, 10, 1, '2024-05-31', 150000.00, 'Reservado', 150000.00),
+(2, 2, 10, 2, '2024-06-01', 350000.00, 'Reservado', 350000.00),
 (3, 2, 9, 0, '2024-06-12', 350000.00, 'Reservado', 350000.00),
 (4, 1, 7, 2, '2024-06-27', 350000.00, 'Reservado', 350000.00),
 (5, 1, 3, 0, '2024-10-11', 650000.00, 'Reservado', 650000.00),
 (6, 2, 7, 1, '2024-10-03', 450000.00, 'Reservado', 450000.00),
 (7, 2, 8, 0, '2024-10-04', 750000.00, 'Reservado', 750000.00),
-(8, 1, 7, 2, '2024-10-04', 450000.00, 'Reservado', 450000.00),
-(9, 1, 8, 6, '2024-10-04', 750000.00, 'Anulada', 750000.00);
+(8, 1, 7, 2, '2024-10-04', 450000.00, 'Anulada', 450000.00),
+(9, 1, 8, 6, '2024-10-04', 750000.00, 'Reservado', 750000.00),
+(10, 2, 8, 5, '2024-10-13', 11699000.00, 'Reservado', 11699000.00),
+(11, 4, 9, 0, '2024-10-13', 1649000.00, 'Reservado', 1000000.00),
+(12, 1, 10, 7, '2024-10-13', 1699000.00, 'Reservado', 1300000.00);
+
 -- --------------------------------------------------------
 
 --
@@ -525,12 +522,7 @@ INSERT INTO `vacantes` (`id`, `nombre`, `ubicacion`, `empresa`, `descripcion`, `
 
 CREATE TABLE `vuelos` (
   `id` int(11) NOT NULL,
-  `origen` varchar(255) NOT NULL,
-  `destino` varchar(255) NOT NULL,
-  `fecha_salida` date NOT NULL,
-  `hora_salida` time NOT NULL,
-  `duracion` varchar(50) NOT NULL,
-  `precio` decimal(10,2) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -539,11 +531,9 @@ CREATE TABLE `vuelos` (
 -- Volcado de datos para la tabla `vuelos`
 --
 
-INSERT INTO `vuelos` (`id`, `origen`, `destino`, `fecha_salida`, `hora_salida`, `duracion`, `precio`, `created_at`, `updated_at`) VALUES
-(1, 'Quibdo', 'Medellin', '2024-06-01', '08:15:00', '45 minutos', 450000.00, '2024-05-31 12:16:14', '2024-05-31 12:39:52'),
-(2, 'Quibdo', 'Bogotá', '2024-06-04', '07:19:00', '60m', 650000.00, '2024-05-31 12:19:26', '2024-05-31 12:19:26'),
-(3, 'Quibdo', 'Cali', '2024-06-06', '10:40:00', '45 m', 550000.00, '2024-05-31 12:40:43', '2024-05-31 12:40:43'),
-(5, 'Quibdo', 'Medellin', '2024-06-04', '19:29:00', '45 minutos', 450000.00, '2024-05-31 21:29:46', '2024-05-31 21:29:46');
+INSERT INTO `vuelos` (`id`, `nombre`, `created_at`, `updated_at`) VALUES
+(6, '1728827679_dab49b4acfedf04520a7.jpg', '2024-10-13 13:54:39', '2024-10-13 13:54:39'),
+(7, '1728830625_cccd808bcba0fbcc8066.jpg', '2024-10-13 14:43:45', '2024-10-13 14:43:45');
 
 --
 -- Índices para tablas volcadas
@@ -684,7 +674,7 @@ ALTER TABLE `aplicaciones`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `configuracion`
@@ -696,7 +686,7 @@ ALTER TABLE `configuracion`
 -- AUTO_INCREMENT de la tabla `destino`
 --
 ALTER TABLE `destino`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_permisos`
@@ -732,7 +722,7 @@ ALTER TABLE `ofertas`
 -- AUTO_INCREMENT de la tabla `paquetes`
 --
 ALTER TABLE `paquetes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `permisos`
@@ -744,13 +734,13 @@ ALTER TABLE `permisos`
 -- AUTO_INCREMENT de la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `reservas_turistica`
 --
 ALTER TABLE `reservas_turistica`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `reservas_vuelos`
@@ -780,7 +770,7 @@ ALTER TABLE `vacantes`
 -- AUTO_INCREMENT de la tabla `vuelos`
 --
 ALTER TABLE `vuelos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas
