@@ -98,17 +98,17 @@ document.addEventListener("DOMContentLoaded", function () {
     let nombre = $('#nombre').val();
     let foto = $('#foto').val();
 
-    if (nombre === "" || foto ==="") {
-        swal({
-            title: "Error",
-            text: "Debe llenar todos los campos",
-            icon: "info",
-            button: "OK",
-        });
-        return false;
+    if (nombre === "" || foto === "") {
+      swal({
+        title: "Error",
+        text: "Debe llenar todos los campos",
+        icon: "info",
+        button: "OK",
+      });
+      return false;
     }
     return true;
-}
+  }
 });
 // eliminar
 function eliminarGuia(id) {

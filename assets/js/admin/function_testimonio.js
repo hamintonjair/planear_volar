@@ -1,33 +1,33 @@
 // listar
 document.addEventListener("DOMContentLoaded", function () {
     let base_url = "http://localhost/planear_volar/";
-  
+
     $("#TableTestimonios").DataTable({
-      dom: "lBfrtip",
-      columnDefs: [
-        { className: "text-center", targets: [5, 6] },
-        { className: "text-left", targets: [0, 1, 2, 3, 4] },
-      ],
-      ajax: {
-        url: base_url + "testimonios/listar",
-        dataSrc: "",
-      },
-      columns: [
-        { data: 'id' },
-        { data: 'nombre_cliente' },
-        { data: 'profesion' },
-        { data: 'descripcion' },
-        { data: 'foto' },
-        { data: 'estado' },
-        { data: 'accion' }
-      ],
-      responsive: true,
-      bDestroy: true,
-      iDisplayLength: 10,
-      order: [[0, "desc"]],
+        dom: "lBfrtip",
+        columnDefs: [
+            { className: "text-center", targets: [5, 6] },
+            { className: "text-left", targets: [0, 1, 2, 3, 4] },
+        ],
+        ajax: {
+            url: base_url + "testimonios/listar",
+            dataSrc: "",
+        },
+        columns: [
+            { data: 'id' },
+            { data: 'nombre_cliente' },
+            { data: 'profesion' },
+            { data: 'descripcion' },
+            { data: 'foto' },
+            { data: 'estado' },
+            { data: 'accion' }
+        ],
+        responsive: true,
+        bDestroy: true,
+        iDisplayLength: 10,
+        order: [[0, "desc"]],
     });
-  });
-  
+});
+
 // accionar el modal
 function openModalTestimonios() {
     document.getElementById('idTestimonios').value = '';
@@ -68,7 +68,7 @@ $('#frmTestimonios').submit(function (e) {
     let url = ($('#idTestimonios').val() === '') ? 'testimonios/registrar' : 'testimonios/actualizar';
     if (!validarFormulario()) {
         return false;
-      }
+    }
     $.ajax({
         url: url,
         method: 'POST',
@@ -92,8 +92,8 @@ $('#frmTestimonios').submit(function (e) {
         let nombre = $('#nombre').val();
         let profesion = $('#profesion').val();
         let descripcion = $('#descripcion').val();
-    
-    
+
+
         if (nombre === "" || profesion === "" || descripcion === "") {
             swal({
                 title: "Error",
@@ -117,7 +117,7 @@ function eliminarTestimonio(id) {
     }).then((willDelete) => {
         if (willDelete) {
             let base_url = "http://localhost/planear_volar/";
-       
+
             $.ajax({
                 url: base_url + 'testimonios/eliminar/' + id,
                 type: 'POST',
@@ -126,7 +126,7 @@ function eliminarTestimonio(id) {
                     if (response.ok) {
                         $('#TableTestimonios').DataTable().ajax.reload();
                         swal("Eliminado", response.message
-                        , "success");
+                            , "success");
                     } else {
                         swal("Error", response.message, "error");
                     }
@@ -142,5 +142,5 @@ function eliminarTestimonio(id) {
             });
         }
     });
-    
+
 }

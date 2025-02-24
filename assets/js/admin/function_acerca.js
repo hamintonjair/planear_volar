@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let base_url = "http://localhost/planear_volar/";
 
         // Crear un nuevo objeto FormData con los datos del formulario
-        var formData = new FormData(this);
+        let formData = new FormData(this);
 
         $.ajax({
             url: base_url + "acerca/actualizar",
@@ -81,7 +81,7 @@ function cargarAcercaDe() {
                 $('#nombre').val(response.data.nombre);
                 $('#descripcion').val(response.data.descripcion);
                 if (response.data.imagen) {
-                    $('#imgPreview').attr('src', base_url +'uploads/' + response.data.imagen).show();
+                    $('#imgPreview').attr('src', base_url + 'uploads/' + response.data.imagen).show();
 
                 }
             } else {

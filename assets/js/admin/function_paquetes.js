@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
         dom: 'lBfrtip',
         "columnDefs": [
             { 'className': "text-center", "targets": [8, 9] },
-            { 'className': "text-left", "targets": [0, 1, 2, 3, 4, 5, 6,7] }
+            { 'className': "text-left", "targets": [0, 1, 2, 3, 4, 5, 6, 7] }
         ],
         "ajax": {
             "url": base_url + "paquetes/listar",
@@ -33,47 +33,47 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // accionar el modal
 function openModalPaquetes() {
-        document.getElementById('frmPaquetes').reset();
-        document.getElementById('imgPreview').style.display = 'none';
-        document.getElementById('titleModal').innerText = 'Nuevo paquete';
-        document.getElementById('btnText').innerText = 'Registrar';
-        document.querySelector('#frmPaquetes').reset();
+    document.getElementById('frmPaquetes').reset();
+    document.getElementById('imgPreview').style.display = 'none';
+    document.getElementById('titleModal').innerText = 'Nuevo paquete';
+    document.getElementById('btnText').innerText = 'Registrar';
+    document.querySelector('#frmPaquetes').reset();
 
-        $('#ModalPaquetes').modal('show');
-    }
+    $('#ModalPaquetes').modal('show');
+}
 // editar
-function editarPaquete(id){
-        let base_url = "http://localhost/planear_volar/";
+function editarPaquete(id) {
+    let base_url = "http://localhost/planear_volar/";
 
-        $.ajax({
-            url: base_url + 'paquetes/obtener/' + id,
-            type: 'GET',
-            dataType: 'json',
-            success: function (response) {
-                if (response.ok) {
-                    let data = response.data;
-                    $('#idPaquetes').val(data.id);
-                    $('#nombre_paquete').val(data.nombre_paquete);
-                    $('#ciudad').val(data.ciudad_id);
-                    $('#ciudad_id').val(data.ciudad_id).change();
-                    $('#ciudad_id option:selected').text(data.ciudad_nombre);
+    $.ajax({
+        url: base_url + 'paquetes/obtener/' + id,
+        type: 'GET',
+        dataType: 'json',
+        success: function (response) {
+            if (response.ok) {
+                let data = response.data;
+                $('#idPaquetes').val(data.id);
+                $('#nombre_paquete').val(data.nombre_paquete);
+                $('#ciudad').val(data.ciudad_id);
+                $('#ciudad_id').val(data.ciudad_id).change();
+                $('#ciudad_id option:selected').text(data.ciudad_nombre);
 
-                    $('#tiempo_estadia').val(data.tiempo_estadia);
-                    $('#cant_personas').val(data.cant_personas);
-                    $('#descripcion').val(data.descripcion);
-                    $('#costo').val(data.costo);
-                    $('#imgPreview').attr('src', base_url + 'uploads/' + data.foto).show();
-                    $('#titleModal').text('Editar paquete');
-                    $('#btnText').text('Actualizar');
-                    $('#ModalPaquetes').modal('show');
-                }
+                $('#tiempo_estadia').val(data.tiempo_estadia);
+                $('#cant_personas').val(data.cant_personas);
+                $('#descripcion').val(data.descripcion);
+                $('#costo').val(data.costo);
+                $('#imgPreview').attr('src', base_url + 'uploads/' + data.foto).show();
+                $('#titleModal').text('Editar paquete');
+                $('#btnText').text('Actualizar');
+                $('#ModalPaquetes').modal('show');
             }
-        });
-    };
+        }
+    });
+};
 // actualizar y registrar
 
 document.addEventListener("DOMContentLoaded", function () {
-$('#frmPaquetes').submit(function (e) {
+    $('#frmPaquetes').submit(function (e) {
         e.preventDefault();
         let formData = new FormData(this);
         let id = $('#idPaquetes').val();
@@ -82,7 +82,7 @@ $('#frmPaquetes').submit(function (e) {
         let url = base_url + 'paquetes/' + (id ? 'actualizar' : 'registrar');
         if (!validarFormulario()) {
             return false;
-          }
+        }
         $.ajax({
             url: url,
             type: 'POST',
@@ -111,9 +111,9 @@ $('#frmPaquetes').submit(function (e) {
         let descripcion = $('#descripcion').val();
         let costo = $('#costo').val();
         let foto = $('#foto').val();
-    
-   
-        if (nombre === "" ||ciudad === "" || tiempo_estadia === "" || cant_personas === "" || descripcion === ""  ||costo === "" || foto ==="" ) {
+
+
+        if (nombre === "" || ciudad === "" || tiempo_estadia === "" || cant_personas === "" || descripcion === "" || costo === "" || foto === "") {
             swal({
                 title: "Error",
                 text: "Debe llenar todos los campos",
@@ -126,44 +126,44 @@ $('#frmPaquetes').submit(function (e) {
     }
 });
 // eliminar
-    function eliminarPaquete(id){
-        swal({
-            title: "¿Estás seguro?",
-            text: "Una vez eliminado, no podrás recuperar este paquete",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        }).then((willDelete) => {
-            if (willDelete) {
-                let base_url = "http://localhost/planear_volar/";
+function eliminarPaquete(id) {
+    swal({
+        title: "¿Estás seguro?",
+        text: "Una vez eliminado, no podrás recuperar este paquete",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    }).then((willDelete) => {
+        if (willDelete) {
+            let base_url = "http://localhost/planear_volar/";
 
-                $.ajax({
-                    url: base_url + 'paquetes/eliminar/' + id,
-                    type: 'POST',
-                    dataType: 'json',
-                    success: function (response) {
-                        if (response.ok) {
-                            $('#TablePaquetes').DataTable().ajax.reload();
-                            swal({
-                                title: "Success",
-                                text: response.message,
-                                icon: "success",
-                                button: "OK",
-                            });
-                        } else {
-                            swal("Error", response.message, "error");
-                        }
-                    },
-                    error: function (xhr, status, error) {
+            $.ajax({
+                url: base_url + 'paquetes/eliminar/' + id,
+                type: 'POST',
+                dataType: 'json',
+                success: function (response) {
+                    if (response.ok) {
+                        $('#TablePaquetes').DataTable().ajax.reload();
                         swal({
-                            title: "Error",
-                            text: 'Error al eliminar paquete:',
-                            icon: error,
+                            title: "Success",
+                            text: response.message,
+                            icon: "success",
                             button: "OK",
                         });
+                    } else {
+                        swal("Error", response.message, "error");
                     }
-                });
-            }
-        });
-    };
+                },
+                error: function (xhr, status, error) {
+                    swal({
+                        title: "Error",
+                        text: 'Error al eliminar paquete:',
+                        icon: error,
+                        button: "OK",
+                    });
+                }
+            });
+        }
+    });
+};
 

@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     $('#TableClientes').DataTable({
         dom: 'lBfrtip',
         "columnDefs": [
-            { 'className': "text-center", "targets": [6,7] }, // Acción y estado centrados
+            { 'className': "text-center", "targets": [6, 7] }, // Acción y estado centrados
             { 'className': "text-left", "targets": [0, 1, 2, 3, 4, 5] } // Demás columnas alineadas a la izquierda
         ],
         "ajax": {
@@ -127,7 +127,7 @@ function editarCliente(id) {
         url: base_url + 'clientes/obtenerCliente/' + id,
         type: "GET",
         dataType: "json",
-        success: function(resp) {
+        success: function (resp) {
             $('#idCliente').val(resp.id);
             $('#nombre').val(resp.nombre);
             $('#apellido').val(resp.apellidos);
@@ -137,7 +137,7 @@ function editarCliente(id) {
             $('#correo').val(resp.correo);
             $('#ModalClientes').modal('show');
         },
-        error: function() {
+        error: function () {
             swal({
                 title: "Error",
                 text: "No se pudo obtener la información del Cliente",
@@ -162,14 +162,14 @@ function eliminarCliente($id) {
                 url: base_url + 'clientes/deleteCliente/' + $id,
                 type: 'POST',
                 dataType: 'json',
-                success: function(response) {
+                success: function (response) {
                     if (response.ok == true) {
                         swal({
                             title: 'Eliminar el Cliente',
                             text: response.post,
                             icon: "success",
                             button: "OK",
-                          });
+                        });
                         $('#TableClientes').DataTable().ajax.reload();
                     } else {
                         swal({
@@ -177,10 +177,10 @@ function eliminarCliente($id) {
                             text: response.post,
                             icon: "error",
                             button: "OK",
-                          });
+                        });
                     }
                 },
-                error: function(xhr, status, error) {
+                error: function (xhr, status, error) {
                     console.error('Error al eliminar el Cliente:', error);
                     swal("Error", "No se pudo eliminar el Cliente. Intente nuevamente.", "error");
                 }

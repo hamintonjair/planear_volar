@@ -22,53 +22,59 @@
                 </thead>
                 <tbody>
                     <?php foreach ($solicitudes as $s) : ?>
-                        <tr>
-                            <td class="text-center"><?= $s['id'] ?></td>
-                            <td><?= $s['nombre'] ?> <?= $s['apellido'] ?></td>
-                            <td><?= $s['cedula'] ?><?= $s['apellido'] ?></td>
-                            <td class="text-center"><?= $s['telefono'] ?></td>
-                            <td class="text-center"><?= $s['correo'] ?></td>
- 
-                            <td class="text-center <?= $s['estado'] == 'Contactar' ? 'estado-contactar' : ($s['estado'] == 'Contactado' ? 'estado-contactado' : '') ?>">
-                                <?= esc($s['estado']) ?>
-                            </td>
-                            <td class="text-center estado-icon">
-                                <?php if ($s['estado'] == 'Contactar') : ?>
-                                    <button class="btn btn-primary" onclick="openDetailsModal(<?= $s['id'] ?>)"> <i class="fas fa-info-circle"></i></button>
-                                    <i class="fas fa-times text-danger" data-id="<?= $s['id'] ?>" data-estado="Contactar" onclick="updateEstadoSolicitud(<?= $s['id'] ?>, 'Contactado')" style="cursor: pointer;"></i>
-                                <?php else : ?>
-                                    <button class="btn btn-primary" onclick="openDetailsModal(<?= $s['id'] ?>)"> <i class="fas fa-info-circle"></i></button>
-                                    <i class="fas fa-check text-success" data-id="<?= $s['id'] ?>" data-estado="Contactado" disabled></i>
-                                <?php endif; ?>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td class="text-center"><?= $s['id'] ?></td>
+                        <td><?= $s['nombre'] ?> <?= $s['apellido'] ?></td>
+                        <td><?= $s['cedula'] ?><?= $s['apellido'] ?></td>
+                        <td class="text-center"><?= $s['telefono'] ?></td>
+                        <td class="text-center"><?= $s['correo'] ?></td>
+
+                        <td
+                            class="text-center <?= $s['estado'] == 'Contactar' ? 'estado-contactar' : ($s['estado'] == 'Contactado' ? 'estado-contactado' : '') ?>">
+                            <?= esc($s['estado']) ?>
+                        </td>
+                        <td class="text-center estado-icon">
+                            <?php if ($s['estado'] == 'Contactar') : ?>
+                            <button class="btn btn-primary" onclick="openDetailsModal(<?= $s['id'] ?>)"> <i
+                                    class="fas fa-info-circle"></i></button>
+                            <i class="fas fa-times text-danger" data-id="<?= $s['id'] ?>" data-estado="Contactar"
+                                onclick="updateEstadoSolicitud(<?= $s['id'] ?>, 'Contactado')"
+                                style="cursor: pointer;"></i>
+                            <?php else : ?>
+                            <button class="btn btn-primary" onclick="openDetailsModal(<?= $s['id'] ?>)"> <i
+                                    class="fas fa-info-circle"></i></button>
+                            <i class="fas fa-check text-success" data-id="<?= $s['id'] ?>" data-estado="Contactado"
+                                disabled></i>
+                            <?php endif; ?>
+                        </td>
+                    </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
     </main>
     <!-- Modal -->
-<!-- Modal para mostrar detalles -->
-<div id="detailsModal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-     
-            <div class='modal-header headerRegister' style="background-color: #25142d; color:white">
-                        <h5 class='modal-title' id='titleModal'>Detalles de la Solicitud</h5>
-                        <button type='button' class='close' data-bs-dismiss='modal' aria-label='Close'>
-                            <span aria-hidden='true'>&times;
-                            </span>
-                        </button>
-                    </div>
-            <div class="modal-body" id="modal-body-content">
-                <!-- Aquí se mostrará el contenido dinámico -->
-            </div>
-            <div class="modal-footer">
-            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
+    <!-- Modal para mostrar detalles -->
+    <div id="detailsModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class='modal-header headerRegister' style="background-color: #25142d; color:white">
+                    <h5 class='modal-title' id='titleModal'>Detalles de la Solicitud</h5>
+                    <button type='button' class='close' data-bs-dismiss='modal' aria-label='Close'>
+                        <span aria-hidden='true'>&times;
+                        </span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modal-body-content">
+                    <!-- Aquí se mostrará el contenido dinámico -->
+                </div>
+                <div class="modal-footer">
+                    <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
     <footer class="py-4 bg-light mt-auto">
@@ -84,26 +90,28 @@
 </div>
 
 <style>
-    .estado-contactar {
-        background-color: yellow;
-        color: black;
-    }
+.estado-contactar {
+    background-color: yellow;
+    color: black;
+}
 
-    .estado-contactado {
-        background-color: red;
-        color: black;
-    }
+.estado-contactado {
+    background-color: red;
+    color: black;
+}
 </style>
 
 <script>
 function openDetailsModal(id) {
-    let base_url = "http://localhost/planear_volar/";
+    let base_url = "<?= base_url() ?>";
 
     $.ajax({
-        url: base_url + 'vuelos/getSolicitudDetails/'+id,
+        url: base_url + 'vuelos/getSolicitudDetails/' + id,
         type: 'get',
         dataType: 'json',
-        data: { id: id },
+        data: {
+            id: id
+        },
         success: function(response) {
             if (response.error) {
                 swal("Error", response.error, "error");
@@ -122,7 +130,7 @@ function openDetailsModal(id) {
 
             // Insertar el contenido HTML en el modal
             document.getElementById('modal-body-content').innerHTML = detailsHtml;
-            
+
             // Mostrar el modal
             $('#detailsModal').modal('show');
         },
@@ -133,47 +141,47 @@ function openDetailsModal(id) {
 }
 
 
-    // actualizar el estado de los mensajes
-    function updateEstadoSolicitud(id, estado) {
-        let base_url = "http://localhost/planear_volar/";
+// actualizar el estado de los mensajes
+function updateEstadoSolicitud(id, estado) {
+    let base_url = "<?= base_url() ?>";
 
-        $.ajax({
-            url: base_url + 'vuelos/solicitud_update',
-            type: 'POST',
-            dataType: 'json',
-            data: {
-                id: id,
-                estado: estado
-            },
-            success: function(response) {
-                if (response.success) {
-                    // Cambiar el icono en la vista
-                    let iconElement = $(`i[data-id='${id}']`);
-                    if (estado === 'Contactado') {
-                        iconElement.removeClass('fa-times text-danger').addClass('fa-check text-success');
-                        iconElement.attr('onclick', ''); // Deshabilitar el clic
-                        swal("Solicitud", response.message, "success");
-                        location.reload();
-                    }
-                } else {
-                    swal("Solicitud", response.message, "error");
+    $.ajax({
+        url: base_url + 'vuelos/solicitud_update',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            id: id,
+            estado: estado
+        },
+        success: function(response) {
+            if (response.success) {
+                // Cambiar el icono en la vista
+                let iconElement = $(`i[data-id='${id}']`);
+                if (estado === 'Contactado') {
+                    iconElement.removeClass('fa-times text-danger').addClass('fa-check text-success');
+                    iconElement.attr('onclick', ''); // Deshabilitar el clic
+                    swal("Solicitud", response.message, "success");
+                    location.reload();
                 }
-            },
-            error: function() {
-                swal("Error al actualizar el estado de la Solicitud", "error");
+            } else {
+                swal("Solicitud", response.message, "error");
             }
-        });
-    }
+        },
+        error: function() {
+            swal("Error al actualizar el estado de la Solicitud", "error");
+        }
+    });
+}
 </script>
 
 <style>
-    .dataTable-container {
-        margin-top: 20px;
-    }
+.dataTable-container {
+    margin-top: 20px;
+}
 
-    @media (max-width: 768px) {
-        .dataTable-container {
-            overflow-x: auto;
-        }
+@media (max-width: 768px) {
+    .dataTable-container {
+        overflow-x: auto;
     }
+}
 </style>

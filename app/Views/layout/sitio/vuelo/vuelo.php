@@ -12,10 +12,10 @@
     </div>
 </div>
 <style>
-    .container-fluid.booking {
-        background-color: #f7f7f7;
-        padding: 20px 0;
-    }
+.container-fluid.booking {
+    background-color: #f7f7f7;
+    padding: 20px 0;
+}
 </style>
 <!-- Header End -->
 
@@ -28,7 +28,8 @@
                     <!-- Radio buttons -->
                     <div class="form-group mb-3">
                         <label>
-                            <input type="radio" name="tipo_viaje" value="ida_regreso" checked onchange="toggleFields()"> Ida y Regreso
+                            <input type="radio" name="tipo_viaje" value="ida_regreso" checked onchange="toggleFields()">
+                            Ida y Regreso
                         </label>
                         <label style="margin-left: 20px;">
                             <input type="radio" name="tipo_viaje" value="solo_ida" onchange="toggleFields()"> Solo Ida
@@ -90,41 +91,48 @@
                         </div>
                         <div class="col-md-2">
                             <div class="mb-3 mb-md-0">
-                                <label for="fecha_ida" style="font-size: 12px;">Fecha de ida <font color="red">*</font></label>
+                                <label for="fecha_ida" style="font-size: 12px;">Fecha de ida <font color="red">*</font>
+                                </label>
                                 <input type="text" class="form-control p-4" id="fecha_ida" placeholder="Fecha de ida" />
                             </div>
                         </div>
                         <div class="col-md-2" id="fecha_regreso_container">
                             <div class="mb-3 mb-md-0">
-                                <label for="fecha_regreso" style="font-size: 12px;">Fecha de regreso <font color="red">*</font></label>
-                                <input type="text" class="form-control p-4" id="fecha_regreso" placeholder="Fecha de regreso" />
+                                <label for="fecha_regreso" style="font-size: 12px;">Fecha de regreso <font color="red">*
+                                    </font></label>
+                                <input type="text" class="form-control p-4" id="fecha_regreso"
+                                    placeholder="Fecha de regreso" />
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="mb-3 mb-md-0">
-                                <label for="cantidad_pasajeros" style="font-size: 12px;">Personas <font color="red">*</font></label>
-                                <input type="number" class="form-control p-4" id="cantidad_pasajeros" placeholder="Cantidad de pasajeros" min="1" oninput="validarNumero(this)" />
-                                <div id="mensaje_error" style="color: red; display: none;">Por favor, ingresa un número positivo.</div>
+                                <label for="cantidad_pasajeros" style="font-size: 12px;">Personas <font color="red">*
+                                    </font></label>
+                                <input type="number" class="form-control p-4" id="cantidad_pasajeros"
+                                    placeholder="Cantidad de pasajeros" min="1" oninput="validarNumero(this)" />
+                                <div id="mensaje_error" style="color: red; display: none;">Por favor, ingresa un número
+                                    positivo.</div>
                             </div>
                         </div>
 
 
                         <script>
-                            function validarNumero(input) {
-                                const mensajeError = document.getElementById('mensaje_error');
-                                if (input.value < 1) {
-                                    mensajeError.style.display = 'block';
+                        function validarNumero(input) {
+                            const mensajeError = document.getElementById('mensaje_error');
+                            if (input.value < 1) {
+                                mensajeError.style.display = 'block';
 
-                                } else {
-                                    mensajeError.style.display = 'none';
-                                }
+                            } else {
+                                mensajeError.style.display = 'none';
                             }
+                        }
                         </script>
 
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <button class="btn btn-success btn-block" id="submit-btn" type="button" style="height: 47px; margin-top: -2px;" disabled>Continuar</button>
+                    <button class="btn btn-success btn-block" id="submit-btn" type="button"
+                        style="height: 47px; margin-top: -2px;" disabled>Continuar</button>
                 </div>
             </div>
         </div>
@@ -142,9 +150,11 @@
             <!-- Loop through $vuelos to display images -->
             <div class="row mt-4">
                 <?php foreach ($vuelos as $vuelo): ?>
-                    <div class="col-md-12 mb-4"> <!-- Added mb-4 for spacing -->
-                        <img src="<?= base_url('uploads/' . $vuelo['nombre']); ?>" class="img-fluid shadow" alt="Vuelo <?= $vuelo['nombre']; ?>" style="max-height: auto;">
-                    </div>
+                <div class="col-md-12 mb-4">
+                    <!-- Added mb-4 for spacing -->
+                    <img src="<?= base_url('uploads/' . $vuelo['nombre']); ?>" class="img-fluid shadow"
+                        alt="Vuelo <?= $vuelo['nombre']; ?>" style="max-height: auto;">
+                </div>
                 <?php endforeach; ?>
             </div>
         </div>
@@ -155,7 +165,8 @@
 <!-- 
 
 <!-- Modal Formulario Datos Personales -->
-<div class="modal fade" id="personalDataModal" tabindex="-1" role="dialog" aria-labelledby="personalDataModalLabel" aria-hidden="true">
+<div class="modal fade" id="personalDataModal" tabindex="-1" role="dialog" aria-labelledby="personalDataModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header" style="background-color: #25142d; color:white">
@@ -176,10 +187,11 @@
                         <label for="apellido">Apellido(<font color="red">*</font>)</label>
                         <input type="text" class="form-control" id="apellido" name="apellido" required>
                     </div>
-                 
+
                     <div class="form-group">
                         <label for="cedula">Cédula(<font color="red">*</font>)</label>
-                        <input type="text" class="form-control" id="cedula" name="cedula" minlength="8" maxlength="10" required pattern="\d{8,10}">
+                        <input type="text" class="form-control" id="cedula" name="cedula" minlength="8" maxlength="10"
+                            required pattern="\d{8,10}">
                     </div>
 
                     <div class="form-group">
@@ -188,7 +200,8 @@
                     </div>
                     <div class="form-group">
                         <label for="telefono">Teléfono(<font color="red">*</font>)</label>
-                        <input type="number" class="form-control valid validNumber" id="telefono" maxlength="10" name="telefono" required>
+                        <input type="number" class="form-control valid validNumber" id="telefono" maxlength="10"
+                            name="telefono" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Enviar</button>
                 </form>
@@ -200,122 +213,122 @@
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 <script>
-    function toggleFields() {
-        const tipoViaje = document.querySelector('input[name="tipo_viaje"]:checked').value;
-        const fechaRegresoContainer = document.getElementById('fecha_regreso_container');
-        const fechaRegresoInput = document.getElementById('fecha_regreso');
+function toggleFields() {
+    const tipoViaje = document.querySelector('input[name="tipo_viaje"]:checked').value;
+    const fechaRegresoContainer = document.getElementById('fecha_regreso_container');
+    const fechaRegresoInput = document.getElementById('fecha_regreso');
 
-        if (tipoViaje === "solo_ida") {
-            fechaRegresoContainer.style.display = "none";
-            fechaRegresoInput.removeAttribute('required');
-            fechaRegresoInput.value = ""; // Limpiar el valor de regreso
-        } else {
-            fechaRegresoContainer.style.display = "block";
-            fechaRegresoInput.setAttribute('required', 'required');
+    if (tipoViaje === "solo_ida") {
+        fechaRegresoContainer.style.display = "none";
+        fechaRegresoInput.removeAttribute('required');
+        fechaRegresoInput.value = ""; // Limpiar el valor de regreso
+    } else {
+        fechaRegresoContainer.style.display = "block";
+        fechaRegresoInput.setAttribute('required', 'required');
+    }
+
+    checkFields(); // Revalidar campos
+}
+
+function checkFields() {
+    const tipoViaje = document.querySelector('input[name="tipo_viaje"]:checked').value;
+    const desdeSelect = document.getElementById("desde");
+    const fechaIdaInput = document.getElementById("fecha_ida");
+    const fechaRegresoInput = document.getElementById("fecha_regreso");
+    const cantidadPasajerosInput = document.getElementById("cantidad_pasajeros");
+    const haciaSelect = document.getElementById("hacia");
+    const submitBtn = document.getElementById("submit-btn");
+
+    const todosCamposLlenos = desdeSelect.value !== "Selecciona ciudad" &&
+        fechaIdaInput.value !== "" &&
+        cantidadPasajerosInput.value !== "" &&
+        haciaSelect.value !== "Selecciona ciudad";
+
+    const esIdaYRegreso = tipoViaje === "ida_regreso" && fechaRegresoInput.value !== "";
+
+    submitBtn.disabled = !(todosCamposLlenos && (tipoViaje === "solo_ida" || esIdaYRegreso));
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    toggleFields(); // Para inicializar el estado según la selección predeterminada
+
+    flatpickr("#fecha_ida", {
+        minDate: "today",
+        dateFormat: "Y-m-d",
+        onChange: function(selectedDates, dateStr, instance) {
+            flatpickr("#fecha_regreso", {
+                minDate: dateStr,
+                dateFormat: "Y-m-d"
+            });
         }
+    });
 
-        checkFields(); // Revalidar campos
-    }
+    flatpickr("#fecha_regreso", {
+        minDate: "today",
+        dateFormat: "Y-m-d"
+    });
 
-    function checkFields() {
-        const tipoViaje = document.querySelector('input[name="tipo_viaje"]:checked').value;
-        const desdeSelect = document.getElementById("desde");
-        const fechaIdaInput = document.getElementById("fecha_ida");
-        const fechaRegresoInput = document.getElementById("fecha_regreso");
-        const cantidadPasajerosInput = document.getElementById("cantidad_pasajeros");
-        const haciaSelect = document.getElementById("hacia");
-        const submitBtn = document.getElementById("submit-btn");
+    document.querySelectorAll('input[name="tipo_viaje"]').forEach(function(element) {
+        element.addEventListener('change', toggleFields);
+    });
 
-        const todosCamposLlenos = desdeSelect.value !== "Selecciona ciudad" &&
-            fechaIdaInput.value !== "" &&
-            cantidadPasajerosInput.value !== "" &&
-            haciaSelect.value !== "Selecciona ciudad";
+    $('#submit-btn').click(function() {
+        $('#personalDataModal').modal('show');
+    });
 
-        const esIdaYRegreso = tipoViaje === "ida_regreso" && fechaRegresoInput.value !== "";
+    $('#personalDataForm').submit(function(e) {
+        e.preventDefault();
 
-        submitBtn.disabled = !(todosCamposLlenos && (tipoViaje === "solo_ida" || esIdaYRegreso));
-    }
+        let formData = {
+            desde: $('#desde').val(),
+            fecha_ida: $('#fecha_ida').val(),
+            fecha_regreso: $('#fecha_regreso').val(),
+            cantidad_pasajeros: $('#cantidad_pasajeros').val(),
+            hacia: $('#hacia').val(),
+            nombre: $('#nombre').val(),
+            apellido: $('#apellido').val(),
+            cedula: $('#cedula').val(),
+            correo: $('#correo').val(),
+            telefono: $('#telefono').val()
+        };
+        let base_url = "<?= base_url() ?>";
 
-    document.addEventListener("DOMContentLoaded", function() {
-        toggleFields(); // Para inicializar el estado según la selección predeterminada
+        // let base_url = 'https://maroon-echidna-102598.hostingersite.com/';
 
-        flatpickr("#fecha_ida", {
-            minDate: "today",
-            dateFormat: "Y-m-d",
-            onChange: function(selectedDates, dateStr, instance) {
-                flatpickr("#fecha_regreso", {
-                    minDate: dateStr,
-                    dateFormat: "Y-m-d"
+        $.ajax({
+            url: base_url + 'vuelos/reservar',
+            type: 'POST',
+            data: formData,
+            success: function(response) {
+                swal({
+                    title: "Success",
+                    text: "Datos enviados correctamente",
+                    icon: "success",
+                    button: "OK",
+                });
+                document.querySelector('#personalDataForm').reset();
+                $('#personalDataModal').modal('hide');
+                location.reload();
+
+            },
+            error: function(error) {
+                swal({
+                    title: "Error",
+                    text: "Error al enviar los datos",
+                    icon: "error",
+                    button: "OK",
                 });
             }
         });
-
-        flatpickr("#fecha_regreso", {
-            minDate: "today",
-            dateFormat: "Y-m-d"
-        });
-
-        document.querySelectorAll('input[name="tipo_viaje"]').forEach(function(element) {
-            element.addEventListener('change', toggleFields);
-        });
-
-        $('#submit-btn').click(function() {
-            $('#personalDataModal').modal('show');
-        });
-
-        $('#personalDataForm').submit(function(e) {
-            e.preventDefault();
-
-            let formData = {
-                desde: $('#desde').val(),
-                fecha_ida: $('#fecha_ida').val(),
-                fecha_regreso: $('#fecha_regreso').val(),
-                cantidad_pasajeros: $('#cantidad_pasajeros').val(),
-                hacia: $('#hacia').val(),
-                nombre: $('#nombre').val(),
-                apellido: $('#apellido').val(),
-                cedula: $('#cedula').val(),
-                correo: $('#correo').val(),
-                telefono: $('#telefono').val()
-            };
-
-            let base_url = 'http://localhost/planear_volar/';
-            // let base_url = 'https://maroon-echidna-102598.hostingersite.com/';
-
-            $.ajax({
-                url: base_url + 'vuelos/reservar',
-                type: 'POST',
-                data: formData,
-                success: function(response) {
-                    swal({
-                        title: "Success",
-                        text: "Datos enviados correctamente",
-                        icon: "success",
-                        button: "OK",
-                    });
-                    document.querySelector('#personalDataForm').reset();
-                    $('#personalDataModal').modal('hide');
-                    location.reload();
-
-                },
-                error: function(error) {
-                    swal({
-                        title: "Error",
-                        text: "Error al enviar los datos",
-                        icon: "error",
-                        button: "OK",
-                    });
-                }
-            });
-        });
-
-        // Agregar event listeners para los cambios en los campos de entrada
-        document.getElementById("desde").addEventListener("change", checkFields);
-        document.getElementById("fecha_ida").addEventListener("change", checkFields);
-        document.getElementById("fecha_regreso").addEventListener("change", checkFields);
-        document.getElementById("cantidad_pasajeros").addEventListener("input", checkFields);
-        document.getElementById("hacia").addEventListener("change", checkFields);
     });
+
+    // Agregar event listeners para los cambios en los campos de entrada
+    document.getElementById("desde").addEventListener("change", checkFields);
+    document.getElementById("fecha_ida").addEventListener("change", checkFields);
+    document.getElementById("fecha_regreso").addEventListener("change", checkFields);
+    document.getElementById("cantidad_pasajeros").addEventListener("input", checkFields);
+    document.getElementById("hacia").addEventListener("change", checkFields);
+});
 </script> -->
 
 

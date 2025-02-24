@@ -182,25 +182,25 @@ function cambiarEstado(id, estado) {
   let base_url = "http://localhost/planear_volar/";
 
   $.ajax({
-      url:  base_url+'aplicaciones/cambiarEstado',
-      type: 'POST',
-      data: {
-          id: id,
-          estado: estado
-      },
-      success: function(response) {
-          // Mostrar un mensaje de éxito si se cambia el estado correctamente
-          if (response.success) {
-              swal("Estado", 'Estado actualizado correctamente', "success");
-              location.reload();
+    url: base_url + 'aplicaciones/cambiarEstado',
+    type: 'POST',
+    data: {
+      id: id,
+      estado: estado
+    },
+    success: function (response) {
+      // Mostrar un mensaje de éxito si se cambia el estado correctamente
+      if (response.success) {
+        swal("Estado", 'Estado actualizado correctamente', "success");
+        location.reload();
 
-          } else {
-              swal("Estado", 'Error al actualizar el estado', "error"); 
-          }
-      },
-      error: function(xhr, status, error) {
-          swal("Estado", 'Error al actualizar el estado', error); 
-
+      } else {
+        swal("Estado", 'Error al actualizar el estado', "error");
       }
+    },
+    error: function (xhr, status, error) {
+      swal("Estado", 'Error al actualizar el estado', error);
+
+    }
   });
 }

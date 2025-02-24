@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     $("#tableMensajes").DataTable({
         dom: "lBfrtip",
         responsive: true,
@@ -19,7 +19,7 @@ function updateEstadoM(id, estado) {
             id: id,
             estado: estado
         },
-        success: function(response) {
+        success: function (response) {
             if (response.success) {
                 // Cambiar el icono en la vista
                 let iconElement = $(`i[data-id='${id}']`);
@@ -33,7 +33,7 @@ function updateEstadoM(id, estado) {
                 swal("Mensaje", response.message, "error");
             }
         },
-        error: function() {
+        error: function () {
             swal("Error al actualizar el estado del mensaje", "error");
         }
     });

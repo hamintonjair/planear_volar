@@ -7,13 +7,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         document.getElementById("btnGuardar").disabled = false;
     });
-// actualizar
+    // actualizar
     $("#frmConfiguracion").on("submit", function (event) {
         event.preventDefault();
         let base_url = "http://localhost/planear_volar/";
-        
+
         var formData = new FormData(this);
-        
+
         $.ajax({
             type: "post",
             url: base_url + "configuracion/actualizar",

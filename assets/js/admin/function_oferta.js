@@ -1,19 +1,19 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
-    $(document).ready(function() {
-  
+    $(document).ready(function () {
+
         $("#tableOferta").DataTable({
-          dom: "lBfrtip",
-        
-          responsive: true,
-          bDestroy: true,
-          iDisplayLength: 10,
-          order: [[0, "desc"]],
-        });
-  });
+            dom: "lBfrtip",
 
-//   crear ofertas
-    $('#formOferta').on('submit', function(e) {
+            responsive: true,
+            bDestroy: true,
+            iDisplayLength: 10,
+            order: [[0, "desc"]],
+        });
+    });
+
+    //   crear ofertas
+    $('#formOferta').on('submit', function (e) {
         e.preventDefault();
         let base_url = 'http://localhost/planear_volar/';
 
@@ -21,16 +21,16 @@ document.addEventListener('DOMContentLoaded', function() {
             url: base_url + 'ofertas/addOferta',
             type: 'POST',
             data: $(this).serialize(),
-            success: function(response) {
+            success: function (response) {
                 if (response.ok) {
-               
+
                     $('#modalOferta').modal('hide');
                     location.reload();
                     swal("Oferta", response.message, "success");
                 } else {
                     swal("Error", response.message, "error");
                 }
-          }
+            }
         });
     });
 });
@@ -41,7 +41,7 @@ function openModalOferta() {
     $("#modalOferta").modal("show");
 }
 // eliminar
-function eliminarOferta(id){
+function eliminarOferta(id) {
     swal({
         title: "¿Estás seguro?",
         text: "Una vez eliminado, no podrás recuperar esta oferta",
@@ -57,7 +57,7 @@ function eliminarOferta(id){
                 type: 'POST',
                 dataType: 'json',
                 success: function (response) {
-                                        if (response.ok) {
+                    if (response.ok) {
                         swal({
                             title: "Success",
                             text: response.message,
@@ -92,10 +92,10 @@ function updateEstadoOferta(id, estado) {
             id: id,
             estado: estado
         },
-        success: function(response) {
-          
+        success: function (response) {
+
             if (response.success) {
-       
+
                 let iconElement = $(`i[data-id='${id}']`);
                 if (estado === 'Aplicado') {
                     iconElement.removeClass('fa-times text-danger').addClass('fa-check text-success');
@@ -103,7 +103,7 @@ function updateEstadoOferta(id, estado) {
                     swal("Oferta", response.message, "success");
                     document.querySelector('#formOferta').reset();
                     location.reload();
-                }else {
+                } else {
                     iconElement.removeClass('fa-times text-danger').addClass('fa-check text-success');
                     iconElement.attr('onclick', ''); // Deshabilitar el clic
                     swal("Oferta", response.message, "success");
@@ -113,7 +113,7 @@ function updateEstadoOferta(id, estado) {
                 swal("Oferta", response.message, "error");
             }
         },
-        error: function() {
+        error: function () {
             swal("Error al actualizar el estado de la oferta", "error");
 
         }

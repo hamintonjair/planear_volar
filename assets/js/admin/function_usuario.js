@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 button: "OK",
             });
             return false;
-        }else if (clave === "" || confirmar === "") {
+        } else if (clave === "" || confirmar === "") {
             swal({
                 title: "Error",
                 text: "El campo contraseñas no puede estar vacio ",
@@ -144,7 +144,7 @@ function editarUsuario(id) {
         url: base_url + 'usuarios/obtenerUsuario/' + id,
         type: "GET",
         dataType: "json",
-        success: function(resp) {
+        success: function (resp) {
             $('#idUsuario').val(resp.id);
             $('#nombre').val(resp.nombre);
             $('#apellido').val(resp.apellidos);
@@ -157,7 +157,7 @@ function editarUsuario(id) {
             $('#confirmar').val(resp.clave);
             $('#ModalUsuarios').modal('show');
         },
-        error: function() {
+        error: function () {
             swal({
                 title: "Error",
                 text: "No se pudo obtener la información del usuario",
@@ -183,14 +183,14 @@ function eliminarUsuario($id) {
                 url: base_url + 'usuarios/deleteUsuario/' + $id,
                 type: 'POST',
                 dataType: 'json',
-                success: function(response) {
+                success: function (response) {
                     if (response.ok == true) {
                         swal({
                             title: 'Desactivar el usuario',
                             text: response.post,
                             icon: "success",
                             button: "OK",
-                          });
+                        });
                         $('#TableUsuarios').DataTable().ajax.reload();
                     } else {
                         swal({
@@ -198,10 +198,10 @@ function eliminarUsuario($id) {
                             text: response.post,
                             icon: "error",
                             button: "OK",
-                          });
+                        });
                     }
                 },
-                error: function(xhr, status, error) {
+                error: function (xhr, status, error) {
                     console.error('Error al desactivar el usuario:', error);
                     swal("Error", "No se pudo desactivar el usuario. Intente nuevamente.", "error");
                 }
@@ -209,11 +209,11 @@ function eliminarUsuario($id) {
         }
     });
 }
-function volverModalUsuarios(){
+function volverModalUsuarios() {
     let base_url = "http://localhost/planear_volar/";
     window.location = base_url + "usuarios";
 }
-function irModalUsuariosEliminados(){
+function irModalUsuariosEliminados() {
     let base_url = "http://localhost/planear_volar/";
     window.location = base_url + "usuarios/usuarios_eliminados";
 }
@@ -255,7 +255,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "titleAttr": "Copiar",
             "className": "btn btn-secondary",
             "exportOptions": {
-                "columns": [0, 1, 2, 3, 4, 5,6]
+                "columns": [0, 1, 2, 3, 4, 5, 6]
             }
         }, {
             "extend": "excelHtml5",
@@ -263,7 +263,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "titleAttr": "Expotar a Excel",
             "className": "btn btn-success",
             "exportOptions": {
-                "columns": [0, 1, 2, 3, 4, 5,6]
+                "columns": [0, 1, 2, 3, 4, 5, 6]
             }
         }, {
             "extend": "pdfHtml5",
@@ -271,7 +271,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "titleAttr": "Exportar a PDF",
             "className": "btn btn-danger",
             "exportOptions": {
-                "columns": [0, 1, 2, 3, 4, 5,6]
+                "columns": [0, 1, 2, 3, 4, 5, 6]
             }
         }, {
             "extend": "csvHtml5",
@@ -279,7 +279,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "titleAttr": "Eportar",
             "className": "btn btn-secondary",
             "exportOptions": {
-                "columns": [0, 1, 2, 3, 4, 5,6]
+                "columns": [0, 1, 2, 3, 4, 5, 6]
             }
         },
 
@@ -309,14 +309,14 @@ function restaurarUsuario($id) {
                 url: base_url + 'usuarios/restaurarUsuario/' + $id,
                 type: 'POST',
                 dataType: 'json',
-                success: function(response) {
+                success: function (response) {
                     if (response.ok == true) {
                         swal({
                             title: 'Activado el usuario',
                             text: response.post,
                             icon: "success",
                             button: "OK",
-                          });
+                        });
                         $('#TableUsuariosEliminados').DataTable().ajax.reload();
                     } else {
                         swal({
@@ -324,10 +324,10 @@ function restaurarUsuario($id) {
                             text: response.post,
                             icon: "error",
                             button: "OK",
-                          });
+                        });
                     }
                 },
-                error: function(xhr, status, error) {
+                error: function (xhr, status, error) {
                     console.error('Error al desactivar el usuario:', error);
                     swal("Error", "No se pudo desactivar el usuario. Intente nuevamente.", "error");
                 }
@@ -348,7 +348,7 @@ function gestionarPermisos(id) {
         url: base_url + 'usuarios/obtenerUsuario/' + id,
         type: "GET",
         dataType: "json",
-        success: function(resp) {
+        success: function (resp) {
             $('#idUsuario').val(resp.id);
             // Lógica adicional para mostrar los permisos del usuario en el modal
             // Aquí puedes agregar inputs o checkboxes para los permisos
@@ -404,7 +404,7 @@ function cargarModulos($usuarioId) {
                 );
             });
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             console.error("Error fetching permissions:", error);
         }
     });
@@ -459,7 +459,7 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault();
         let base_url = "http://localhost/planear_volar/";
         var formData = new FormData(this);
-        
+
         $.ajax({
             type: "post",
             url: base_url + "usuario/perfil/actualizar",
